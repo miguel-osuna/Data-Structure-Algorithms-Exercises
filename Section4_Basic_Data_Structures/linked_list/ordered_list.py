@@ -19,46 +19,45 @@ class Node():
         self.next = newnode
 
 
-class UnorderedList():
+class OrderedList():
     def __init__(self):
         self.head = None
         self.nodes = 0
 
     def __str__(self):
         current = self.head
-        ul = str(self.head)
+        ol = str(self.head)
         while current != None:
-            ul += "->" + str(current.getNext())
+            ol += "->" + str(current.getNext())
             current = current.getNext()
-        return ul
+        return ol
 
-    # Slice method for unordered list
-    def __getitem__(self, start, end, step):
-        pass
-
-    # Adds new new node to the unordered list: O(1)
+    # Adds new new node to the ordered list: O(n)
     def add(self, item):
+        current = self.head
+        previous = None
+        stop = False
+
+        while current != None and not stop:
+            if current.getData() > item:
+                stop = True
+            else:
+                previous = current
+                current = current.getNext()
+
         temp = Node(item)
-        temp.setNext(self.head)
-        self.head = temp
+
+        if previous == None:
+            temp.setNext(current)
+            self.head = temp
+
+        else:
+            temp.setNext(current)
+            previous.setNext(temp)
+
         self.nodes += 1
 
-    # Checks for a value in the unordered list: O(n)
-    def search(self, item):
-        current = self.head
-        found = False
-        while current != None and not found:
-            if current.getData() == item:
-                found = True
-            else:
-                current = current.getNext()
-        return found
-
-    # Returns number of nodes in the unordered list: O(n)
-    def size(self):
-        return self.nodes
-
-    # Removes node from the unordered listk: O(n)
+    # Removes node from the ordered list: O(n)
     def remove(self, item):
         current = self.head
         previous = None
@@ -70,7 +69,7 @@ class UnorderedList():
             if current.getData() == item:
                 found = True
 
-            # Else keep searching through the unordered list
+            # Else keep searching through the ordered list
             else:
                 previous = current
                 current = current.getNext()
@@ -83,41 +82,26 @@ class UnorderedList():
         else:
             previous.setNext(current.getNext())
 
-    # Append node to the end of the unordered list: O(n)
-    def append(self, item):
+    # Checks for a value in the ordered list: O(n)
+    def search(self, item):
         current = self.head
-        previous = None
+        found = False
+        stop = False
+        while current != None and not found and not stop:
+            if current.getData() == item:
+                found = True
+            else:
+                if current.getData() > item:
+                    stop = True
+                else:
+                    current = current.getNext()
+        return found
 
-        while current != None:
-            previous = current
-            current = current.getNext()
+    # Returns number of nodes in the ordered list: O(n)
+    def size(self):
+        return self.nodes
 
-        if previous == None:
-            self.head = Node(item)
-        else:
-            previous.setNext(Node(item))
-
-    # Insert node into the unordered list index: O(n)
-    def insert(self, index, item):
-        current = self.head
-        previous = None
-        temp = Node(item)
-        node = 0
-
-        while node != index and current != None:
-            node += 1
-            previous = current
-            current = current.getNext()
-
-        if previous == None:
-            temp.setNext(current)
-            self.head = temp
-
-        else:
-            temp.setNext(current)
-            previous.setNext(temp)
-
-    # Returns index located in unordered list: O(n)
+    # Returns index located in ordered list index: O(n)
     def index(self, item):
         current = self.head
         index = 0
@@ -139,7 +123,7 @@ class UnorderedList():
             if node == index:
                 same = True
             else:
-                node += 1
+                nodes += 1
                 previous = current
                 current = current.getNext()
 
@@ -152,19 +136,23 @@ class UnorderedList():
             previous = None
             return temp.getData()
 
-    # Checks if unordered list is empty: O(1)
+    # Checks if ordered list is empty: O(1)
     def isEmpty(self):
         return self.head == None
 
-    # Reverse the unordered list: O(n)
+    # Reverse the ordered list: O(n)
     def reverse(self):
         pass
 
 
 if __name__ == "__main__":
-    linkedlist = UnorderedList()
-    linkedlist.insert(0, 0)
-    linkedlist.insert(1, 1)
-    linkedlist.insert(2, 2)
+    ol = OrderedList()
 
-    print(linkedlist)
+    ol.add(31)
+    ol.add(77)
+    ol.add(17)
+    ol.add(93)
+    ol.add(26)
+    ol.add(54)
+
+    print(ol)

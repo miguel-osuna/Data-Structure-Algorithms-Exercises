@@ -1,4 +1,5 @@
 from queue import Queue
+from random import randrange
 
 
 def hot_potato(namelist, num):
@@ -9,7 +10,8 @@ def hot_potato(namelist, num):
 
     # Check there's always at least 1 person
     while simqueue.size() > 1:
-        for _ in range(num):
+        rand_num = randrange(1, num + 1)
+        for _ in range(rand_num):
             simqueue.enqueue(simqueue.dequeue())
 
         simqueue.dequeue()
@@ -19,4 +21,8 @@ def hot_potato(namelist, num):
 
 if __name__ == "__main__":
     names = ["Bill", "David", "Susan", "Jane", "Kent", "Brad"]
+    print(hot_potato(names, 7))
+    print(hot_potato(names, 7))
+    print(hot_potato(names, 7))
+    print(hot_potato(names, 7))
     print(hot_potato(names, 7))
