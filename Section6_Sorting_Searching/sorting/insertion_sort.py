@@ -20,3 +20,7 @@ if __name__ == "__main__":
     numlist = [345, 23, 54, 64, 98, 22, 45, 18, 78]
     insertionSort(numlist)
     print(numlist)
+
+    charlist = list("PYTHON")
+    insertionSort(charlist)
+    print(charlist)

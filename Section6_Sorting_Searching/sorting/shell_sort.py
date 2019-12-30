@@ -12,8 +12,8 @@ def shellSort(numlist):
             # Insertion Sort for a sublist with a gap
             gapInsertionSort(numlist, startposition, sublistgap)
 
-        print("After increments of size: {} , sublist is: {}".format(
-            sublistgap, numlist))
+        # print("After increments of size: {} , sublist is: {}".format(
+        #   sublistgap, numlist))
 
         # Reduces list gap
         sublistgap //= 2
@@ -42,3 +42,7 @@ if __name__ == "__main__":
     numlist = [345, 23, 54, 64, 98, 22, 45, 18, 78]
     shellSort(numlist)
     print(numlist)
+
+    charlist = list("PYTHON")
+    shellSort(charlist)
+    print(charlist)

@@ -24,7 +24,7 @@ def shortBubbleSort(numlist):
                 numlist[i] = numlist[i + 1]
                 numlist[i + 1] = temp
                 exchange = True
-        passnum -= passnum
+        passnum -= 1
 
 
 if __name__ == "__main__":
@@ -35,3 +35,7 @@ if __name__ == "__main__":
     numlist2 = [345, 23, 54, 64, 98, 22, 45, 18, 78]
     shortBubbleSort(numlist2)
     print(numlist2)
+
+    charlist = list("PYTHON")
+    shortBubbleSort(charlist)
+    print(charlist)

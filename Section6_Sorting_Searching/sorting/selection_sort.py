@@ -21,3 +21,7 @@ if __name__ == "__main__":
     numlist = [345, 23, 54, 64, 98, 22, 45, 18, 78]
     selectionSort(numlist)
     print(numlist)
+
+    charlist = list("PYTHON")
+    selectionSort(charlist)
+    print(charlist)
