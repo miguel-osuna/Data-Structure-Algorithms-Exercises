@@ -21,11 +21,11 @@ class Vertex():
 
 class Graph():
     def __init__(self):
-        self.vertexList = {}
+        self.vertList = {}
         self.numVertices = 0
 
-    def __contains__(self, n):
-        return n in self.vertexList[n]
+    def __contains__(self, vertKey):
+        return vertKey in self.vertList[vertKey]
 
     def addVertex(self, key):
         newVertex = Vertex(key)
@@ -33,17 +33,22 @@ class Graph():
         self.numVertices += 1
         return newVertex
 
-    def addEdge(self, fromVert, toVert):
-        pass
+    def addEdge(self, fromVert, toVert, weight=0):
+        if fromVert not in self.vertList:
+            temp = self.addVertex(fromVert)
+        if toVert not in self.vertList:
+            temp = self.addVertex(toVert)
 
-    def addWeightedEdge(self, fromVert, toVert, weight):
-        pass
+        self.vertList[fromVert].addNeighbor(self.vertList[toVert], weight)
 
     def getVertex(self, vertKey):
-        pass
+        if vertKey in self.vertList:
+            return self.vertextList[vertKey]
+        else:
+            return None
 
     def getVertices(self):
-        pass
+        return self.vertList.keys()
 
     def getNumVertices(self):
         return self.numVertices

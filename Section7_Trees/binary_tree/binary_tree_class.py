@@ -10,19 +10,19 @@ class BinaryTree():
         bt = []
 
         # Root Node
-        if self.key != None:
+        if self.key:
             bt.append(self.key)
         else:
             bt.append(None)
 
         # Left Node
-        if self.leftChild != None:
+        if self.leftChild:
             bt.append(self.leftChild.key)
         else:
             bt.append(None)
 
         # Right Node
-        if self.rightChild != None:
+        if self.rightChild:
             bt.append(self.rightChild.key)
         else:
             bt.append(None)
@@ -32,8 +32,8 @@ class BinaryTree():
     def insertLeft(self, newNode):
         ''' Adds left node under root node '''
 
-       # No left node available
-       if self.leftChild == None:
+        # No left node available
+        if self.leftChild == None:
             self.leftChild = BinaryTree(newNode)
         # Left node available
         else:
@@ -69,9 +69,6 @@ class BinaryTree():
         ''' Returns root value from tree '''
         return self.key
 
-    def displayTree(self):
-        ''' Displays a representation of the tree '''
-        pass
 
 def buildTree():
     ''' Creates a custom binary tree '''
@@ -90,6 +87,7 @@ def buildTree():
     print(root.getLeftChild())
     print(root.getRightChild())
 
+
 def preorder(tree):
     ''' Preorder traversal for binary tree '''
     if tree != None:
@@ -97,11 +95,15 @@ def preorder(tree):
         preorder(tree.getLeftChild())
         preorder(tree.getRightChild())
 
+
 def inorder(tree):
     ''' Inorder traversal for binary tree '''
-    inorder(tree.getLeftChild())
-    print(tree.getRootValue())
-    inorder(tree.getRightChild())
+
+    if tree != None:
+        inorder(tree.getLeftChild())
+        print(tree.getRootValue())
+        inorder(tree.getRightChild())
+
 
 def postorder(tree):
     ''' Postorder traversal for binary tree '''
@@ -110,7 +112,7 @@ def postorder(tree):
         postorder(tree.getRightChild())
         print(tree)
 
-        
+
 if __name__ == "__main__":
     root = BinaryTree("a")
     print(root.getRootValue())
@@ -127,8 +129,18 @@ if __name__ == "__main__":
     root.getRightChild().insertLeft("f")
     root.getRightChild().insertRight("g")
 
-    print("Root node: {}".format(root))
-    print("Left node: {}".format(root.getLeftChild()))
-    print("Right node: {}".format(root.getRightChild()))
+    # Programming Language Tree
+    language_tree = BinaryTree()
+    language_tree.setRootValue("Language")
 
-    buildTree()
+    # Left Subtree
+    language_tree.insertLeft("compiled")
+    language_tree.getLeftChild().insertLeft("C")
+    language_tree.getLeftChild().insertRight("Java")
+
+    # Right Subtree
+    language_tree.insertRight("interpreted")
+    language_tree.getRightChild().insertLeft("Python")
+    language_tree.getRightChild().insertRight("Scheme")
+
+    

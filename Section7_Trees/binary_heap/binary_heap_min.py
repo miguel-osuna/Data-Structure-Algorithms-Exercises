@@ -1,5 +1,5 @@
-class BinaryHeapMax():
-    ''' Binary Heap maximum order implementation '''
+class BinaryHeapMin():
+    ''' Binary Heap minimum order implementation '''
 
     def __init__(self):
         self.heaplist = [0]
@@ -11,7 +11,7 @@ class BinaryHeapMax():
     def percUp(self, i):
         ''' Percolate (filtrate) value in index i to proper position '''
         while i // 2 > 0:
-            if self.heaplist[i] > self.heaplist[i // 2]:
+            if self.heaplist[i] < self.heaplist[i // 2]:
                 temp = self.heaplist[i // 2]
                 self.heaplist[i // 2] = self.heaplist[i]
                 self.heaplist[i] = temp
@@ -23,12 +23,12 @@ class BinaryHeapMax():
         self.currentSize += 1
         self.percUp(self.currentSize)
 
-    def findMaxChild(self, i):
-        ''' Finds the index of the maximum child '''
+    def findMinChild(self, i):
+        ''' Finds the index of the minimum child '''
         if i * 2 + 1 > self.currentSize:
             return i
         else:
-            if self.heaplist[i * 2] > self.heaplist[i * 2 + 1]:
+            if self.heaplist[i * 2] < self.heaplist[i * 2 + 1]:
                 return i * 2
             else:
                 return i * 2 + 1
@@ -36,19 +36,19 @@ class BinaryHeapMax():
     def percDown(self, i):
         ''' Percolate (filtrate) value in index i to proper position '''
         while (i * 2) <= self.currentSize:
-            maxchild = self.findMaxChild(i)
+            minchild = self.findMinChild(i)
 
-            # If parent node is smaller than maximum child, change them
-            if self.heaplist[i] < self.heaplist[maxchild]:
+            # If parent node is bigger than minimum child node, change them
+            if self.heaplist[i] > self.heaplist[minchild]:
                 temp = self.heaplist[i]
-                self.heaplist[i] = self.heaplist[maxchild]
-                self.heaplist[maxchild] = temp
+                self.heaplist[i] = self.heaplist[minchild]
+                self.heaplist[minchild] = temp
 
             # Moves root index to child node
-            i = maxchild
+            i = minchild
 
-    def delMax(self):
-        ''' Deletes maximum value of the binary heap '''
+    def delMin(self):
+        ''' Deletes minimum value of the binary heap '''
         retval = self.heaplist[1]
         self.heaplist[1] = self.heaplist[self.currentSize]
         self.currentSize -= 1
@@ -73,25 +73,25 @@ class BinaryHeapMax():
         self.currentSize = len(alist)
         self.heaplist = [0] + alist[:]
 
+        # Starts from the middle of the tree and goes it's way up
         while i > 0:
             self.percDown(i)
             i -= 1
 
 
 if __name__ == "__main__":
-    bhm = BinaryHeapMax()
-    numlist = [9, 5, 6, 2, 3]
+    import random
+    numlist = [random.randint(0, 100) for i in range(20)]
+    binaryheap = BinaryHeapMin()
 
-    print(bhm.size())
-    print(bhm.isEmpty())
-    bhm.buildHeap(numlist)
+    for num in numlist:
+        binaryheap.insert(num)
+        print(binaryheap)
+        print("\n")
 
-    print(bhm.size())
-    print(bhm.isEmpty())
-    print(bhm)
+    numlist = [i for i in range(1, 10)]
+    bh = BinaryHeapMin()
+    bh.buildHeap(numlist)
+    print(bh)
 
-    bhm.insert(1)
-    print(bhm)
-
-    bhm.delMax()
-    print(bhm)
+    

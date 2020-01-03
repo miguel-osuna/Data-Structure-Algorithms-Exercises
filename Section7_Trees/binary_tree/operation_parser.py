@@ -1,12 +1,12 @@
-from binary_tree_class import BinaryTree
-import operator
 import sys
 sys.path.insert(0, "Section4_Basic_Data_Structures/stack")
 from stack import Stack
+import operator
+from binary_tree_class import BinaryTree
 
 
-# Simple operation parser
 def operationParser(operation):
+    ''' Arithmetic Operation Parser '''
     # Variable setup
     string = list(operation)
     operators = "+-/*"
@@ -15,6 +15,7 @@ def operationParser(operation):
     currentTree = tree
     treeStack.push(currentTree)
 
+    # Iterate over the created list
     for char in string:
         if char == "(":
             currentTree.insertLeft("")
@@ -42,6 +43,7 @@ def operationParser(operation):
 
 
 def evalExpression(tree):
+    ''' Arithmetic operation evaluator '''
     operations = {"+": operator.add, "-": operator.sub,
                   "*": operator.mul, "/": operator.mul}
 
@@ -57,6 +59,7 @@ def evalExpression(tree):
 
 
 def printExpression(tree):
+    ''' Arithmetic Operation Printer '''
     eval = ""
     if tree != None:
         eval += "(" + printExpression(tree.getLeftChild())
@@ -67,8 +70,9 @@ def printExpression(tree):
 
 if __name__ == "__main__":
     tree = operationParser("((3+4)*5)")
-    print(tree)
-    print(tree.getLeftChild())
+    print(evalExpression(tree))
+    print(printExpression(tree))
 
+    tree = operationParser("(((4*8)/6)-3)")
     print(evalExpression(tree))
     print(printExpression(tree))
