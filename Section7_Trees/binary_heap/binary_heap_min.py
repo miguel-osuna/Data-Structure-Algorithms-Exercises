@@ -1,3 +1,8 @@
+import sys
+sys.path.insert(0, "Section6_Sorting_Searching/sorting")
+from quick_sort import quickSort
+
+
 class BinaryHeapMin():
     ''' Binary Heap minimum order implementation '''
 
@@ -8,6 +13,9 @@ class BinaryHeapMin():
     def __str__(self):
         return str(self.heaplist)
 
+    def __len__(self):
+        return self.currentSize
+
     def percUp(self, i):
         ''' Percolate (filtrate) value in index i to proper position '''
         while i // 2 > 0:
@@ -17,16 +25,16 @@ class BinaryHeapMin():
                 self.heaplist[i] = temp
             i //= 2
 
-    def insert(self, i):
+    def insert(self, value):
         ''' Insert a value into the binary heap '''
-        self.heaplist.append(i)
+        self.heaplist.append(value)
         self.currentSize += 1
         self.percUp(self.currentSize)
 
     def findMinChild(self, i):
         ''' Finds the index of the minimum child '''
         if i * 2 + 1 > self.currentSize:
-            return i
+            return i * 2
         else:
             if self.heaplist[i * 2] < self.heaplist[i * 2 + 1]:
                 return i * 2
@@ -67,11 +75,14 @@ class BinaryHeapMin():
         ''' Returns size of the binary heap '''
         return self.currentSize
 
-    def buildHeap(self, alist):
+    def buildHeap(self, l):
         ''' Builds a binary heap with a list '''
-        i = len(alist) // 2
-        self.currentSize = len(alist)
-        self.heaplist = [0] + alist[:]
+        numlist = l
+        quickSort(numlist)
+
+        i = len(numlist) // 2
+        self.currentSize = len(numlist)
+        self.heaplist = [0] + numlist[:]
 
         # Starts from the middle of the tree and goes it's way up
         while i > 0:
@@ -81,17 +92,21 @@ class BinaryHeapMin():
 
 if __name__ == "__main__":
     import random
+
+    # Using insert method
     numlist = [random.randint(0, 100) for i in range(20)]
     binaryheap = BinaryHeapMin()
 
+    print("Using insert class method")
     for num in numlist:
         binaryheap.insert(num)
-        print(binaryheap)
-        print("\n")
+        print("Adding {}: {}".format(num, binaryheap))
 
-    numlist = [i for i in range(1, 10)]
+    # Using buildHeap method
+    numlist2 = [random.randint(0, 100) for i in range(10)]
+    print("\nUsing buildHeap class method")
+    print("Initial number list: {}".format(str(numlist2)))
+
     bh = BinaryHeapMin()
-    bh.buildHeap(numlist)
+    bh.buildHeap(numlist2)
     print(bh)
-
-    

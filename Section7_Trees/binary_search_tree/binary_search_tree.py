@@ -188,8 +188,12 @@ class BinarySearchTree():
     def _put(self, key, value, currentNode):
         ''' Private recursive put call '''
 
+        # Replace value if key is the same
+        if key == currentNode.key:
+            currentNode.replaceNodeData(key, value, currentNode.leftChild, currentNode.rightChild)
+
         # Place on left sublist
-        if key < currentNode.key:
+        elif key < currentNode.key:
             # Looks recursively until there is no child node left
             if currentNode.hasLeftChild():
                 self._put(key, value, currentNode.leftChild)
@@ -322,28 +326,34 @@ if __name__ == "__main__":
     print(mytree[6])
     print(mytree[2])
 
-    del mytree[6]
-    del mytree[2]
+    mytree[6] = "green"
+    mytree[2] = "pink"
 
-    tree = BinarySearchTree()
-    for i in range(10):
-        tree[i] = i
+    print(mytree[6])
+    print(mytree[2])
 
-    for i in range(len(tree)):
-        print(tree[i])
+    # del mytree[6]
+    # del mytree[2]
 
-    for i in reversed(range(10)):
-        tree[i] = i
+    # tree = BinarySearchTree()
+    # for i in range(10):
+    #     tree[i] = i
 
-    for i in reversed(range(10)):
-        print(tree[i])
+    # for i in range(len(tree)):
+    #     print(tree[i])
 
-    tree_test = BinarySearchTree()
-    numlist = [66, 88, 61, 89, 94, 50, 4, 76, 66, 82]
+    # for i in reversed(range(10)):
+    #     tree[i] = i
 
-    for num in numlist:
-        tree_test.put(num, num)
+    # for i in reversed(range(10)):
+    #     print(tree[i])
 
-    print("\nPrinting binary search tree with random integers")
-    for num in numlist:
-        print(tree_test[num])
+    # tree_test = BinarySearchTree()
+    # numlist = [66, 88, 61, 89, 94, 50, 4, 76, 66, 82]
+
+    # for num in numlist:
+    #     tree_test.put(num, num)
+
+    # print("\nPrinting binary search tree with random integers")
+    # for num in numlist:
+    #     print(tree_test[num])

@@ -8,6 +8,9 @@ class BinaryHeapMax():
     def __str__(self):
         return str(self.heaplist)
 
+    def __len__(self):
+        return self.currentSize
+
     def percUp(self, i):
         ''' Percolate (filtrate) value in index i to proper position '''
         while i // 2 > 0:
@@ -17,16 +20,16 @@ class BinaryHeapMax():
                 self.heaplist[i] = temp
             i //= 2
 
-    def insert(self, i):
+    def insert(self, value):
         ''' Insert a value into the binary heap '''
-        self.heaplist.append(i)
+        self.heaplist.append(value)
         self.currentSize += 1
         self.percUp(self.currentSize)
 
     def findMaxChild(self, i):
         ''' Finds the index of the maximum child '''
         if i * 2 + 1 > self.currentSize:
-            return i
+            return i * 2
         else:
             if self.heaplist[i * 2] > self.heaplist[i * 2 + 1]:
                 return i * 2
@@ -82,3 +85,5 @@ if __name__ == "__main__":
     import random
     numlist = [random.randint(0, 100) for i in range(100)]
     binaryheap = BinaryHeapMax()
+    binaryheap.buildHeap(numlist)
+    print(binaryheap)

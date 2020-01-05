@@ -1,8 +1,8 @@
 import sys
 sys.path.insert(0, "Section4_Basic_Data_Structures/stack")
 from stack import Stack
-import operator
 from binary_tree_class import BinaryTree
+import operator
 
 
 def operationParser(operation):
@@ -10,6 +10,7 @@ def operationParser(operation):
     # Variable setup
     string = list(operation)
     operators = "+-/*"
+    bool_operators = "&|!^"
     treeStack = Stack()
     tree = BinaryTree("")
     currentTree = tree
@@ -22,7 +23,7 @@ def operationParser(operation):
             treeStack.push(currentTree)
             currentTree = currentTree.getLeftChild()
 
-        elif char in operators:
+        elif char in operators or char in bool_operators:
             currentTree.setRootValue(char)
             currentTree.insertRight("")
             treeStack.push(currentTree)
@@ -31,9 +32,14 @@ def operationParser(operation):
         elif char == ")":
             currentTree = treeStack.pop()
 
-        elif char not in (operators or "()"):
+        elif char not in (operators or bool_operators or "()"):
             try:
-                currentTree.setRootValue(int(char))
+                if char == "F":
+                    currentTree.setRootValue(False)
+                elif char == "T":
+                    currentTree.setRootValue(True)
+                else:
+                    currentTree.setRootValue(int(char))
                 currentTree = treeStack.pop()
             except ValueError:
                 raise ValueError(
@@ -47,11 +53,19 @@ def evalExpression(tree):
     operations = {"+": operator.add, "-": operator.sub,
                   "*": operator.mul, "/": operator.mul}
 
+    bool_operations = {"&": operator.and_,
+                       "|": operator.or_, "^": operator.xor, "!": operator.not_}
+
     left = tree.getLeftChild()
     right = tree.getRightChild()
 
     if left and right:
-        function = operations[tree.getRootValue()]
+        if tree.getRootValue() in operations.keys():
+            function = operations[tree.getRootValue()]
+
+        if tree.getRootValue() in bool_operations.keys():
+            function = bool_operations[tree.getRootValue()]
+
         return function(evalExpression(left), evalExpression(right))
 
     else:
@@ -61,10 +75,24 @@ def evalExpression(tree):
 def printExpression(tree):
     ''' Arithmetic Operation Printer '''
     eval = ""
+    operators = "*/+-"
+    bool_operators = "&|!^"
+
     if tree != None:
-        eval += "(" + printExpression(tree.getLeftChild())
-        eval += str(tree.getRootValue())
-        eval += printExpression(tree.getRightChild()) + ")"
+        rootValue = str(tree.getRootValue())
+        leftNode = tree.getLeftChild()
+        rightNode = tree.getRightChild()
+
+        if rootValue in operators or rootValue in bool_operators:
+            eval += "(" + printExpression(leftNode)
+            eval += rootValue
+            eval += printExpression(rightNode) + ")"
+
+        else:
+            eval += printExpression(leftNode)
+            eval += rootValue
+            eval += printExpression(rightNode)
+
     return eval
 
 
@@ -76,3 +104,7 @@ if __name__ == "__main__":
     tree = operationParser("(((4*8)/6)-3)")
     print(evalExpression(tree))
     print(printExpression(tree))
+
+    boolean_tree = operationParser("(T^F)")
+    print(evalExpression(boolean_tree))
+    print(printExpression(boolean_tree))
