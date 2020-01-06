@@ -43,6 +43,11 @@ def makePartition(numlist, startIndex, endIndex):
     return pivotIndex
 
 
+def makePartitionMedOfThree(numlist, startIndex, endIndex):
+    ''' Implements Partitioning with Median-of-three method '''
+    pass
+
+
 if __name__ == "__main__":
     numlist = [7, 2, 1, 6, 8, 5, 3, 4]
     quickSort(numlist)

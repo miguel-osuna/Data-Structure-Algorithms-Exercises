@@ -41,9 +41,8 @@ def mergeSort(numlist):
             k += 1
 
 
-def mergeSortInPlace(numlist, start, end):
+def mergeSortInPlace(numlist, startIndex, endIndex):
     ''' Merge Sort In-Place Algorithm '''
-    pass
 
 
 if __name__ == "__main__":
