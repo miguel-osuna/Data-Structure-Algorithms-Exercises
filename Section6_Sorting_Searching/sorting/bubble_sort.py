@@ -61,13 +61,13 @@ def cocktailSort(numlist):
 
 
 if __name__ == "__main__":
-    # numlist = [345, 23, 54, 64, 98, 22, 45, 18, 78]
-    # bubbleSort(numlist)
-    # print(numlist)
+    numlist = [345, 23, 54, 64, 98, 22, 45, 18, 78]
+    bubbleSort(numlist)
+    print(numlist)
 
-    # numlist2 = [345, 23, 54, 64, 98, 22, 45, 18, 78]
-    # shortBubbleSort(numlist2)
-    # print(numlist2)
+    numlist2 = [345, 23, 54, 64, 98, 22, 45, 18, 78]
+    shortBubbleSort(numlist2)
+    print(numlist2)
 
     numlist3 = [345, 23, 54, 64, 98, 22, 45, 18, 78]
     print(numlist3)

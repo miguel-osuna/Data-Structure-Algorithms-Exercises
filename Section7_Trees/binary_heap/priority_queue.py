@@ -29,6 +29,9 @@ class PriorityQueue():
         ''' Returns size of the queue list '''
         return len(self.heapItems)
 
+    def buildHeap(self, alist):
+        self.heapItems.buildHeap(alist)
+
 
 if __name__ == "__main__":
     import random
