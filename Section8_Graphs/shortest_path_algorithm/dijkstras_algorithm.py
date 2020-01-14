@@ -4,7 +4,8 @@ base_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(base_dir)
 sys.path.append(parent_dir)
 sys.path.insert(0, "Section7_Trees/binary_heap")
-from depth_first_search.graph_dfs import VertexBFS, GraphBFS
+from graph_adj_list import GraphBFS, VertexBFS
+
 
 class PriorityQueue:
     def __init__(self):
@@ -111,9 +112,10 @@ def dijkstra(g, s):
     while not pq.isEmpty():
         currentVert = pq.delMin()
 
+        # Traverse through all the neighbors 
         for nextVert in currentVert.getConnections():
             newDistance = currentVert.getDistance() + currentVert.getWeight(nextVert)
-
+            
             if newDistance < nextVert.getDistance():
                 nextVert.setDistance(newDistance)
                 nextVert.setPredecessor(currentVert)

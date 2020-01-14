@@ -3,7 +3,7 @@ import sys
 base_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(base_dir)
 sys.path.append(parent_dir)
-from depth_first_search.graph_dfs import VertexDFS, GraphDFS
+from graph_adj_list import VertexDFS, GraphDFS
 
 
 def buildPancakeGraph():

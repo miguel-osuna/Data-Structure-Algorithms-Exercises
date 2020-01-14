@@ -25,7 +25,6 @@ def posToVertexId(row, col, bdSize):
     ''' Coverts coordinates into square position number '''
     return (row * bdSize) + col
 
-
 def legalCoord(coord, bdSize):
     ''' Checks if coordinate is withing the limits of the board '''
     if coord >= 0 and coord < bdSize:
