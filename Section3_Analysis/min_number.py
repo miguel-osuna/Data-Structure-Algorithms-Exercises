@@ -1,6 +1,6 @@
-''' Write two Python functions to find the minimum number in a list. 
+""" Write two Python functions to find the minimum number in a list. 
     The first function should compare each number to every other number on the list.
-    O(n2). The second function should be linear O(n).'''
+    O(n2). The second function should be linear O(n)."""
 
 import time
 
@@ -13,7 +13,7 @@ def find_min0(num_list):
 
 
 def find_min(num_list):
-    ''' O(n) time complexity function '''
+    """ O(n) time complexity function """
     start = time.time()
     min_num = num_list[0]
     for num in num_list:
@@ -25,7 +25,7 @@ def find_min(num_list):
 
 
 def find_min2(num_list):
-    ''' O(n^2) time complexity function '''
+    """ O(n^2) time complexity function """
     start = time.time()
     min_num = num_list[0]
 

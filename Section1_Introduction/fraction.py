@@ -1,4 +1,4 @@
-''' Fraction data type class '''
+""" Fraction data type class """
 
 
 def gcd(m, n):
@@ -27,64 +27,64 @@ class Fraction:
         return str(self.num) + "/" + str(self.den)
 
     def __add__(self, other):
-        ''' Addition '''
+        """ Addition """
         newnum = self.num * other.den + self.den * other.num
         newden = self.den * other.den
         return Fraction(newnum, newden)
 
     def __sub__(self, other):
-        ''' Subtraction '''
+        """ Subtraction """
         newnum = self.num * other.den - self.den * other.num
         newden = self.den * other.den
         return Fraction(newnum, newden)
 
     def __mul__(self, other):
-        ''' Multiplication '''
+        """ Multiplication """
         newnum = self.num * other.num
         newden = self.den * other.num
         return Fraction(newnum, newden)
 
     def __truediv__(self, other):
-        ''' Division '''
+        """ Division """
         newnum = self.num * other.den
         newden = self.den * other.num
         return Fraction(newnum, newden)
 
     def __eq__(self, other):
-        ''' Equality '''
+        """ Equality """
         firstnum = self.num * other.den
         secondnum = other.num * self.den
         return firstnum == secondnum
 
     def __ne__(self, other):
-        ''' Not Equal '''
+        """ Not Equal """
         firstnum = self.num * other.den
         secondnum = other.num * self.den
         return firstnum != secondnum
 
     def __lt__(self, other):
-        ''' Less than '''
+        """ Less than """
         if self.num / self.den < other.num / other.den:
             return True
         else:
             return False
 
     def __le__(self, other):
-        ''' Less equal '''
+        """ Less equal """
         if self.num / self.den <= other.num / other.den:
             return True
         else:
             return False
 
     def __gt__(self, other):
-        ''' Greater than '''
+        """ Greater than """
         if self.num / self.den > other.num / other.den:
             return True
         else:
             return False
 
     def __ge__(self, other):
-        ''' Greater equal '''
+        """ Greater equal """
         if self.num / self.den >= other.num / other.den:
             return True
         else:
@@ -105,11 +105,11 @@ if __name__ == "__main__":
     y = Fraction(2, 3)
     print(x)
     print(y)
-    print(x+y)
+    print(x + y)
     print(x == y)
     print(x * y)
     print(x > y)
     print(x < y)
-    print(x-y)
+    print(x - y)
     print(x.getNum())
     print(x.getDen())

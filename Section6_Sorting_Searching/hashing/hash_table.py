@@ -1,4 +1,4 @@
-class HashTable():
+class HashTable:
     def __init__(self):
         self._size = 11
         self.slots = [None] * self._size
@@ -44,15 +44,15 @@ class HashTable():
                     print("Couldn't delete item")
 
     def hashfunction(self, key, size):
-        ''' Generates a hash '''
+        """ Generates a hash """
         return key % size
 
     def rehash(self, hash, size):
-        ''' Generates a new hash from an old hash '''
+        """ Generates a new hash from an old hash """
         return (hash + 1) % size
 
     def get(self, key):
-        ''' Gets item from hash table '''
+        """ Gets item from hash table """
         startslot = self.hashfunction(key, len(self.slots))
 
         found = False
@@ -72,7 +72,7 @@ class HashTable():
         return data
 
     def put(self, key, data):
-        ''' Sets item in hash table '''
+        """ Sets item in hash table """
         hashValue = self.hashfunction(key, len(self.slots))
 
         # Assigns data if slot is available

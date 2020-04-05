@@ -1,5 +1,5 @@
-class BinaryHeapMax():
-    ''' Binary Heap maximum order implementation '''
+class BinaryHeapMax:
+    """ Binary Heap maximum order implementation """
 
     def __init__(self):
         self.heaplist = [0]
@@ -12,7 +12,7 @@ class BinaryHeapMax():
         return self.currentSize
 
     def percUp(self, i):
-        ''' Percolate (filtrate) value in index i to proper position '''
+        """ Percolate (filtrate) value in index i to proper position """
         while i // 2 > 0:
             if self.heaplist[i] > self.heaplist[i // 2]:
                 temp = self.heaplist[i // 2]
@@ -21,13 +21,13 @@ class BinaryHeapMax():
             i //= 2
 
     def insert(self, value):
-        ''' Insert a value into the binary heap '''
+        """ Insert a value into the binary heap """
         self.heaplist.append(value)
         self.currentSize += 1
         self.percUp(self.currentSize)
 
     def findMaxChild(self, i):
-        ''' Finds the index of the maximum child '''
+        """ Finds the index of the maximum child """
         if i * 2 + 1 > self.currentSize:
             return i * 2
         else:
@@ -37,7 +37,7 @@ class BinaryHeapMax():
                 return i * 2 + 1
 
     def percDown(self, i):
-        ''' Percolate (filtrate) value in index i to proper position '''
+        """ Percolate (filtrate) value in index i to proper position """
         while (i * 2) <= self.currentSize:
             maxchild = self.findMaxChild(i)
 
@@ -51,7 +51,7 @@ class BinaryHeapMax():
             i = maxchild
 
     def delMax(self):
-        ''' Deletes maximum value of the binary heap '''
+        """ Deletes maximum value of the binary heap """
         retval = self.heaplist[1]
         self.heaplist[1] = self.heaplist[self.currentSize]
         self.currentSize -= 1
@@ -60,18 +60,18 @@ class BinaryHeapMax():
         return retval
 
     def isEmpty(self):
-        ''' Checks if binary heap is empty '''
+        """ Checks if binary heap is empty """
         if len(self.heaplist) > 1:
             return False
         else:
             return True
 
     def size(self):
-        ''' Returns size of the binary heap '''
+        """ Returns size of the binary heap """
         return self.currentSize
 
     def buildHeap(self, alist):
-        ''' Builds a binary heap with a list '''
+        """ Builds a binary heap with a list """
         i = len(alist) // 2
         self.currentSize = len(alist)
         self.heaplist = [0] + alist[:]
@@ -83,6 +83,7 @@ class BinaryHeapMax():
 
 if __name__ == "__main__":
     import random
+
     numlist = [random.randint(0, 100) for i in range(100)]
     binaryheap = BinaryHeapMax()
     binaryheap.buildHeap(numlist)

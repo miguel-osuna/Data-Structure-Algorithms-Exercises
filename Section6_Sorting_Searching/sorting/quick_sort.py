@@ -1,5 +1,5 @@
 def quickSort(numlist):
-    ''' Quick Sort Algorithm '''
+    """ Quick Sort Algorithm """
 
     startIndex = 0
     endIndex = len(numlist) - 1
@@ -7,7 +7,7 @@ def quickSort(numlist):
 
 
 def quickSortRec(numlist, startIndex, endIndex):
-    ''' Quick Sort Recursion Algorithm '''
+    """ Quick Sort Recursion Algorithm """
 
     # Base Case
     # Checks if the partition segment is valid
@@ -18,7 +18,7 @@ def quickSortRec(numlist, startIndex, endIndex):
 
 
 def makePartition(numlist, startIndex, endIndex):
-    ''' List Partitioning Function '''
+    """ List Partitioning Function """
 
     # Sets pivot
     pivot = numlist[endIndex]

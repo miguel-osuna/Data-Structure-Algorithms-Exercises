@@ -1,4 +1,5 @@
 import sys
+
 sys.path.insert(0, "Section4_Basic_Data_Structures/stack")
 from stack import Stack
 from binary_tree_class import BinaryTree
@@ -6,7 +7,7 @@ import operator
 
 
 def operationParser(operation):
-    ''' Arithmetic Operation Parser '''
+    """ Arithmetic Operation Parser """
     # Variable setup
     string = list(operation)
     operators = "+-/*"
@@ -42,19 +43,26 @@ def operationParser(operation):
                     currentTree.setRootValue(int(char))
                 currentTree = treeStack.pop()
             except ValueError:
-                raise ValueError(
-                    "Token {} is not a valid integer".format(char))
+                raise ValueError("Token {} is not a valid integer".format(char))
 
     return tree
 
 
 def evalExpression(tree):
-    ''' Arithmetic operation evaluator '''
-    operations = {"+": operator.add, "-": operator.sub,
-                  "*": operator.mul, "/": operator.mul}
+    """ Arithmetic operation evaluator """
+    operations = {
+        "+": operator.add,
+        "-": operator.sub,
+        "*": operator.mul,
+        "/": operator.mul,
+    }
 
-    bool_operations = {"&": operator.and_,
-                       "|": operator.or_, "^": operator.xor, "!": operator.not_}
+    bool_operations = {
+        "&": operator.and_,
+        "|": operator.or_,
+        "^": operator.xor,
+        "!": operator.not_,
+    }
 
     left = tree.getLeftChild()
     right = tree.getRightChild()
@@ -73,7 +81,7 @@ def evalExpression(tree):
 
 
 def printExpression(tree):
-    ''' Arithmetic Operation Printer '''
+    """ Arithmetic Operation Printer """
     eval = ""
     operators = "*/+-"
     bool_operators = "&|!^"

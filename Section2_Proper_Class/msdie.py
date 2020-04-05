@@ -1,8 +1,8 @@
 import random
 
 
-class MSDie():
-    '''
+class MSDie:
+    """
     Multi-sided die
 
     Properties:
@@ -11,7 +11,7 @@ class MSDie():
 
     Methods:
         roll()
-    '''
+    """
 
     def __init__(self, num_sides):
         self.num_sides = num_sides
@@ -24,7 +24,7 @@ class MSDie():
         return "MSDie({}): {}".format(self.num_sides, self.current_value)
 
     def roll(self):
-        self.current_value = random.randrange(1, self.num_sides+1)
+        self.current_value = random.randrange(1, self.num_sides + 1)
         return self.current_value
 
 

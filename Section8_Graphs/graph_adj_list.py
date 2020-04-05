@@ -1,12 +1,14 @@
 import os
 import sys
+
 base_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(base_dir)
 sys.path.append(parent_dir)
 sys.path.insert(0, "Section4_Basic_Data_Structures/queue")
 from queue1 import Queue1
 
-class Vertex():
+
+class Vertex:
     def __init__(self, key):
         self.id = key
         self.connectedTo = {}
@@ -15,23 +17,23 @@ class Vertex():
         return str(self.id) + " connected to: " + str([x.id for x in self.connectedTo])
 
     def addNeighbor(self, neighbor, weight=0):
-        ''' Adds a vertex neighbor to the current one '''
+        """ Adds a vertex neighbor to the current one """
         self.connectedTo[neighbor] = weight
 
     def getConnections(self):
-        ''' Returns all the neighbor vertices '''
+        """ Returns all the neighbor vertices """
         return self.connectedTo.keys()
 
     def getId(self):
-        ''' Returns the id of the current vertex '''
+        """ Returns the id of the current vertex """
         return self.id
 
     def getWeight(self, neighbor):
-        ''' Returns the weight between the neighbor and the current vertex '''
+        """ Returns the weight between the neighbor and the current vertex """
         return self.connectedTo[neighbor]
 
 
-class Graph():
+class Graph:
     def __init__(self):
         self.vertList = {}
         self.numVertices = 0
@@ -49,14 +51,14 @@ class Graph():
         return iter(self.vertList.values())
 
     def addVertex(self, key):
-        ''' Adds a vertex to the graph '''
+        """ Adds a vertex to the graph """
         newVertex = Vertex(key)
         self.vertList[key] = newVertex
         self.numVertices += 1
         return newVertex
 
     def addEdge(self, fromVert, toVert, weight=0):
-        ''' Adds a weighted edge to the first vertex '''
+        """ Adds a weighted edge to the first vertex """
         if fromVert not in self.vertList:
             temp = self.addVertex(fromVert)
         if toVert not in self.vertList:
@@ -65,22 +67,22 @@ class Graph():
         self.vertList[fromVert].addNeighbor(self.vertList[toVert], weight)
 
     def getVertex(self, vertKey):
-        ''' Returns the Vertex object from the vertList '''
+        """ Returns the Vertex object from the vertList """
         if vertKey in self.vertList:
             return self.vertList[vertKey]
         else:
             return None
 
     def getVertices(self):
-        ''' Returns all vertices from the graph '''
+        """ Returns all vertices from the graph """
         return self.vertList.keys()
 
     def getNumVertices(self):
-        ''' Returns the number of vertices in the graph '''
+        """ Returns the number of vertices in the graph """
         return self.numVertices
 
     def transpose(self):
-        ''' Creates the transpose of the graph '''
+        """ Creates the transpose of the graph """
         tempVertList = {}
 
         # Traverses the graph
@@ -110,7 +112,7 @@ class Graph():
 
 
 class VertexBFS(Vertex):
-    ''' Vertex implementation for Breadth First Search Algorithm '''
+    """ Vertex implementation for Breadth First Search Algorithm """
 
     def __init__(self, key):
         super().__init__(key)
@@ -138,20 +140,20 @@ class VertexBFS(Vertex):
 
 
 class GraphBFS(Graph):
-    ''' Graph Implementation for Breadth First Search Algorithm '''
+    """ Graph Implementation for Breadth First Search Algorithm """
 
     def __init__(self):
         super().__init__()
 
     def addVertex(self, key):
-        ''' Adds a vertex to the graph '''
+        """ Adds a vertex to the graph """
         newVertex = VertexBFS(key)
         self.vertList[key] = newVertex
         self.numVertices += 1
         return newVertex
 
     def addEdge(self, fromVert, toVert, weight=0):
-        ''' Adds a weighted edge to the first vertex '''
+        """ Adds a weighted edge to the first vertex """
         if fromVert not in self.vertList:
             temp = self.addVertex(fromVert)
         if toVert not in self.vertList:
@@ -166,7 +168,7 @@ class GraphBFS(Graph):
         return super().getVertices()
 
     def bfs(self, startKey):
-        ''' Breadth First Search Algorithm '''
+        """ Breadth First Search Algorithm """
         start = self.getVertex(startKey)
         start.setPredecessor(None)
         start.setDistance(0)
@@ -192,7 +194,7 @@ class GraphBFS(Graph):
 
 
 class VertexDFS(VertexBFS):
-    ''' Vertex Implementation for the Depth First Search Algorithm '''
+    """ Vertex Implementation for the Depth First Search Algorithm """
 
     def __init__(self, key):
         super().__init__(key)
@@ -213,21 +215,21 @@ class VertexDFS(VertexBFS):
 
 
 class GraphDFS(GraphBFS):
-    ''' Graph Implementation for the Depth First Search Algorithm '''
+    """ Graph Implementation for the Depth First Search Algorithm """
 
     def __init__(self):
         super().__init__()
         self.time = 0
 
     def addVertex(self, key):
-        ''' Adds a vertex to the graph '''
+        """ Adds a vertex to the graph """
         newVertex = VertexDFS(key)
         self.vertList[key] = newVertex
         self.numVertices += 1
         return newVertex
 
     def addEdge(self, fromVert, toVert, weight=0):
-        ''' Adds a weighted edge to the first vertex '''
+        """ Adds a weighted edge to the first vertex """
         if fromVert not in self.vertList:
             temp = self.addVertex(fromVert)
         if toVert not in self.vertList:
@@ -242,7 +244,7 @@ class GraphDFS(GraphBFS):
         return super().getVertices()
 
     def dfs(self):
-        ''' Depth Fist Search Algorithm '''
+        """ Depth Fist Search Algorithm """
         # Sets up every graph's vertex
         for vertex in self:
             vertex.setColor("white")

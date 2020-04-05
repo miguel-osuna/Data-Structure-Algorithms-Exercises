@@ -1,5 +1,5 @@
 def mergeSort(numlist):
-    ''' Merge Sort Algorithm '''
+    """ Merge Sort Algorithm """
 
     # Base and Recursive Case
     if len(numlist) > 1:
@@ -42,7 +42,7 @@ def mergeSort(numlist):
 
 
 def mergeSortInPlace(numlist, startIndex, endIndex):
-    ''' Merge Sort In-Place Algorithm '''
+    """ Merge Sort In-Place Algorithm """
 
 
 if __name__ == "__main__":

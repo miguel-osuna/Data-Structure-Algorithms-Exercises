@@ -1,5 +1,6 @@
 import os
 import random
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OBSTACLE = "+"
 PATH = " "

@@ -1,5 +1,5 @@
-class BinaryTree():
-    ''' Binary Tree Node and Reference Implementation '''
+class BinaryTree:
+    """ Binary Tree Node and Reference Implementation """
 
     def __init__(self, rootObj):
         self.key = rootObj
@@ -30,7 +30,7 @@ class BinaryTree():
         return str(bt)
 
     def insertLeft(self, newNode):
-        ''' Adds left node under root node '''
+        """ Adds left node under root node """
 
         # No left node available
         if self.leftChild == None:
@@ -42,7 +42,7 @@ class BinaryTree():
             self.leftChild = t
 
     def insertRight(self, newNode):
-        ''' Adds right node under root node '''
+        """ Adds right node under root node """
 
         # No right node available
         if self.rightChild == None:
@@ -54,24 +54,24 @@ class BinaryTree():
             self.rightChild = t
 
     def getLeftChild(self):
-        ''' Returns left node '''
+        """ Returns left node """
         return self.leftChild
 
     def getRightChild(self):
-        ''' Returns right node '''
+        """ Returns right node """
         return self.rightChild
 
     def setRootValue(self, obj):
-        ''' Sets root value from tree '''
+        """ Sets root value from tree """
         self.key = obj
 
     def getRootValue(self):
-        ''' Returns root value from tree '''
+        """ Returns root value from tree """
         return self.key
 
 
 def buildTree():
-    ''' Creates a custom binary tree '''
+    """ Creates a custom binary tree """
 
     # Level One
     root = BinaryTree("a")
@@ -89,7 +89,7 @@ def buildTree():
 
 
 def preorder(tree):
-    ''' Preorder traversal for binary tree '''
+    """ Preorder traversal for binary tree """
     if tree != None:
         print(tree.getRootValue())
         preorder(tree.getLeftChild())
@@ -97,7 +97,7 @@ def preorder(tree):
 
 
 def inorder(tree):
-    ''' Inorder traversal for binary tree '''
+    """ Inorder traversal for binary tree """
 
     if tree != None:
         inorder(tree.getLeftChild())
@@ -106,7 +106,7 @@ def inorder(tree):
 
 
 def postorder(tree):
-    ''' Postorder traversal for binary tree '''
+    """ Postorder traversal for binary tree """
     if tree != None:
         postorder(tree.getLeftChild())
         postorder(tree.getRightChild())
@@ -142,5 +142,3 @@ if __name__ == "__main__":
     language_tree.insertRight("interpreted")
     language_tree.getRightChild().insertLeft("Python")
     language_tree.getRightChild().insertRight("Scheme")
-
-    

@@ -27,8 +27,7 @@ def memoizeMakeChange(coinValueList, change, knownResults):
     else:
         # Iterates over coins that are smaller than the value of cents
         for i in [coin for coin in coinValueList if coin < change]:
-            numCoins = 1 + \
-                memoizeMakeChange(coinValueList, change - i, knownResults)
+            numCoins = 1 + memoizeMakeChange(coinValueList, change - i, knownResults)
             if numCoins < minCoins:
                 minCoins = numCoins
                 knownResults[change] = minCoins
@@ -71,19 +70,28 @@ if __name__ == "__main__":
 
     # Recursive Make Change
     print("\nCoin list is {}".format(coinValueList))
-    print("Coins returned for change of {} cents are {}".format(
-        change, recursionMakeChange(coinValueList, change)))
+    print(
+        "Coins returned for change of {} cents are {}".format(
+            change, recursionMakeChange(coinValueList, change)
+        )
+    )
 
     # Memoize Make Change
     knownResults = [0] * (change + 1)
     print(knownResults)
     print("\nCoin list is {}".format(coinValueList))
-    print("Coins returned for change of {} cents are {}".format(
-        change, memoizeMakeChange(coinValueList, change, knownResults)))
+    print(
+        "Coins returned for change of {} cents are {}".format(
+            change, memoizeMakeChange(coinValueList, change, knownResults)
+        )
+    )
 
     # Dynamic Programming Make Change
     minCoins = [0] * (change + 1)
     coinsUsed = [0] * (change + 1)
-    print("\nCoins returned for change of {} cents are {}".format(
-        change, dpMakeChange(coinValueList, change, minCoins, coinsUsed)))
+    print(
+        "\nCoins returned for change of {} cents are {}".format(
+            change, dpMakeChange(coinValueList, change, minCoins, coinsUsed)
+        )
+    )
     printCoinsUsed(change, coinsUsed)

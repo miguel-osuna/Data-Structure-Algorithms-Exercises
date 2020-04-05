@@ -1,4 +1,4 @@
-class Node():
+class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -26,7 +26,7 @@ class Node():
         self.previous = node
 
 
-class DoublyLinkedList():
+class DoublyLinkedList:
     def __init__(self):
         self.front = None
         self.end = None

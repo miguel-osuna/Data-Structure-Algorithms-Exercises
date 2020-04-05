@@ -1,5 +1,5 @@
 def unorderedLinearSearch(numlist, num):
-    ''' Linear Search function for Unordered Lists '''
+    """ Linear Search function for Unordered Lists """
     found = False
     pos = 0
     while pos < len(numlist) and not found:
@@ -11,7 +11,7 @@ def unorderedLinearSearch(numlist, num):
 
 
 def orderedLinearSearch(numlist, num):
-    ''' Linear Search function for Ordered Lists '''
+    """ Linear Search function for Ordered Lists """
     found = False
     stop = False
     pos = 0

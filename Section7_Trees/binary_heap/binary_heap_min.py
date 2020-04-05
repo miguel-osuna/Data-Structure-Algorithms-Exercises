@@ -1,10 +1,11 @@
 import sys
+
 sys.path.insert(0, "Section6_Sorting_Searching/sorting")
 from quick_sort import quickSort
 
 
-class BinaryHeapMin():
-    ''' Binary Heap minimum order implementation '''
+class BinaryHeapMin:
+    """ Binary Heap minimum order implementation """
 
     def __init__(self):
         self.heaplist = [0]
@@ -17,7 +18,7 @@ class BinaryHeapMin():
         return self.currentSize
 
     def percUp(self, i):
-        ''' Percolate (filtrate) value in index i to proper position '''
+        """ Percolate (filtrate) value in index i to proper position """
         while i // 2 > 0:
             if self.heaplist[i] < self.heaplist[i // 2]:
                 temp = self.heaplist[i // 2]
@@ -26,13 +27,13 @@ class BinaryHeapMin():
             i //= 2
 
     def insert(self, value):
-        ''' Insert a value into the binary heap '''
+        """ Insert a value into the binary heap """
         self.heaplist.append(value)
         self.currentSize += 1
         self.percUp(self.currentSize)
 
     def findMinChild(self, i):
-        ''' Finds the index of the minimum child '''
+        """ Finds the index of the minimum child """
         if i * 2 + 1 > self.currentSize:
             return i * 2
         else:
@@ -42,7 +43,7 @@ class BinaryHeapMin():
                 return i * 2 + 1
 
     def percDown(self, i):
-        ''' Percolate (filtrate) value in index i to proper position '''
+        """ Percolate (filtrate) value in index i to proper position """
         while (i * 2) <= self.currentSize:
             minchild = self.findMinChild(i)
 
@@ -56,7 +57,7 @@ class BinaryHeapMin():
             i = minchild
 
     def delMin(self):
-        ''' Deletes minimum value of the binary heap '''
+        """ Deletes minimum value of the binary heap """
         retval = self.heaplist[1]
         self.heaplist[1] = self.heaplist[self.currentSize]
         self.currentSize -= 1
@@ -65,18 +66,18 @@ class BinaryHeapMin():
         return retval
 
     def isEmpty(self):
-        ''' Checks if binary heap is empty '''
+        """ Checks if binary heap is empty """
         if len(self.heaplist) > 1:
             return False
         else:
             return True
 
     def size(self):
-        ''' Returns size of the binary heap '''
+        """ Returns size of the binary heap """
         return self.currentSize
 
     def buildHeap(self, l):
-        ''' Builds a binary heap with a list '''
+        """ Builds a binary heap with a list """
         numlist = l
         quickSort(numlist)
 

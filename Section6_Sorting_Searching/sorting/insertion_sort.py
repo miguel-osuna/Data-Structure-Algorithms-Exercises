@@ -1,5 +1,5 @@
 def insertionSort(numlist):
-    ''' Insertion Sort Algorithm '''
+    """ Insertion Sort Algorithm """
     for index in range(1, len(numlist)):
 
         # New item to be inserted into the sublist

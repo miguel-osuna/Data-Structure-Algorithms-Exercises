@@ -4,7 +4,7 @@ from matplotlib import animation
 
 
 def my_plotter(ax, indexes, values, param_dict):
-    '''
+    """
     A helper function to make a graph
 
     Parameters
@@ -25,7 +25,7 @@ def my_plotter(ax, indexes, values, param_dict):
     -------
     out: list
         list of artists added
-    '''
+    """
     out = ax.plot(indexes, values, **param_dict)
     return out
 

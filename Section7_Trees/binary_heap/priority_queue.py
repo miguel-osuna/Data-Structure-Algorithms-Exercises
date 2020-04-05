@@ -1,11 +1,11 @@
 from binary_heap_max import BinaryHeapMax
 
 
-class PriorityQueue():
-    '''
+class PriorityQueue:
+    """
     Front -> Rear implementation 
     Maintains the highest priority items on the front
-    '''
+    """
 
     def __init__(self):
         self.heapItems = BinaryHeapMax()
@@ -14,19 +14,19 @@ class PriorityQueue():
         return str(self.heapItems)
 
     def isEmpty(self):
-        ''' Checks if the queue is empty '''
+        """ Checks if the queue is empty """
         return self.heapItems.isEmpty()
 
     def enqueue(self, item):
-        ''' Adds item to the queue '''
+        """ Adds item to the queue """
         self.heapItems.insert(item)
 
     def dequeue(self):
-        ''' Removes highest priority item from the queue '''
+        """ Removes highest priority item from the queue """
         return self.heapItems.delMax()
 
     def size(self):
-        ''' Returns size of the queue list '''
+        """ Returns size of the queue list """
         return len(self.heapItems)
 
     def buildHeap(self, alist):
@@ -35,6 +35,7 @@ class PriorityQueue():
 
 if __name__ == "__main__":
     import random
+
     tasks = PriorityQueue()
 
     for _ in range(10):

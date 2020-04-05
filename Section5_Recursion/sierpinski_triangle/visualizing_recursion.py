@@ -6,7 +6,7 @@ def drawSpiral(myTurtle, lineLen, decrement):
     if lineLen > decrement:
         myTurtle.forward(lineLen - decrement)
         myTurtle.right(90)
-        drawSpiral(myTurtle, lineLen-decrement, decrement)
+        drawSpiral(myTurtle, lineLen - decrement, decrement)
 
 
 def tree(branchLen, t, limit):
@@ -16,9 +16,9 @@ def tree(branchLen, t, limit):
         t.width(branchLen / 10)
         t.forward(branchLen)
         t.right(20)
-        tree(branchLen-dec, t, limit)
+        tree(branchLen - dec, t, limit)
         t.left(40)
-        tree(branchLen-dec, t, limit)
+        tree(branchLen - dec, t, limit)
         t.right(20)
         t.backward(branchLen)
 

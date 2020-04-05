@@ -1,9 +1,9 @@
-''' Testing list data structure methods '''
+""" Testing list data structure methods """
 import timeit
 
 
 def test1(n):
-    ''' Generates list using concat '''
+    """ Generates list using concat """
     l = []
     for num in range(n):
         l = l + [num]
@@ -11,7 +11,7 @@ def test1(n):
 
 
 def test2(n):
-    ''' Generates list using append method '''
+    """ Generates list using append method """
     l = []
     for num in range(n):
         l.append(num)
@@ -19,13 +19,13 @@ def test2(n):
 
 
 def test3(n):
-    ''' Generates list using comprehension '''
+    """ Generates list using comprehension """
     l = [num for num in range(n)]
     return l
 
 
 def test4(n):
-    ''' Generates list using list typing range '''
+    """ Generates list using list typing range """
     l = list(range(n))
     return l
 

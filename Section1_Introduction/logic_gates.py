@@ -1,8 +1,8 @@
-''' Logic Gates Circuit Builder '''
+""" Logic Gates Circuit Builder """
 
 
-class LogicGate():
-    ''' Logic Gate class '''
+class LogicGate:
+    """ Logic Gate class """
 
     def __init__(self, n):
         self.label = n
@@ -17,7 +17,7 @@ class LogicGate():
 
 
 class BinaryGate(LogicGate):
-    ''' Binary Gate class '''
+    """ Binary Gate class """
 
     def __init__(self, n):
         super().__init__(n)
@@ -26,14 +26,18 @@ class BinaryGate(LogicGate):
 
     def getPinA(self):
         if self.pinA == None:
-            return int(input("Enter Pin A input for gate {} --> ".format(self.getLabel())))
+            return int(
+                input("Enter Pin A input for gate {} --> ".format(self.getLabel()))
+            )
         else:
             return self.pinA.getFrom().getOutput()
 
     def getPinB(self):
 
         if self.pinB == None:
-            return int(input("Enter Pin B input for gate {} --> ".format(self.getLabel())))
+            return int(
+                input("Enter Pin B input for gate {} --> ".format(self.getLabel()))
+            )
         else:
             return self.pinB.getFrom().getOutput()
 
@@ -49,7 +53,7 @@ class BinaryGate(LogicGate):
 
 
 class AndGate(BinaryGate):
-    ''' AND Gate class '''
+    """ AND Gate class """
 
     def __init__(self, n):
         super().__init__(n)
@@ -66,7 +70,7 @@ class AndGate(BinaryGate):
 
 
 class OrGate(BinaryGate):
-    ''' OR Gate class '''
+    """ OR Gate class """
 
     def __init__(self, n):
         super().__init__(n)
@@ -83,7 +87,7 @@ class OrGate(BinaryGate):
 
 
 class NandGate(AndGate):
-    ''' NAND Gate class '''
+    """ NAND Gate class """
 
     def performGateLogic(self):
         if super().performGateLogic():
@@ -93,7 +97,7 @@ class NandGate(AndGate):
 
 
 class NorGate(OrGate):
-    ''' NOR Gate class '''
+    """ NOR Gate class """
 
     def performGateLogic(self):
         if super().performGateLogic():
@@ -103,7 +107,7 @@ class NorGate(OrGate):
 
 
 class XorGate(BinaryGate):
-    ''' XOR Gate class '''
+    """ XOR Gate class """
 
     def __init__(self, n):
         super().__init__(n)
@@ -120,7 +124,7 @@ class XorGate(BinaryGate):
 
 
 class XnorGate(XorGate):
-    ''' XNOR Gate class '''
+    """ XNOR Gate class """
 
     def performGateLogic(self):
         if super().performGateLogic():
@@ -130,7 +134,7 @@ class XnorGate(XorGate):
 
 
 class UnaryGate(LogicGate):
-    '''Unary Gate class '''
+    """Unary Gate class """
 
     def __init__(self, n):
         super().__init__(n)
@@ -138,7 +142,9 @@ class UnaryGate(LogicGate):
 
     def getPin(self):
         if self.pin == None:
-            return int(input("Enter Pin input for gate {} --> ".format(self.getLabel())))
+            return int(
+                input("Enter Pin input for gate {} --> ".format(self.getLabel()))
+            )
         else:
             return self.pin.getFrom().getOutput()
 
@@ -150,7 +156,7 @@ class UnaryGate(LogicGate):
 
 
 class NotGate(UnaryGate):
-    ''' NOT Gate class '''
+    """ NOT Gate class """
 
     def __init__(self, n):
         super().__init__(n)
@@ -163,8 +169,8 @@ class NotGate(UnaryGate):
             return 1
 
 
-class Connector():
-    ''' Connector class with Has-A relationship with 2 from and to gates '''
+class Connector:
+    """ Connector class with Has-A relationship with 2 from and to gates """
 
     def __init__(self, fromgate, togate):
         self.fromgate = fromgate

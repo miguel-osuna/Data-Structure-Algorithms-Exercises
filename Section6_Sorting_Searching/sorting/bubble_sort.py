@@ -1,6 +1,6 @@
 # Bubble Sort Algorithm
 def bubbleSort(numlist):
-    ''' Bubble Sort Algorithm '''
+    """ Bubble Sort Algorithm """
     for passnum in range(len(numlist) - 1, 0, -1):
         for i in range(passnum):
             # Exchanges items
@@ -11,7 +11,7 @@ def bubbleSort(numlist):
 
 
 def shortBubbleSort(numlist):
-    ''' Bubble Sort Algorithm with Interruption '''
+    """ Bubble Sort Algorithm with Interruption """
     exchange = True
     passnum = len(numlist) - 1
 
@@ -19,7 +19,7 @@ def shortBubbleSort(numlist):
         exchange = False
         for i in range(passnum):
             # Exchanges items
-            if numlist[i] > numlist[i+1]:
+            if numlist[i] > numlist[i + 1]:
                 temp = numlist[i]
                 numlist[i] = numlist[i + 1]
                 numlist[i + 1] = temp
@@ -28,7 +28,7 @@ def shortBubbleSort(numlist):
 
 
 def cocktailSort(numlist):
-    ''' Cocktail Sort Algorithm Implementation (Bubble Sort Variation) '''
+    """ Cocktail Sort Algorithm Implementation (Bubble Sort Variation) """
 
     # SEtting variables
     startIndex = 0

@@ -2,7 +2,7 @@ from queue import Queue
 import random
 
 
-class Printer():
+class Printer:
     def __init__(self, ppm):
         self.pagerate = ppm
         self.currentTask = None
@@ -25,7 +25,7 @@ class Printer():
         self.timeRemaining = newtask.getPages() * 60 / self.pagerate
 
 
-class Task():
+class Task:
     def __init__(self, time, pages):
         self.pages = pages
         self.timestamp = time
@@ -61,8 +61,11 @@ def simulation(numSeconds, pagesPerMinute, numStudents, averagePages):
         printer.tick()
 
     averageWait = sum(waitingTimes) / len(waitingTimes)
-    print("Average wait {} secs {} tasks remaining.".format(
-        averageWait, printQueue.size()))
+    print(
+        "Average wait {} secs {} tasks remaining.".format(
+            averageWait, printQueue.size()
+        )
+    )
 
 
 def newPrintTask(numStudents):

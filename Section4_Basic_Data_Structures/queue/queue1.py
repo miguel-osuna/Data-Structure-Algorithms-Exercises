@@ -1,5 +1,5 @@
-class Queue1():
-    ''' Rear -> Front implementation'''
+class Queue1:
+    """ Rear -> Front implementation"""
 
     def __init__(self):
         self.items = []

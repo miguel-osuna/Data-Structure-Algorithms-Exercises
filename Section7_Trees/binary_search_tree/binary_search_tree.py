@@ -1,10 +1,10 @@
-'''
+"""
 Binary Search Tree Implementation 
-'''
+"""
 
 
-class TreeNode():
-    ''' Node for Binary Search Tree '''
+class TreeNode:
+    """ Node for Binary Search Tree """
 
     def __init__(self, key, value, left=None, right=None, parent=None):
         self.key = key
@@ -17,7 +17,7 @@ class TreeNode():
         return str(self.value)
 
     def __iter__(self):
-        ''' Inorder iterator '''
+        """ Inorder iterator """
 
         # If node is not None
         if self:
@@ -32,43 +32,43 @@ class TreeNode():
                     yield elem
 
     def hasRightChild(self):
-        ''' Returns right child of the node '''
+        """ Returns right child of the node """
         return self.rightChild
 
     def hasLeftChild(self):
-        ''' Returns left child of the node '''
+        """ Returns left child of the node """
         return self.leftChild
 
     def hasParent(self):
-        ''' Returns parent of the node '''
+        """ Returns parent of the node """
         return self.parent
 
     def isLeftChild(self):
-        ''' Checks if node is a left child '''
+        """ Checks if node is a left child """
         return self.parent and self.parent.leftChild == self
 
     def isRightChild(self):
-        ''' Checks if node is a right child '''
+        """ Checks if node is a right child """
         return self.parent and self.parent.rightChild == self
 
     def isRoot(self):
-        ''' Checks if node is a root node '''
+        """ Checks if node is a root node """
         return not self.parent
 
     def isLeaf(self):
-        ''' Checks if node is a leaf node '''
+        """ Checks if node is a leaf node """
         return not (self.leftChild and self.rightChild)
 
     def hasChild(self):
-        ''' Checks if node has any child '''
+        """ Checks if node has any child """
         return self.leftChild or self.rightChild
 
     def hasChildren(self):
-        ''' Checks if node has both children '''
+        """ Checks if node has both children """
         return self.leftChild and self.rightChild
 
     def replaceNodeData(self, key, value, leftchild, rightchild):
-        ''' Replaces node's data '''
+        """ Replaces node's data """
         self.key = key
         self.value = value
         self.leftchild = leftchild
@@ -83,7 +83,7 @@ class TreeNode():
             self.rightchild.parent = self
 
     def findSuccessor(self):
-        ''' Returns a new successor for the current node '''
+        """ Returns a new successor for the current node """
 
         succ = None
         # Looks for the smallest child of the right subtree
@@ -105,7 +105,7 @@ class TreeNode():
         return succ
 
     def splitOut(self):
-        ''' Changes the references of the current node '''
+        """ Changes the references of the current node """
         # Current node is a leaf
         if self.isLeaf():
             # Current node is a left child
@@ -142,14 +142,14 @@ class TreeNode():
                 self.rightChild.parent = self.parent
 
     def findMin(self):
-        ''' Returns the child node with the lowest value '''
+        """ Returns the child node with the lowest value """
         current = self
         while current.hasLeftChild():
             current = current.leftChild
         return current
 
 
-class BinarySearchTree():
+class BinarySearchTree:
     def __init__(self):
         self.root = None
         self.size = 0
@@ -176,7 +176,7 @@ class BinarySearchTree():
         self.delete(key)
 
     def put(self, key, value):
-        ''' Adds tree node to the binary search tree '''
+        """ Adds tree node to the binary search tree """
 
         # Check for the value of root node
         if self.root:
@@ -186,11 +186,13 @@ class BinarySearchTree():
         self.size += 1
 
     def _put(self, key, value, currentNode):
-        ''' Private recursive put call '''
+        """ Private recursive put call """
 
         # Replace value if key is the same
         if key == currentNode.key:
-            currentNode.replaceNodeData(key, value, currentNode.leftChild, currentNode.rightChild)
+            currentNode.replaceNodeData(
+                key, value, currentNode.leftChild, currentNode.rightChild
+            )
 
         # Place on left sublist
         elif key < currentNode.key:
@@ -198,8 +200,7 @@ class BinarySearchTree():
             if currentNode.hasLeftChild():
                 self._put(key, value, currentNode.leftChild)
             else:
-                currentNode.leftChild = TreeNode(
-                    key, value, parent=currentNode)
+                currentNode.leftChild = TreeNode(key, value, parent=currentNode)
 
         # Place on right sublist
         else:
@@ -207,11 +208,10 @@ class BinarySearchTree():
             if currentNode.hasRightChild():
                 self._put(key, value, currentNode.rightChild)
             else:
-                currentNode.rightChild = TreeNode(
-                    key, value, parent=currentNode)
+                currentNode.rightChild = TreeNode(key, value, parent=currentNode)
 
     def get(self, key):
-        ''' Gets tree node value from the binary search tree '''
+        """ Gets tree node value from the binary search tree """
 
         # Check for the value of root node
         if self.root:
@@ -220,7 +220,7 @@ class BinarySearchTree():
             return None
 
     def _get(self, key, currentNode):
-        ''' Private recursive get call '''
+        """ Private recursive get call """
 
         # Node not found
         if not currentNode:
@@ -239,7 +239,7 @@ class BinarySearchTree():
             return self._get(key, currentNode.leftChild)
 
     def delete(self, key):
-        ''' Deletes a node from the tree '''
+        """ Deletes a node from the tree """
 
         # There is more than one node in the tree
         if self.size > 1:
@@ -261,7 +261,7 @@ class BinarySearchTree():
             raise KeyError("Error, key not found in tree")
 
     def _remove(self, currentNode):
-        ''' Private method to remove the node from the tree '''
+        """ Private method to remove the node from the tree """
 
         # Node has no children
         if currentNode.isLeaf():
@@ -295,8 +295,12 @@ class BinarySearchTree():
 
                 # Moves current node's left child to the root node
                 else:
-                    currentNode.replaceNodeData(currentNode.leftChild.key, currentNode.leftChild.value,
-                                                currentNode.leftChild.leftChild, currentNode.leftChild.rightChild)
+                    currentNode.replaceNodeData(
+                        currentNode.leftChild.key,
+                        currentNode.leftChild.value,
+                        currentNode.leftChild.leftChild,
+                        currentNode.leftChild.rightChild,
+                    )
 
             # Node to be removed has a right child
             elif currentNode.hasRightChild():
@@ -312,8 +316,12 @@ class BinarySearchTree():
 
                 # Moves current node's right child to the root node
                 else:
-                    currentNode.replaceNodeData(currentNode.rightChild.key, currentNode.rightChild.value,
-                                                currentNode.rightChild.leftChild, currentNode.rightChild.rightChild)
+                    currentNode.replaceNodeData(
+                        currentNode.rightChild.key,
+                        currentNode.rightChild.value,
+                        currentNode.rightChild.leftChild,
+                        currentNode.rightChild.rightChild,
+                    )
 
 
 if __name__ == "__main__":

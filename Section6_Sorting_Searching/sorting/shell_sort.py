@@ -1,5 +1,5 @@
 def shellSort(numlist):
-    ''' Shell Sort Algorithm '''
+    """ Shell Sort Algorithm """
 
     # Sets initial list gap
     sublistgap = len(numlist) // 2
@@ -20,18 +20,18 @@ def shellSort(numlist):
 
 
 def gapInsertionSort(numlist, start, gap):
-    ''' Insertion Sort with Gap '''
+    """ Insertion Sort with Gap """
 
     # Creates sublists for the sublist gap
-    for i in range(start+gap, len(numlist), gap):
+    for i in range(start + gap, len(numlist), gap):
 
         # New item to be inserted into the sublist gap
         currentValue = numlist[i]
         position = i
 
-        while position >= gap and numlist[position-gap] > currentValue:
+        while position >= gap and numlist[position - gap] > currentValue:
             # Shift item to current position
-            numlist[position] = numlist[position-gap]
+            numlist[position] = numlist[position - gap]
             position -= gap
 
         # Sets new position to current value

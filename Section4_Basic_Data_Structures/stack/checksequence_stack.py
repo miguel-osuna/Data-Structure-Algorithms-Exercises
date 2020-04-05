@@ -34,5 +34,5 @@ def check_sequence(string):
 
 
 if __name__ == "__main__":
-    print(check_sequence('{({([][])}())}'))
-    print(check_sequence('[{()]'))
+    print(check_sequence("{({([][])}())}"))
+    print(check_sequence("[{()]"))

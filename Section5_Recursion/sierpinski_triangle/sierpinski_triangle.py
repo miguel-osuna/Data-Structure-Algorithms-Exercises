@@ -24,12 +24,21 @@ def sierpinski(points, degree, t):
 
     drawTriangle(points, colormap[degree], t)
     if degree > 0:
-        sierpinski([points[0], getMid(points[0], points[1]),
-                    getMid(points[0], points[2])], degree-1, t)
-        sierpinski([points[1], getMid(points[0], points[1]),
-                    getMid(points[1], points[2])], degree-1, t)
-        sierpinski([points[2], getMid(points[2], points[1]),
-                    getMid(points[0], points[2])], degree-1, t)
+        sierpinski(
+            [points[0], getMid(points[0], points[1]), getMid(points[0], points[2])],
+            degree - 1,
+            t,
+        )
+        sierpinski(
+            [points[1], getMid(points[0], points[1]), getMid(points[1], points[2])],
+            degree - 1,
+            t,
+        )
+        sierpinski(
+            [points[2], getMid(points[2], points[1]), getMid(points[0], points[2])],
+            degree - 1,
+            t,
+        )
 
 
 if __name__ == "__main__":

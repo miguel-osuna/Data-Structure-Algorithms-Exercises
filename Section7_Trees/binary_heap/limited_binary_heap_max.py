@@ -7,7 +7,7 @@ class LimitedBinaryHeapMax(BinaryHeapMax):
         self.sizeLimit = sizeLimit
 
     def insert(self, i):
-        ''' Insert a value into the binary heap '''
+        """ Insert a value into the binary heap """
 
         # Size of binary heap is under it's limit
         if self.currentSize < self.sizeLimit:
@@ -22,6 +22,7 @@ class LimitedBinaryHeapMax(BinaryHeapMax):
 
 if __name__ == "__main__":
     import random
+
     binary_heap = LimitedBinaryHeapMax(10)
     numlist = [random.randint(0, 100) for _ in range(10)]
     numlist2 = [random.randint(0, 10) for _ in range(5)]

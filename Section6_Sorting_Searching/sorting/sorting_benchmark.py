@@ -1,6 +1,6 @@
 import timeit
 import random
-from bubble_sort import bubbleSort 
+from bubble_sort import bubbleSort
 from bubble_sort import shortBubbleSort
 from selection_sort import selectionSort
 from insertion_sort import insertionSort
@@ -77,6 +77,7 @@ def test_quickSort():
     # Testing and timing
     test = timeit.Timer(statement, setup)
     print("quickSort() =>", test.timeit(number=1000), "seconds")
+
 
 # Testing every sorting algorithm
 test_bubbleSort()

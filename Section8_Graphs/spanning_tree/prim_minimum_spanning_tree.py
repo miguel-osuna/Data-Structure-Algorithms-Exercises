@@ -1,5 +1,6 @@
 import os
 import sys
+
 base_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(base_dir)
 sys.path.append(parent_dir)
@@ -9,14 +10,14 @@ from graph_adj_list import GraphBFS, VertexBFS
 
 
 def prim(g, start):
-    ''' Prim's Algorithm to find the Minimum Spanning Tree of a Graph '''
+    """ Prim's Algorithm to find the Minimum Spanning Tree of a Graph """
 
-    # Initialize every vertex in the graph 
+    # Initialize every vertex in the graph
     for vertex in g:
         vertex.setPredecessor(None)
         vertex.setDistance(sys.maxsize)
-    
-    # Get the starting vertex 
+
+    # Get the starting vertex
     start = g.getVertex(start)
     start.setDistance(0)
 
@@ -36,7 +37,7 @@ def prim(g, start):
                 nextVert.setPredecessor(currentVert)
                 nextVert.setDistance(newCost)
                 pq.decreaseKey(nextVert, newCost)
-                
+
 
 def printPath(g, end):
     path = []
@@ -48,14 +49,15 @@ def printPath(g, end):
     for vert in path:
         print("{} distance = {}".format(vert.getId(), vert.getDistance()))
 
+
 def generateInternetRadioGraph():
     g = GraphBFS()
-    
+
     # Vertex A Edges
     g.addEdge("A", "B", 2)
     g.addEdge("A", "C", 3)
 
-    # Vertex B Edges 
+    # Vertex B Edges
     g.addEdge("B", "A", 2)
     g.addEdge("B", "C", 1)
     g.addEdge("B", "D", 1)
@@ -70,12 +72,12 @@ def generateInternetRadioGraph():
     g.addEdge("D", "B", 1)
     g.addEdge("D", "E", 1)
 
-    # Vertex E Edges 
+    # Vertex E Edges
     g.addEdge("E", "B", 4)
     g.addEdge("E", "D", 1)
     g.addEdge("E", "F", 1)
 
-    # Vertex F Edges 
+    # Vertex F Edges
     g.addEdge("F", "E", 1)
     g.addEdge("F", "C", 5)
     g.addEdge("F", "G", 1)
@@ -85,16 +87,8 @@ def generateInternetRadioGraph():
 
     return g
 
+
 if __name__ == "__main__":
     g = generateInternetRadioGraph()
     prim(g, "A")
     printPath(g, "G")
-    
-
-
-
-        
-
-
-
-

@@ -1,5 +1,5 @@
 def binarySearch(numlist, num):
-    ''' Binary Search Function '''
+    """ Binary Search Function """
     start = 0
     end = len(numlist) - 1
     found = False
@@ -18,7 +18,7 @@ def binarySearch(numlist, num):
 
 
 def binarySearchRec(numlist, num):
-    ''' Recursive Binary Search Function '''
+    """ Recursive Binary Search Function """
     if len(numlist) == 0:
         return False
     else:
@@ -29,11 +29,11 @@ def binarySearchRec(numlist, num):
             if numlist[midpoint] > num:
                 return binarySearchRec(numlist[:midpoint], num)
             else:
-                return binarySearchRec(numlist[midpoint+1:], num)
+                return binarySearchRec(numlist[midpoint + 1 :], num)
 
 
 def binarySearchRecInPlace(numlist, startIndex, endIndex, num):
-    ''' Recursive Binary Search In-Place Function '''
+    """ Recursive Binary Search In-Place Function """
     if (endIndex - startIndex) == 0:
         return False
 

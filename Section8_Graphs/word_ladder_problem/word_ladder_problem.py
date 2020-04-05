@@ -1,13 +1,15 @@
 import os
 import sys
+
 base_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(base_dir)
 sys.path.append(parent_dir)
 sys.path.insert(0, "Section8_Graphs/")
 from graph_adj_list import GraphBFS, VertexBFS
 
+
 def buildGraph(wordFile):
-    ''' Builds a word ladder from a list of words and returns it as a GraphBFS '''
+    """ Builds a word ladder from a list of words and returns it as a GraphBFS """
     fileName = os.path.join(base_dir, wordFile)
 
     if ".txt" not in fileName:
@@ -22,7 +24,7 @@ def buildGraph(wordFile):
         word = line[:-1]
         for i in range(len(word)):
             # Generates len(word) number of buckets
-            bucket = word[:i] + "_" + word[i+1:]
+            bucket = word[:i] + "_" + word[i + 1 :]
             bucket = bucket.upper()
 
             # Append word to bucket list
@@ -43,7 +45,7 @@ def buildGraph(wordFile):
 
 
 def traverseGraph(g, startKey, endKey):
-    ''' Traverse graph from end to beginning '''
+    """ Traverse graph from end to beginning """
     temp = g.getVertex(endKey)
     path = []
     path.insert(0, temp.getId())
@@ -54,7 +56,8 @@ def traverseGraph(g, startKey, endKey):
 
     for node in path:
         print(node)
-    
+
+
 if __name__ == "__main__":
     g = buildGraph("wordlist")
     g.bfs("FOOL")

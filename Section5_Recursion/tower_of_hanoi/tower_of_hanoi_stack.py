@@ -1,19 +1,16 @@
 import sys
+
 sys.path.insert(0, "Section4_Basic_Data_Structures/stack")
 from stack import Stack
 
 
-class TowerOfHanoi():
+class TowerOfHanoi:
     def __init__(self, numDisks, src, des, aux):
         self.numDisks = numDisks
         self.src = src
         self.des = des
         self.aux = aux
-        self.towers = {
-            src: Stack(),
-            des: Stack(),
-            aux: Stack()
-        }
+        self.towers = {src: Stack(), des: Stack(), aux: Stack()}
         for i in range(self.numDisks, 0, -1):
             self.towers[src].push(i)
 
@@ -23,9 +20,9 @@ class TowerOfHanoi():
 
     def moveTower(self, n, src, des, aux):
         if n >= 1:
-            self.moveTower(n-1, src, aux, des)
+            self.moveTower(n - 1, src, aux, des)
             self.moveDisk(src, des)
-            self.moveTower(n-1, aux, des, src)
+            self.moveTower(n - 1, aux, des, src)
 
     def printTowers(self):
         print("\nSource: {}".format(self.towers[self.src]))

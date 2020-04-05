@@ -7,7 +7,7 @@ OBSTACLE = "+"
 DEAD_END = "-"
 
 
-class Maze():
+class Maze:
     # Initialices a maze
     def __init__(self, mazeFileName):
         # Setup
@@ -46,8 +46,12 @@ class Maze():
         self.w = turtle.Screen()
 
         # Sets coordinates for bottom left and top right corners respectively
-        self.w.setworldcoordinates(-(columnsInMaze-1)/2-0.5, -(
-            rowsInMaze-1)/2-0.5, (columnsInMaze-1)/2+0.5, (rowsInMaze-1)/2+0.5)
+        self.w.setworldcoordinates(
+            -(columnsInMaze - 1) / 2 - 0.5,
+            -(rowsInMaze - 1) / 2 - 0.5,
+            (columnsInMaze - 1) / 2 + 0.5,
+            (rowsInMaze - 1) / 2 + 0.5,
+        )
 
     # Operator overloading
     def __getitem__(self, idx):
@@ -56,7 +60,7 @@ class Maze():
     # Draws box
     def drawCenteredBox(self, x, y, color):
         self.t.up()
-        self.t.goto(x-0.5, y-0.5)
+        self.t.goto(x - 0.5, y - 0.5)
         self.t.color(color)
         self.t.fillcolor(color)
         self.t.setheading(90)
@@ -75,7 +79,8 @@ class Maze():
             for x in range(self.columnsInMaze):
                 if self.mazeList[y][x] == OBSTACLE:
                     self.drawCenteredBox(
-                        x+self.xTranslate, -y+self.yTranslate, "red")
+                        x + self.xTranslate, -y + self.yTranslate, "red"
+                    )
         self.t.color("black")
         self.t.fillcolor("blue")
         self.w.update()
@@ -83,9 +88,8 @@ class Maze():
 
     def moveTurtle(self, x, y):
         self.t.up()
-        self.t.setheading(self.t.towards(
-            x+self.xTranslate, -y+self.yTranslate))
-        self.t.goto(x+self.xTranslate, -y+self.yTranslate)
+        self.t.setheading(self.t.towards(x + self.xTranslate, -y + self.yTranslate))
+        self.t.goto(x + self.xTranslate, -y + self.yTranslate)
 
     def dropBreadcrumb(self, color):
         self.t.dot(10, color)
@@ -110,7 +114,12 @@ class Maze():
             self.dropBreadcrumb(color)
 
     def isExit(self, row, col):
-        return (row == 0 or row == self.rowsInMaze-1 or col == 0 or col == self.columnsInMaze-1)
+        return (
+            row == 0
+            or row == self.rowsInMaze - 1
+            or col == 0
+            or col == self.columnsInMaze - 1
+        )
 
 
 def searchFrom(maze, startRow, startColumn):
@@ -136,10 +145,12 @@ def searchFrom(maze, startRow, startColumn):
     maze.updatePosition(startRow, startColumn, TRIED)
 
     # Otherwise, use logic OR to test other directions
-    found = searchFrom(maze, startRow-1, startColumn) or \
-        searchFrom(maze, startRow+1, startColumn) or \
-        searchFrom(maze, startRow, startColumn-1) or \
-        searchFrom(maze, startRow, startColumn+1)
+    found = (
+        searchFrom(maze, startRow - 1, startColumn)
+        or searchFrom(maze, startRow + 1, startColumn)
+        or searchFrom(maze, startRow, startColumn - 1)
+        or searchFrom(maze, startRow, startColumn + 1)
+    )
 
     if found:
         maze.updatePostion(startRow, startColumn, PART_OF_PATH)

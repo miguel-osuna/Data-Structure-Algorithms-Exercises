@@ -15,7 +15,7 @@ class BalancedBinarySearchTree(BinarySearchTree):
         self.put(key, value)
 
     def put(self, key, value):
-        ''' Adds balanced tree node to the balanced binary search tree '''
+        """ Adds balanced tree node to the balanced binary search tree """
 
         # Check for the value of root node
         if self.root:
@@ -25,15 +25,14 @@ class BalancedBinarySearchTree(BinarySearchTree):
         self.size += 1
 
     def _put(self, key, value, currentNode):
-        ''' Overrides BinarySearchTree class method '''
+        """ Overrides BinarySearchTree class method """
         # Place on left sublist
         if key < currentNode.key:
             # Looks recursively until there is no left child node left
             if currentNode.hasLeftChild():
                 self._put(key, value, currentNode.leftChild)
             else:
-                currentNode.leftChild = BalancedTreeNode(
-                    key, value, parent=currentNode)
+                currentNode.leftChild = BalancedTreeNode(key, value, parent=currentNode)
                 self.updateBalance(currentNode.leftChild)
 
         # Place on right sublist
@@ -43,11 +42,12 @@ class BalancedBinarySearchTree(BinarySearchTree):
                 self._put(key, value, currentNode.rightChild)
             else:
                 currentNode.rightChild = BalancedTreeNode(
-                    key, value, parent=currentNode)
+                    key, value, parent=currentNode
+                )
                 self.updateBalance(currentNode.rightChild)
 
     def updateBalance(self, currentNode):
-        ''' Recursive call to update node's balance factor '''
+        """ Recursive call to update node's balance factor """
         if currentNode.balanceFactor > 1 or currentNode.balanceFactor < -1:
             self.rebalance(currentNode)
             return

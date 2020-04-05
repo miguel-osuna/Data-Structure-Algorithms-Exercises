@@ -25,7 +25,7 @@ def memoize(function):
 
 
 # Decorator Memoize Class
-class Memoize():
+class Memoize:
     def __init__(self, function):
         self.function = function
         self.memo = {}
@@ -43,7 +43,7 @@ def fibonacci(num):
     elif num == 1:
         result = 1
     else:
-        result = fibonacci(num-1) + fibonacci(num-2)
+        result = fibonacci(num - 1) + fibonacci(num - 2)
     return result
 
 
