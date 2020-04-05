@@ -151,7 +151,11 @@ class BalancedBinarySearchTree(BinarySearchTree):
         newRoot.balanceFactor -= 1 + max(0, oldRoot.balanceFactor)
 
 
-if __name__ == "__main__":
+def main():
     node = BalancedTreeNode(0, "A", 0)
     tree = BalancedBinarySearchTree()
     print("Tree created")
+
+
+if __name__ == "__main__":
+    main()

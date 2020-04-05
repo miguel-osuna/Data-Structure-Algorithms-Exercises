@@ -20,7 +20,7 @@ class LimitedBinaryHeapMin(BinaryHeapMin):
             self.heaplist.pop()
 
 
-if __name__ == "__main__":
+def main():
     import random
 
     binary_heap = LimitedBinaryHeapMin(10)
@@ -36,3 +36,7 @@ if __name__ == "__main__":
     for num in numlist2:
         binary_heap.insert(num)
         print(num, binary_heap)
+
+
+if __name__ == "__main__":
+    main()

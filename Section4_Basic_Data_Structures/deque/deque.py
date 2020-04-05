@@ -24,7 +24,7 @@ class Deque:
         return len(self.items)
 
 
-if __name__ == "__main__":
+def main():
     deque = Deque()
     deque.addFront("Dog")
     print(deque)
@@ -33,3 +33,7 @@ if __name__ == "__main__":
     deque.addFront(23)
     print(deque)
     print(deque.size())
+
+
+if __name__ == "__main__":
+    main()

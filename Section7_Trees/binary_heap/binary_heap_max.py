@@ -81,10 +81,14 @@ class BinaryHeapMax:
             i -= 1
 
 
-if __name__ == "__main__":
+def main():
     import random
 
     numlist = [random.randint(0, 100) for i in range(100)]
     binaryheap = BinaryHeapMax()
     binaryheap.buildHeap(numlist)
     print(binaryheap)
+
+
+if __name__ == "__main__":
+    main()

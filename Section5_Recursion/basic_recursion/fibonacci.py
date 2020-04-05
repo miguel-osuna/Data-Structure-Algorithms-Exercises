@@ -47,7 +47,10 @@ def fibonacci(num):
     return result
 
 
-if __name__ == "__main__":
-
+def main():
     print(fibonacci(30))
     print(fibonacci(20))
+
+
+if __name__ == "__main__":
+    main()

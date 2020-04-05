@@ -80,10 +80,17 @@ def test_quickSort():
 
 
 # Testing every sorting algorithm
-test_bubbleSort()
-test_shortBubbleSort()
-test_selectionSort()
-test_insertionSort()
-test_shellSort()
-test_mergeSort()
-test_quickSort()
+
+
+def main():
+    test_bubbleSort()
+    test_shortBubbleSort()
+    test_selectionSort()
+    test_insertionSort()
+    test_shellSort()
+    test_mergeSort()
+    test_quickSort()
+
+
+if __name__ == " __main__":
+    main()

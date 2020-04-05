@@ -33,5 +33,10 @@ def test_dequeue():
     print("Queue2.dequeue =>", test_deq2.timeit(number=1000), "seconds")
 
 
-test_enqueue()
-test_dequeue()
+def main():
+    test_enqueue()
+    test_dequeue()
+
+
+if __name__ == "__main__":
+    main()

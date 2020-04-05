@@ -21,7 +21,7 @@ class Stack:
         return len(self.items)
 
 
-if __name__ == "__main__":
+def main():
     astack = Stack()
     print("Stack is empty? {}".format(astack.isEmpty()))
     astack.push(1)
@@ -31,3 +31,7 @@ if __name__ == "__main__":
     print("Last value is: {}".format(astack.peek()))
     print("Stack size is: {}".format(astack.size()))
     print("Stack items are: {}".format(astack))
+
+
+if __name__ == "__main__":
+    main()

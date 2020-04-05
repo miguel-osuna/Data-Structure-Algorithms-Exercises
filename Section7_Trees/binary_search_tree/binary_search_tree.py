@@ -324,7 +324,7 @@ class BinarySearchTree:
                     )
 
 
-if __name__ == "__main__":
+def main():
     mytree = BinarySearchTree()
     mytree[3] = "red"
     mytree[4] = "blue"
@@ -365,3 +365,7 @@ if __name__ == "__main__":
     # print("\nPrinting binary search tree with random integers")
     # for num in numlist:
     #     print(tree_test[num])
+
+
+if __name__ == "__main__":
+    main()

@@ -268,7 +268,7 @@ class GraphDFS(GraphBFS):
         startVertex.setFinish(self.time)
 
 
-if __name__ == "__main__":
+def main():
     graph = Graph()
 
     for num in range(6):
@@ -302,3 +302,7 @@ if __name__ == "__main__":
     print("\nTranspose of Graph")
     for vertex in graph:
         print(vertex)
+
+
+if __name__ == "__main__":
+    main()

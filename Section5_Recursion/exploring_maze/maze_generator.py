@@ -57,6 +57,10 @@ def readMaze(file_name):
     maze_file.close()
 
 
-if __name__ == "__main__":
+def main():
     generateMaze(11, 22, "maze_test")
     readMaze("maze_test")
+
+
+if __name__ == "__main__":
+    main()

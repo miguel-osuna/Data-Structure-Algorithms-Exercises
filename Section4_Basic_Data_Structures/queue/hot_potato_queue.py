@@ -19,10 +19,14 @@ def hot_potato(namelist, num):
     return simqueue.dequeue()
 
 
-if __name__ == "__main__":
+def main():
     names = ["Bill", "David", "Susan", "Jane", "Kent", "Brad"]
     print(hot_potato(names, 7))
     print(hot_potato(names, 7))
     print(hot_potato(names, 7))
     print(hot_potato(names, 7))
     print(hot_potato(names, 7))
+
+
+if __name__ == "__main__":
+    main()

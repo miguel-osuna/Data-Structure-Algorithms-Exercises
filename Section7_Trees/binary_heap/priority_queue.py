@@ -33,7 +33,7 @@ class PriorityQueue:
         self.heapItems.buildHeap(alist)
 
 
-if __name__ == "__main__":
+def main():
     import random
 
     tasks = PriorityQueue()
@@ -47,3 +47,7 @@ if __name__ == "__main__":
     for _ in range(tasks.size()):
         print("Item removed: {}".format(tasks.dequeue()))
         print("Priority Queue's content: {}".format(tasks))
+
+
+if __name__ == "__main__":
+    main()

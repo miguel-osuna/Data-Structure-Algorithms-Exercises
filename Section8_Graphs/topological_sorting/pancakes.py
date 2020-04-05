@@ -49,7 +49,7 @@ def topologicalSorting(dfsGraph):
     return sortedVertices
 
 
-if __name__ == "__main__":
+def main():
     pancakeGraph = buildPancakeGraph()
     pancakeGraph.dfs()
 
@@ -60,3 +60,7 @@ if __name__ == "__main__":
 
     for vertex in sortedGraph:
         print(vertex.id, vertex.finish)
+
+
+if __name__ == "__main__":
+    main()

@@ -26,9 +26,13 @@ def orderedLinearSearch(numlist, num):
     return found
 
 
-if __name__ == "__main__":
+def main():
     numlist = [2, 4, 6, 8, 10]
     print(unorderedLinearSearch(numlist, 2))
     print(unorderedLinearSearch(numlist, 1))
     print(orderedLinearSearch(numlist, 2))
     print(orderedLinearSearch(numlist, 5))
+
+
+if __name__ == "__main__":
+    main()

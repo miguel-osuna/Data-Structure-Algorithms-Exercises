@@ -11,5 +11,9 @@ def revstring(string):
     return str(rev_string)
 
 
-if __name__ == "__main__":
+def main():
     print(revstring("Hello"))
+
+
+if __name__ == "__main__":
+    main()

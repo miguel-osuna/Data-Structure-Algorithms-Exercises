@@ -184,7 +184,7 @@ class DoublyLinkedList:
         return self.front == None and self.end == None
 
 
-if __name__ == "__main__":
+def main():
     dll = DoublyLinkedList()
     print(dll.size())
 
@@ -207,3 +207,7 @@ if __name__ == "__main__":
     print(dll2)
     dll2.addEnd("Testing")
     print(dll2)
+
+
+if __name__ == "__main__":
+    main()

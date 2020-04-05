@@ -60,7 +60,7 @@ def cocktailSort(numlist):
         startIndex += 1
 
 
-if __name__ == "__main__":
+def main():
     numlist = [345, 23, 54, 64, 98, 22, 45, 18, 78]
     bubbleSort(numlist)
     print(numlist)
@@ -77,3 +77,7 @@ if __name__ == "__main__":
     charlist = list("PYTHON")
     shortBubbleSort(charlist)
     print(charlist)
+
+
+if __name__ == "__main__":
+    main()

@@ -43,7 +43,7 @@ def makePartition(numlist, startIndex, endIndex):
     return pivotIndex
 
 
-if __name__ == "__main__":
+def main():
     numlist = [7, 2, 1, 6, 8, 5, 3, 4]
     quickSort(numlist)
     print(numlist)
@@ -51,3 +51,7 @@ if __name__ == "__main__":
     charlist = list("PYTHON")
     quickSort(charlist)
     print(charlist)
+
+
+if __name__ == "__main__":
+    main()

@@ -79,6 +79,10 @@ def newPrintTask(numStudents):
         return False
 
 
-if __name__ == "__main__":
+def main():
     for _ in range(10):
         simulation(3600, 10, 10, 20)
+
+
+if __name__ == "__main__":
+    main()

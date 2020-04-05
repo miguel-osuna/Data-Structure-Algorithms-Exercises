@@ -30,7 +30,11 @@ class TowerOfHanoi:
         print("Destination: {}".format(self.towers[self.des]))
 
 
-if __name__ == "__main__":
+def main():
     toh = TowerOfHanoi(3, "A", "C", "B")
     toh.moveTower(3, "A", "C", "B")
     toh.printTowers()
+
+
+if __name__ == "__main__":
+    main()

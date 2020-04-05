@@ -9,5 +9,9 @@ def moveDisk(fromPole, toPole):
     print("Moving disk from " + str(fromPole) + " to " + str(toPole))
 
 
-if __name__ == "__main__":
+def main():
     moveTower(3, "A", "C", "B")
+
+
+if __name__ == "__main__":
+    main()

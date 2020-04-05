@@ -91,7 +91,7 @@ class BinaryHeapMin:
             i -= 1
 
 
-if __name__ == "__main__":
+def main():
     import random
 
     # Using insert method
@@ -111,3 +111,7 @@ if __name__ == "__main__":
     bh = BinaryHeapMin()
     bh.buildHeap(numlist2)
     print(bh)
+
+
+if __name__ == "__main__":
+    main()

@@ -28,6 +28,10 @@ class MSDie:
         return self.current_value
 
 
-if __name__ == "__main__":
+def main():
     die = MSDie(6)
     print(die)
+
+
+if __name__ == "__main__":
+    main()

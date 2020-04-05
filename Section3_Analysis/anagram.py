@@ -63,7 +63,11 @@ def anagramSolution4(s1, s2):
     return match
 
 
-if __name__ == "__main__":
+def main():
     print(is_anagram("jabon", "banjo"))
     print(anagramSolution2("jabon", "banjo"))
     print(anagramSolution4("jabon", "banjo"))
+
+
+if __name__ == "__main__":
+    main()

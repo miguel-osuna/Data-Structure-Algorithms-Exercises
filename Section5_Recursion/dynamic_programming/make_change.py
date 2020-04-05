@@ -64,7 +64,7 @@ def printCoinsUsed(change, coinsUsed):
     print(coinList)
 
 
-if __name__ == "__main__":
+def main():
     coinValueList = [1, 5, 10, 25]
     change = 63
 
@@ -95,3 +95,7 @@ if __name__ == "__main__":
         )
     )
     printCoinsUsed(change, coinsUsed)
+
+
+if __name__ == "__main__":
+    main()

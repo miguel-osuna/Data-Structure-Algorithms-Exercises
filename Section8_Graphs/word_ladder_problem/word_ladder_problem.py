@@ -58,7 +58,11 @@ def traverseGraph(g, startKey, endKey):
         print(node)
 
 
-if __name__ == "__main__":
+def main():
     g = buildGraph("wordlist")
     g.bfs("FOOL")
     traverseGraph(g, "FOOL", "SAGE")
+
+
+if __name__ == "__main__":
+    main()

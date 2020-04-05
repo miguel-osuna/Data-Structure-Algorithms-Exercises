@@ -72,7 +72,7 @@ def buildTree(a, b, c, d, e, f):
     return root
 
 
-if __name__ == "__main__":
+def main():
     r = BinaryTree(0)
     insertLeft(r, "left")
     insertRight(r, "right")
@@ -107,3 +107,7 @@ if __name__ == "__main__":
     setRootValue(r, 9)
     insertLeft(r, 11)
     print(r)
+
+
+if __name__ == "__main__":
+    main()

@@ -49,9 +49,14 @@ def binarySearchRecInPlace(numlist, startIndex, endIndex, num):
                 return binarySearchRecInPlace(numlist, midpoint + 1, endIndex, num)
 
 
-if __name__ == "__main__":
+def main():
     numlist = [17, 20, 26, 31, 44, 54, 55, 65, 77, 93]
     num = 54
     print(binarySearch(numlist, num))
     print(binarySearchRec(numlist, num))
     print(binarySearchRecInPlace(numlist, 0, len(numlist) - 1, num))
+
+
+if __name__ == "__main__":
+    main()
+    

@@ -100,7 +100,7 @@ class Fraction:
         return self.den
 
 
-if __name__ == "__main__":
+def main():
     x = Fraction(-1, 0)
     y = Fraction(2, 3)
     print(x)
@@ -113,3 +113,7 @@ if __name__ == "__main__":
     print(x - y)
     print(x.getNum())
     print(x.getDen())
+
+
+if __name__ == "__main__":
+    main()

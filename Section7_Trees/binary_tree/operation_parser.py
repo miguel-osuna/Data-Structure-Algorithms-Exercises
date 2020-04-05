@@ -104,7 +104,7 @@ def printExpression(tree):
     return eval
 
 
-if __name__ == "__main__":
+def main():
     tree = operationParser("((3+4)*5)")
     print(evalExpression(tree))
     print(printExpression(tree))
@@ -116,3 +116,8 @@ if __name__ == "__main__":
     boolean_tree = operationParser("(T^F)")
     print(evalExpression(boolean_tree))
     print(printExpression(boolean_tree))
+
+
+if __name__ == "__main__":
+    main()
+

@@ -45,7 +45,7 @@ def mergeSortInPlace(numlist, startIndex, endIndex):
     """ Merge Sort In-Place Algorithm """
 
 
-if __name__ == "__main__":
+def main():
     numlist = [345, 23, 54, 64, 98, 22, 45, 18, 78]
     mergeSort(numlist)
     print(numlist)
@@ -53,3 +53,7 @@ if __name__ == "__main__":
     charlist = list("PYTHON")
     mergeSort(charlist)
     print(charlist)
+
+
+if __name__ == "__main__":
+    main()

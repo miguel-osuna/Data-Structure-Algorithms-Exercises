@@ -97,7 +97,7 @@ class HashTable:
                 self.data[nextslot] = data
 
 
-if __name__ == "__main__":
+def main():
     H = HashTable()
     H[54] = "cat"
     H[26] = "dog"
@@ -116,3 +116,7 @@ if __name__ == "__main__":
     print(H)
     print("human" in H)
     print("dog" in H)
+
+
+if __name__ == "__main__":
+    main()

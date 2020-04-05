@@ -38,7 +38,7 @@ def gapInsertionSort(numlist, start, gap):
         numlist[position] = currentValue
 
 
-if __name__ == "__main__":
+def main():
     numlist = [345, 23, 54, 64, 98, 22, 45, 18, 78]
     shellSort(numlist)
     print(numlist)
@@ -46,3 +46,7 @@ if __name__ == "__main__":
     charlist = list("PYTHON")
     shellSort(charlist)
     print(charlist)
+
+
+if __name__ == "__main__":
+    main()

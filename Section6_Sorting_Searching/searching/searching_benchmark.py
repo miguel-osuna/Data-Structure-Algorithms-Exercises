@@ -34,6 +34,11 @@ def test_binarySearch():
     print("binarySearch() =>", test.timeit(number=1000), "seconds")
 
 
-test_unorderedLinearSearch()
-test_orderedLinearSearch()
-test_binarySearch()
+def main():
+    test_unorderedLinearSearch()
+    test_orderedLinearSearch()
+    test_binarySearch()
+
+
+if __name__ == "__main__":
+    main()

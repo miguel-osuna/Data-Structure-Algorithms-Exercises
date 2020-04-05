@@ -6,7 +6,11 @@ def hashForString(str, tablesize):
     return sum % tablesize
 
 
-if __name__ == "__main__":
+def main():
     print(hashForString("cat", 11))
     print(hashForString("race", 11))
     print(hashForString("care", 11))
+
+
+if __name__ == "__main__":
+    main()

@@ -33,6 +33,10 @@ def check_sequence(string):
         return False
 
 
-if __name__ == "__main__":
+def main():
     print(check_sequence("{({([][])}())}"))
     print(check_sequence("[{()]"))
+
+
+if __name__ == "__main__":
+    main()

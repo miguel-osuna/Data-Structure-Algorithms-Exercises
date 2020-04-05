@@ -180,10 +180,14 @@ def buildTestGraph():
     return g
 
 
-if __name__ == "__main__":
+def main():
     g = buildTestGraph()
 
     dijkstra(g, "u")
     getShortestPath(g, "u", "y")
     print("\n")
     getShortestPath(g, "u", "z")
+
+
+if __name__ == "__main__":
+    main()

@@ -17,7 +17,7 @@ def selectionSort(numlist):
         numlist[maxNumPos] = temp
 
 
-if __name__ == "__main__":
+def main():
     numlist = [345, 23, 54, 64, 98, 22, 45, 18, 78]
     selectionSort(numlist)
     print(numlist)
@@ -25,3 +25,7 @@ if __name__ == "__main__":
     charlist = list("PYTHON")
     selectionSort(charlist)
     print(charlist)
+
+
+if __name__ == "__main__":
+    main()

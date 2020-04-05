@@ -18,7 +18,11 @@ def sumListRecursion(numList):
         return numList[0] + sumListRecursion(numList[1:])
 
 
-if __name__ == "__main__":
+def main():
     numlist = [1, 2, 3, 4, 5]
     print(sumList(numlist))
     print(sumListRecursion(numlist))
+
+
+if __name__ == "__main__":
+    main()

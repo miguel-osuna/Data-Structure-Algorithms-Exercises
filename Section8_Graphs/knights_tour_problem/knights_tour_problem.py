@@ -80,7 +80,7 @@ def knightTour(depthLevel, vertPath, currentVert, depthLimit):
     return done
 
 
-if __name__ == "__main__":
+def main():
     boardGraph = buildBoardGraph(8)
     for vertex in boardGraph:
         print(vertex)
@@ -88,3 +88,7 @@ if __name__ == "__main__":
     path = []
     print(knightTour(0, path, boardGraph.getVertex(0), 64))
     print("OK")
+
+
+if __name__ == "__main__":
+    main()

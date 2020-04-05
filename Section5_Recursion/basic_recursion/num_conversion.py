@@ -36,7 +36,7 @@ def isPalindrome(string):
         return False
 
 
-if __name__ == "__main__":
+def main():
     print(toStr(769, 10))
     print(toStr(769, 2))
     print(toStr(769, 16))
@@ -45,3 +45,7 @@ if __name__ == "__main__":
     print(isPalindrome("hello"))
     print(revStr("anita lava la tina"))
     print(isPalindrome("anita lava la tina"))
+
+
+if __name__ == "__main__":
+    main()

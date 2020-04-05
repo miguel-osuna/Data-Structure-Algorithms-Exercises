@@ -88,7 +88,11 @@ def generateInternetRadioGraph():
     return g
 
 
-if __name__ == "__main__":
+def main():
     g = generateInternetRadioGraph()
     prim(g, "A")
     printPath(g, "G")
+
+
+if __name__ == "__main__":
+    main()

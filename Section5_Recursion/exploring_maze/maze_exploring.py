@@ -161,7 +161,7 @@ def searchFrom(maze, startRow, startColumn):
     return found
 
 
-if __name__ == "__main__":
+def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     mazeFile = os.path.join(base_dir, "maze_test.txt")
 
@@ -170,3 +170,7 @@ if __name__ == "__main__":
     myMaze.updatePosition(myMaze.startRow, myMaze.startCol)
 
     searchFrom(myMaze, myMaze.startRow, myMaze.startCol)
+
+
+if __name__ == "__main__":
+    main()

@@ -161,10 +161,14 @@ class UnorderedList:
         pass
 
 
-if __name__ == "__main__":
+def main():
     linkedlist = UnorderedList()
     linkedlist.insert(0, 0)
     linkedlist.insert(1, 1)
     linkedlist.insert(2, 2)
 
     print(linkedlist)
+
+
+if __name__ == "__main__":
+    main()

@@ -23,7 +23,7 @@ def tree(branchLen, t, limit):
         t.backward(branchLen)
 
 
-if __name__ == "__main__":
+def main():
     myTurtle = turtle.Turtle()
     myWindow = turtle.Screen()
 
@@ -36,3 +36,7 @@ if __name__ == "__main__":
     # Fractal tree
     tree(75, myTurtle, 5)
     myWindow.exitonclick()
+
+
+if __name__ == "__main__":
+    main()

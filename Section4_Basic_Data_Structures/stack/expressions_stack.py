@@ -81,10 +81,14 @@ def postfixEval(expression):
     return operandstack.pop()
 
 
-if __name__ == "__main__":
+def main():
     print(infixToPostfix("A * B + C * D"))
     print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
 
     print(postfixEval("4 5 6 * +"))
     print(postfixEval("7 8 + 3 2 + /"))
     print(postfixEval("1 1 + 3 * 9 /"))
+
+
+if __name__ == "__main__":
+    main()

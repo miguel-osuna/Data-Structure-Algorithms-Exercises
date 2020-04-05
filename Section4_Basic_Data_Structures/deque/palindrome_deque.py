@@ -20,7 +20,11 @@ def is_palindrome(word):
     return still_equal
 
 
-if __name__ == "__main__":
+def main():
     print(is_palindrome("anita lava la tina"))
     print(is_palindrome("lsdkjfskf"))
     print(is_palindrome("radar"))
+
+
+if __name__ == "__main__":
+    main()

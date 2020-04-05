@@ -41,7 +41,7 @@ def sierpinski(points, degree, t):
         )
 
 
-if __name__ == "__main__":
+def main():
     t = turtle.Turtle()
     w = turtle.Screen()
 
@@ -49,3 +49,7 @@ if __name__ == "__main__":
     sierpinski(coords, 6, t)
 
     w.exitonclick()
+
+
+if __name__ == "__main__":
+    main()

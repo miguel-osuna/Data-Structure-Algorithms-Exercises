@@ -113,7 +113,7 @@ def postorder(tree):
         print(tree)
 
 
-if __name__ == "__main__":
+def main():
     root = BinaryTree("a")
     print(root.getRootValue())
 
@@ -142,3 +142,7 @@ if __name__ == "__main__":
     language_tree.insertRight("interpreted")
     language_tree.getRightChild().insertLeft("Python")
     language_tree.getRightChild().insertRight("Scheme")
+
+
+if __name__ == "__main__":
+    main()

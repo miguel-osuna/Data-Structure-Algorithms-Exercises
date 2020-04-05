@@ -17,7 +17,11 @@ def divideByBase(num, base):
     return binary_num
 
 
-if __name__ == "__main__":
+def main():
     print(divideByBase(233, 2))
     print(divideByBase(233, 8))
     print(divideByBase(255, 16))
+
+
+if __name__ == "__main__":
+    main()
