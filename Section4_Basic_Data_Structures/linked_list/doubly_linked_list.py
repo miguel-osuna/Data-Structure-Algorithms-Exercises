@@ -7,22 +7,22 @@ class Node:
     def __str__(self):
         return str(self.data)
 
-    def getData(self):
+    def get_data(self):
         return self.data
 
-    def getNext(self):
+    def get_next(self):
         return self.next
 
-    def getPrevious(self):
+    def get_previous(self):
         return self.previous
 
-    def setData(self, data):
+    def set_data(self, data):
         self.data = data
 
-    def setNext(self, node):
+    def set_next(self, node):
         self.next = node
 
-    def setPrevious(self, node):
+    def set_previous(self, node):
         self.previous = node
 
 
@@ -37,95 +37,95 @@ class DoublyLinkedList:
         current = self.front
         while current != None:
             dllstr += "<=>" + str(current)
-            current = current.getNext()
+            current = current.get_next()
         dllstr += "<=>"
         return dllstr
 
     # Gets node that matches the index
-    def getNodeWithIndex(self, index):
+    def get_node_with_index(self, index):
         current = self.front
         found = False
         num_node = 0
 
         while num_node != index and current != None:
             num_node += 1
-            current = current.getNext()
+            current = current.get_next()
 
         return current
 
     # Gets node that matches the item
-    def getNodeWithItem(self, item):
+    def get_node_with_item(self, item):
         current = self.front
         found = False
 
         while not found and current != None:
-            if current.getData() == item:
+            if current.get_data() == item:
                 found = True
             else:
-                current = current.getNext()
+                current = current.get_next()
         return current
 
     # Gets node's index
-    def getIndex(self, item):
+    def get_index(self, item):
         current = self.front
         index = 0
-        while current.getData() != item:
+        while current.get_data() != item:
             index += 1
-            current = current.getNext()
+            current = current.get_next()
         return index
 
     # Adds new node after some node in the linked list
-    def addAfter(self, item, new_item):
+    def add_after(self, item, new_item):
         # Create nodes
         temp = Node(new_item)
-        current = self.getNodeWithItem(item)
+        current = self.get_node_with_item(item)
 
         # if current == None:
-        #     self.AddFront(new_item)
+        #     self.add_fronts(new_item)
 
         # If current.next is None, then set End to temp
-        if current.getNext() == None:
-            temp.setPrevious(current)
+        if current.get_next() == None:
+            temp.set_previous(current)
             self.end = temp
-            temp.getPrevious().setNext(temp)
+            temp.get_previous().set_next(temp)
 
         # Else insert temp between current and current.next
         else:
-            temp.setNext(current.getNext())
-            temp.getNext().setPrevious(temp)
-            temp.setPrevious(current)
-            temp.getPrevious().setNext(temp)
+            temp.set_next(current.get_next())
+            temp.get_next().set_previous(temp)
+            temp.set_previous(current)
+            temp.get_previous().set_next(temp)
 
         # Increment nodes in the list
         self.nodes += 1
 
     # Adds new node before some node in the linked list
-    def addBefore(self, item, new_item):
+    def add_before(self, item, new_item):
         # Create nodes
         temp = Node(new_item)
-        current = self.getNodeWithItem(item)
+        current = self.get_node_with_item(item)
 
         # if current == None:
-        #     self.addEnd(new_item)
+        #     self.add_end(new_item)
 
         # If current.previous is None, the set Front to temp
-        if current.getPrevious() == None:
-            temp.setNext(current)
+        if current.get_previous() == None:
+            temp.set_next(current)
             self.front = temp
-            temp.getNext().setPrevious(temp)
+            temp.get_next().set_previous(temp)
 
         # Else insert temp between current and current.previous
         else:
-            current.getPrevious().setNext(temp)
-            temp.setPrevious(current.getPrevious())
-            current.setPrevious(temp)
-            temp.setNext(current)
+            current.get_previous().set_next(temp)
+            temp.set_previous(current.get_previous())
+            current.set_previous(temp)
+            temp.set_next(current)
 
         # Increment nodes in the list
         self.nodes += 1
 
     # Adds new node to the front of the linked list
-    def addFront(self, item):
+    def add_fronts(self, item):
 
         # Sets Front and End if there's no Front Node
         if self.front == None:
@@ -135,13 +135,13 @@ class DoublyLinkedList:
 
         # Moves the front node to the right
         else:
-            self.addBefore(self.front.getData(), item)
+            self.add_before(self.front.get_data(), item)
 
         # Increment nodes in the list
         self.nodes += 1
 
     # Adds new node to the end of the linked list
-    def addEnd(self, item):
+    def add_end(self, item):
 
         # Sets End and Front if there's no End Node
         if self.end == None:
@@ -154,23 +154,23 @@ class DoublyLinkedList:
 
         # Moves the end node to the left
         else:
-            self.addAfter(self.end.getData(), item)
+            self.add_after(self.end.get_data(), item)
 
     # Removes node from the linked list
     def remove(self, item):
         # Look for the node
-        current = self.getNodeWithItem(item)
+        current = self.get_node_with_item(item)
 
         # If previous is None, the Front is the
-        if current.getPrevious() == None:
-            self.front = current.getNext()
+        if current.get_previous() == None:
+            self.front = current.get_next()
         else:
-            current.getPrevious().setNext(current.getNext())
+            current.get_previous().set_next(current.get_next())
 
-        if current.getNext() == None:
-            self.end = current.getPrevious()
+        if current.get_next() == None:
+            self.end = current.get_previous()
         else:
-            current.getNext().setPrevious(current.getPrevious())
+            current.get_next().set_previous(current.get_previous())
 
         # Decrement nodes in the list
         self.nodes -= 1
@@ -180,7 +180,7 @@ class DoublyLinkedList:
         return self.nodes
 
     # Checks if the linked list is empty
-    def isEmpty(self):
+    def is_empty(self):
         return self.front == None and self.end == None
 
 
@@ -188,24 +188,24 @@ def main():
     dll = DoublyLinkedList()
     print(dll.size())
 
-    dll.addFront(1)
+    dll.add_fronts(1)
     print(dll.size())
 
-    dll.addEnd(2)
+    dll.add_end(2)
     print(dll.size())
 
-    dll.addAfter(1, "After front")
+    dll.add_after(1, "After front")
     print(dll.size())
 
-    dll.addBefore(2, "Before end")
+    dll.add_before(2, "Before end")
     print(dll.size())
 
-    print(dll.isEmpty())
+    print(dll.is_empty())
     print(dll)
 
     dll2 = DoublyLinkedList()
     print(dll2)
-    dll2.addEnd("Testing")
+    dll2.add_end("Testing")
     print(dll2)
 
 

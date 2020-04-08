@@ -1,10 +1,10 @@
-from queue import Queue
+from queue1 import Queue1
 from random import randrange
 
 
 def hot_potato(namelist, num):
     # Populate the queue
-    simqueue = Queue()
+    simqueue = Queue1()
     for name in namelist:
         simqueue.enqueue(name)
 

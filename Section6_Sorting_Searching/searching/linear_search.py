@@ -1,4 +1,4 @@
-def unorderedLinearSearch(numlist, num):
+def unordered_linear_search(numlist, num):
     """ Linear Search function for Unordered Lists """
     found = False
     pos = 0
@@ -10,7 +10,7 @@ def unorderedLinearSearch(numlist, num):
     return found
 
 
-def orderedLinearSearch(numlist, num):
+def ordered_linear_search(numlist, num):
     """ Linear Search function for Ordered Lists """
     found = False
     stop = False
@@ -28,10 +28,10 @@ def orderedLinearSearch(numlist, num):
 
 def main():
     numlist = [2, 4, 6, 8, 10]
-    print(unorderedLinearSearch(numlist, 2))
-    print(unorderedLinearSearch(numlist, 1))
-    print(orderedLinearSearch(numlist, 2))
-    print(orderedLinearSearch(numlist, 5))
+    print(unordered_linear_search(numlist, 2))
+    print(unordered_linear_search(numlist, 1))
+    print(ordered_linear_search(numlist, 2))
+    print(ordered_linear_search(numlist, 5))
 
 
 if __name__ == "__main__":

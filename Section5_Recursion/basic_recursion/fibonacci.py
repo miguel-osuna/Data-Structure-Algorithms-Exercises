@@ -1,5 +1,5 @@
 # Fibonacci Function integrated with Memoization
-def fibMemoization(num, memo):
+def fib_memoization(num, memo):
     if num <= 0:
         result = 0
     elif num == 1:
@@ -7,7 +7,7 @@ def fibMemoization(num, memo):
     elif memo[num] != None:
         result = memo[num]
     else:
-        result = fibMemoization(num - 1, memo) + fibMemoization(num - 2, memo)
+        result = fib_memoization(num - 1, memo) + fib_memoization(num - 2, memo)
         memo[num] = result
     return result
 

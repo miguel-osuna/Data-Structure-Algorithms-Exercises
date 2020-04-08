@@ -14,84 +14,84 @@ def prim(g, start):
 
     # Initialize every vertex in the graph
     for vertex in g:
-        vertex.setPredecessor(None)
-        vertex.setDistance(sys.maxsize)
+        vertex.set_predecessor(None)
+        vertex.set_distance(sys.maxsize)
 
     # Get the starting vertex
-    start = g.getVertex(start)
-    start.setDistance(0)
+    start = g.get_vertex(start)
+    start.set_distance(0)
 
     # Build the priority queue with the vertices distances
     pq = PriorityQueue()
-    pq.buildHeap([(vert.getDistance(), vert) for vert in g])
+    pq.build_heap([(vert.get_distance(), vert) for vert in g])
 
-    while not pq.isEmpty():
-        currentVert = pq.delMin()
+    while not pq.is_empty():
+        current_vert = pq.del_min()
 
         # Traverse through all the neighbors
-        for nextVert in currentVert.getConnections():
-            newCost = currentVert.getDistance() + currentVert.getWeight(nextVert)
+        for next_vert in current_vert.get_connections():
+            new_cost = current_vert.get_distance() + current_vert.get_weight(next_vert)
 
             # Compare distance
-            if nextVert in pq and newCost < nextVert.getDistance():
-                nextVert.setPredecessor(currentVert)
-                nextVert.setDistance(newCost)
-                pq.decreaseKey(nextVert, newCost)
+            if next_vert in pq and new_cost < next_vert.get_distance():
+                next_vert.set_predecessor(current_vert)
+                next_vert.set_distance(new_cost)
+                pq.decrease_key(next_vert, new_cost)
 
 
-def printPath(g, end):
+def print_path(g, end):
     path = []
-    currentVert = g.getVertex("G")
-    while currentVert != None:
-        path.insert(0, currentVert)
-        currentVert = currentVert.getPredecessor()
+    current_vert = g.get_vertex("G")
+    while current_vert != None:
+        path.insert(0, current_vert)
+        current_vert = current_vert.get_predecessor()
 
     for vert in path:
-        print("{} distance = {}".format(vert.getId(), vert.getDistance()))
+        print("{} distance = {}".format(vert.get_id(), vert.get_distance()))
 
 
-def generateInternetRadioGraph():
+def generate_internet_radio_graph():
     g = GraphBFS()
 
     # Vertex A Edges
-    g.addEdge("A", "B", 2)
-    g.addEdge("A", "C", 3)
+    g.add_edge("A", "B", 2)
+    g.add_edge("A", "C", 3)
 
     # Vertex B Edges
-    g.addEdge("B", "A", 2)
-    g.addEdge("B", "C", 1)
-    g.addEdge("B", "D", 1)
-    g.addEdge("B", "E", 4)
+    g.add_edge("B", "A", 2)
+    g.add_edge("B", "C", 1)
+    g.add_edge("B", "D", 1)
+    g.add_edge("B", "E", 4)
 
     # Vertex C Edges
-    g.addEdge("C", "A", 3)
-    g.addEdge("C", "B", 1)
-    g.addEdge("C", "F", 5)
+    g.add_edge("C", "A", 3)
+    g.add_edge("C", "B", 1)
+    g.add_edge("C", "F", 5)
 
     # Vertex D Edges
-    g.addEdge("D", "B", 1)
-    g.addEdge("D", "E", 1)
+    g.add_edge("D", "B", 1)
+    g.add_edge("D", "E", 1)
 
     # Vertex E Edges
-    g.addEdge("E", "B", 4)
-    g.addEdge("E", "D", 1)
-    g.addEdge("E", "F", 1)
+    g.add_edge("E", "B", 4)
+    g.add_edge("E", "D", 1)
+    g.add_edge("E", "F", 1)
 
     # Vertex F Edges
-    g.addEdge("F", "E", 1)
-    g.addEdge("F", "C", 5)
-    g.addEdge("F", "G", 1)
+    g.add_edge("F", "E", 1)
+    g.add_edge("F", "C", 5)
+    g.add_edge("F", "G", 1)
 
     # Vertex G Edges
-    g.addEdge("G", "F", 1)
+    g.add_edge("G", "F", 1)
 
     return g
 
 
 def main():
-    g = generateInternetRadioGraph()
+    g = generate_internet_radio_graph()
     prim(g, "A")
-    printPath(g, "G")
+    print_path(g, "G")
 
 
 if __name__ == "__main__":

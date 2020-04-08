@@ -2,6 +2,8 @@
 
 
 def gcd(m, n):
+    """ This
+    is a test"""
     while m % n != 0:
         oldm = m
         oldn = n
@@ -28,39 +30,39 @@ class Fraction:
 
     def __add__(self, other):
         """ Addition """
-        newnum = self.num * other.den + self.den * other.num
-        newden = self.den * other.den
-        return Fraction(newnum, newden)
+        new_num = self.num * other.den + self.den * other.num
+        new_den = self.den * other.den
+        return Fraction(new_num, new_den)
 
     def __sub__(self, other):
         """ Subtraction """
-        newnum = self.num * other.den - self.den * other.num
-        newden = self.den * other.den
-        return Fraction(newnum, newden)
+        new_num = self.num * other.den - self.den * other.num
+        new_den = self.den * other.den
+        return Fraction(new_num, new_den)
 
     def __mul__(self, other):
         """ Multiplication """
-        newnum = self.num * other.num
-        newden = self.den * other.num
-        return Fraction(newnum, newden)
+        new_num = self.num * other.num
+        new_den = self.den * other.num
+        return Fraction(new_num, new_den)
 
     def __truediv__(self, other):
         """ Division """
-        newnum = self.num * other.den
-        newden = self.den * other.num
-        return Fraction(newnum, newden)
+        new_num = self.num * other.den
+        new_den = self.den * other.num
+        return Fraction(new_num, new_den)
 
     def __eq__(self, other):
         """ Equality """
-        firstnum = self.num * other.den
-        secondnum = other.num * self.den
-        return firstnum == secondnum
+        first_num = self.num * other.den
+        second_num = other.num * self.den
+        return first_num == second_num
 
     def __ne__(self, other):
         """ Not Equal """
-        firstnum = self.num * other.den
-        secondnum = other.num * self.den
-        return firstnum != secondnum
+        first_num = self.num * other.den
+        second_num = other.num * self.den
+        return first_num != second_num
 
     def __lt__(self, other):
         """ Less than """
@@ -93,10 +95,10 @@ class Fraction:
     def show(self):
         print(self.num, "/", self.den)
 
-    def getNum(self):
+    def get_num(self):
         return self.num
 
-    def getDen(self):
+    def get_den(self):
         return self.den
 
 
@@ -111,8 +113,8 @@ def main():
     print(x > y)
     print(x < y)
     print(x - y)
-    print(x.getNum())
-    print(x.getDen())
+    print(x.get_num())
+    print(x.get_den())
 
 
 if __name__ == "__main__":

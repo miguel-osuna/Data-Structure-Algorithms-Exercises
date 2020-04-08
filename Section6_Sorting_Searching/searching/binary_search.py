@@ -1,4 +1,4 @@
-def binarySearch(numlist, num):
+def binary_search(numlist, num):
     """ Binary Search Function """
     start = 0
     end = len(numlist) - 1
@@ -17,7 +17,7 @@ def binarySearch(numlist, num):
     return found
 
 
-def binarySearchRec(numlist, num):
+def binary_search_rec(numlist, num):
     """ Recursive Binary Search Function """
     if len(numlist) == 0:
         return False
@@ -27,36 +27,37 @@ def binarySearchRec(numlist, num):
             return True
         else:
             if numlist[midpoint] > num:
-                return binarySearchRec(numlist[:midpoint], num)
+                return binary_search_rec(numlist[:midpoint], num)
             else:
-                return binarySearchRec(numlist[midpoint + 1 :], num)
+                return binary_search_rec(numlist[midpoint + 1 :], num)
 
 
-def binarySearchRecInPlace(numlist, startIndex, endIndex, num):
+def binary_search_rec_in_place(numlist, start_index, end_index, num):
     """ Recursive Binary Search In-Place Function """
-    if (endIndex - startIndex) == 0:
+    if (end_index - start_index) == 0:
         return False
 
     else:
-        midpoint = (endIndex + startIndex) // 2
+        midpoint = (end_index + start_index) // 2
         if numlist[midpoint] == num:
             return True
 
         else:
             if numlist[midpoint] > num:
-                return binarySearchRecInPlace(numlist, startIndex, midpoint - 1, num)
+                return binary_search_rec_in_place(
+                    numlist, start_index, midpoint - 1, num
+                )
             else:
-                return binarySearchRecInPlace(numlist, midpoint + 1, endIndex, num)
+                return binary_search_rec_in_place(numlist, midpoint + 1, end_index, num)
 
 
 def main():
     numlist = [17, 20, 26, 31, 44, 54, 55, 65, 77, 93]
     num = 54
-    print(binarySearch(numlist, num))
-    print(binarySearchRec(numlist, num))
-    print(binarySearchRecInPlace(numlist, 0, len(numlist) - 1, num))
+    print(binary_search(numlist, num))
+    print(binary_search_rec(numlist, num))
+    print(binary_search_rec_in_place(numlist, 0, len(numlist) - 1, num))
 
 
 if __name__ == "__main__":
     main()
-    

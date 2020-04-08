@@ -5,7 +5,7 @@ class Stack:
     def __str__(self):
         return str(self.items)
 
-    def isEmpty(self):
+    def is_empty(self):
         return self.items == []
 
     def push(self, item):
@@ -23,11 +23,11 @@ class Stack:
 
 def main():
     astack = Stack()
-    print("Stack is empty? {}".format(astack.isEmpty()))
+    print("Stack is empty? {}".format(astack.is_empty()))
     astack.push(1)
     astack.push("dog")
     astack.push(True)
-    print("Stack is empty? {}".format(astack.isEmpty()))
+    print("Stack is empty? {}".format(astack.is_empty()))
     print("Last value is: {}".format(astack.peek()))
     print("Stack size is: {}".format(astack.size()))
     print("Stack items are: {}".format(astack))

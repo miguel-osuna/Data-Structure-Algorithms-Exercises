@@ -13,9 +13,9 @@ class PriorityQueue:
     def __str__(self):
         return str(self.heapItems)
 
-    def isEmpty(self):
+    def is_empty(self):
         """ Checks if the queue is empty """
-        return self.heapItems.isEmpty()
+        return self.heapItems.is_empty()
 
     def enqueue(self, item):
         """ Adds item to the queue """
@@ -23,14 +23,14 @@ class PriorityQueue:
 
     def dequeue(self):
         """ Removes highest priority item from the queue """
-        return self.heapItems.delMax()
+        return self.heapItems.del_max()
 
     def size(self):
         """ Returns size of the queue list """
         return len(self.heapItems)
 
-    def buildHeap(self, alist):
-        self.heapItems.buildHeap(alist)
+    def build_heap(self, a_list):
+        self.heapItems.build_heap(a_list)
 
 
 def main():

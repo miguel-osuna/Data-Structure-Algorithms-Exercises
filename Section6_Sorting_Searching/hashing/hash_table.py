@@ -25,7 +25,7 @@ class HashTable:
 
     # Overloads 'del' operator as 'del self[key]'
     def __delitem__(self, key):
-        startslot = self.hashfunction(key, len(self.slots))
+        startslot = self.hash_function(key, len(self.slots))
 
         found = False
         stop = False
@@ -43,7 +43,7 @@ class HashTable:
                     stop = True
                     print("Couldn't delete item")
 
-    def hashfunction(self, key, size):
+    def hash_function(self, key, size):
         """ Generates a hash """
         return key % size
 
@@ -53,7 +53,7 @@ class HashTable:
 
     def get(self, key):
         """ Gets item from hash table """
-        startslot = self.hashfunction(key, len(self.slots))
+        startslot = self.hash_function(key, len(self.slots))
 
         found = False
         stop = False
@@ -73,18 +73,18 @@ class HashTable:
 
     def put(self, key, data):
         """ Sets item in hash table """
-        hashValue = self.hashfunction(key, len(self.slots))
+        hash_value = self.hash_function(key, len(self.slots))
 
         # Assigns data if slot is available
-        if self.slots[hashValue] == None:
-            self.slots[hashValue] = key
-            self.data[hashValue] = data
+        if self.slots[hash_value] == None:
+            self.slots[hash_value] = key
+            self.data[hash_value] = data
         # Replaces data if key slot is the same
-        elif self.slots[hashValue] == key:
-            self.data[hashValue] = data
+        elif self.slots[hash_value] == key:
+            self.data[hash_value] = data
         # Looks for slots available
         else:
-            nextslot = self.rehash(hashValue, len(self.slots))
+            nextslot = self.rehash(hash_value, len(self.slots))
             while self.slots[nextslot] != None and self.slots[nextslot] != key:
                 nextslot = self.rehash(nextslot, len(self.slots))
 

@@ -7,9 +7,9 @@ sys.path.append(parent_dir)
 from graph_adj_list import VertexDFS, GraphDFS
 
 
-def buildPancakeGraph():
+def build_pancake_graph():
     """ Builds a Graph for a Pancake recipe """
-    pancakeGraph = GraphDFS()
+    pancake_graph = GraphDFS()
     ingredients = ["3/4 cup milk", "1 egg", "1 Tbl Oil", "1 cup mix"]
     instructions = [
         "heat syrup",
@@ -19,46 +19,46 @@ def buildPancakeGraph():
         "eat",
     ]
 
-    pancakeGraph.addEdge(ingredients[0], ingredients[3])
-    pancakeGraph.addEdge(ingredients[1], ingredients[3])
-    pancakeGraph.addEdge(ingredients[2], ingredients[3])
+    pancake_graph.add_edge(ingredients[0], ingredients[3])
+    pancake_graph.add_edge(ingredients[1], ingredients[3])
+    pancake_graph.add_edge(ingredients[2], ingredients[3])
 
-    pancakeGraph.addEdge(ingredients[3], instructions[0])
-    pancakeGraph.addEdge(ingredients[3], instructions[2])
-    pancakeGraph.addEdge(instructions[1], instructions[2])
-    pancakeGraph.addEdge(instructions[2], instructions[3])
-    pancakeGraph.addEdge(instructions[3], instructions[4])
-    pancakeGraph.addEdge(instructions[0], instructions[4])
+    pancake_graph.add_edge(ingredients[3], instructions[0])
+    pancake_graph.add_edge(ingredients[3], instructions[2])
+    pancake_graph.add_edge(instructions[1], instructions[2])
+    pancake_graph.add_edge(instructions[2], instructions[3])
+    pancake_graph.add_edge(instructions[3], instructions[4])
+    pancake_graph.add_edge(instructions[0], instructions[4])
 
-    return pancakeGraph
+    return pancake_graph
 
 
-def topologicalSorting(dfsGraph):
+def topological_sorting(dfs_graph):
     """ Sorts the vertices in descending order by finish time """
-    finishTimes = [vertex.finish for vertex in dfsGraph]
-    finishTimes.sort()
-    finishTimes.reverse()
+    finish_times = [vertex.finish for vertex in dfs_graph]
+    finish_times.sort()
+    finish_times.reverse()
 
-    sortedVertices = []
+    sorted_vertices = []
 
-    for finishtime in finishTimes:
-        for vertex in dfsGraph:
-            if vertex.finish == finishtime:
-                sortedVertices.append(vertex)
+    for finish_time in finish_times:
+        for vertex in dfs_graph:
+            if vertex.finish == finish_time:
+                sorted_vertices.append(vertex)
 
-    return sortedVertices
+    return sorted_vertices
 
 
 def main():
-    pancakeGraph = buildPancakeGraph()
-    pancakeGraph.dfs()
+    pancake_graph = build_pancake_graph()
+    pancake_graph.dfs()
 
-    for vertex in pancakeGraph:
+    for vertex in pancake_graph:
         print(vertex.id, vertex.discovery, vertex.finish)
 
-    sortedGraph = topologicalSorting(pancakeGraph)
+    sorted_graph = topological_sorting(pancake_graph)
 
-    for vertex in sortedGraph:
+    for vertex in sorted_graph:
         print(vertex.id, vertex.finish)
 
 

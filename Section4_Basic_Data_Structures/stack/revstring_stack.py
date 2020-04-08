@@ -6,7 +6,7 @@ def revstring(string):
     rev_string = ""
     for c in string:
         stack.push(c)
-    while not stack.isEmpty():
+    while not stack.is_empty():
         rev_string = rev_string + stack.pop()
     return str(rev_string)
 

@@ -6,13 +6,13 @@ def is_palindrome(word):
     string = "".join(word.split())
 
     for char in string:
-        chardeque.addRear(char)
+        chardeque.add_rear(char)
 
     still_equal = True
 
     while chardeque.size() > 1 and still_equal:
-        first = chardeque.removeFront()
-        second = chardeque.removeRear()
+        first = chardeque.remove_front()
+        second = chardeque.remove_rear()
 
         if first != second:
             still_equal = False

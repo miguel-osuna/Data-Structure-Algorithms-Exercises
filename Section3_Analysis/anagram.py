@@ -12,7 +12,7 @@ def is_anagram(s1, s2):
         return False
 
 
-def anagramSolution2(s1, s2):
+def anagram_solution2(s1, s2):
     """ Sort and Compare anagram solution with O(n) or O(n log n)"""
     list1 = list(s1)
     list2 = list(s2)
@@ -32,12 +32,12 @@ def anagramSolution2(s1, s2):
     return matches
 
 
-def anagramSolution3(s1, s2):
+def anagram_solution3(s1, s2):
     """ Brute Force anagram solution is O(n!) (not a good solution) """
     pass
 
 
-def anagramSolution4(s1, s2):
+def anagram_solution4(s1, s2):
     """ Count and Compare anagram solution is O(n), but requires more space"""
 
     # List of counters
@@ -65,8 +65,9 @@ def anagramSolution4(s1, s2):
 
 def main():
     print(is_anagram("jabon", "banjo"))
-    print(anagramSolution2("jabon", "banjo"))
-    print(anagramSolution4("jabon", "banjo"))
+    print(anagram_solution2("jabon", "banjo"))
+    print(anagram_solution3("jabon", "banjo"))
+    print(anagram_solution4("jabon", "banjo"))
 
 
 if __name__ == "__main__":

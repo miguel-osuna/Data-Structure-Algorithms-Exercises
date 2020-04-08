@@ -2,9 +2,11 @@ from binary_search_tree import TreeNode, BinarySearchTree
 
 
 class BalancedTreeNode(TreeNode):
-    def __init__(self, key, value, left=None, right=None, parent=None, balanceFactor=0):
+    def __init__(
+        self, key, value, left=None, right=None, parent=None, balance_factor=0
+    ):
         super().__init__(key, value, left, right, parent)
-        self.balanceFactor = balanceFactor
+        self.balance_factor = balance_factor
 
 
 class BalancedBinarySearchTree(BinarySearchTree):
@@ -24,131 +26,133 @@ class BalancedBinarySearchTree(BinarySearchTree):
             self.root = BalancedTreeNode(key, value)
         self.size += 1
 
-    def _put(self, key, value, currentNode):
+    def _put(self, key, value, current_node):
         """ Overrides BinarySearchTree class method """
         # Place on left sublist
-        if key < currentNode.key:
+        if key < current_node.key:
             # Looks recursively until there is no left child node left
-            if currentNode.hasLeftChild():
-                self._put(key, value, currentNode.leftChild)
+            if current_node.has_left_child():
+                self._put(key, value, current_node.left_child)
             else:
-                currentNode.leftChild = BalancedTreeNode(key, value, parent=currentNode)
-                self.updateBalance(currentNode.leftChild)
+                current_node.left_child = BalancedTreeNode(
+                    key, value, parent=current_node
+                )
+                self.update_balance(current_node.left_child)
 
         # Place on right sublist
         else:
             # Looks recursively until there is no right child node left
-            if currentNode.hasRightChild():
-                self._put(key, value, currentNode.rightChild)
+            if current_node.has_right_child():
+                self._put(key, value, current_node.right_child)
             else:
-                currentNode.rightChild = BalancedTreeNode(
-                    key, value, parent=currentNode
+                current_node.right_child = BalancedTreeNode(
+                    key, value, parent=current_node
                 )
-                self.updateBalance(currentNode.rightChild)
+                self.update_balance(current_node.right_child)
 
-    def updateBalance(self, currentNode):
+    def update_balance(self, current_node):
         """ Recursive call to update node's balance factor """
-        if currentNode.balanceFactor > 1 or currentNode.balanceFactor < -1:
-            self.rebalance(currentNode)
+        if current_node.balance_factor > 1 or current_node.balance_factor < -1:
+            self.rebalance(current_node)
             return
 
         # Current node is not the tree's root
-        if currentNode.parent != None:
+        if current_node.parent != None:
 
             # Increment current node parent balance factor by one
-            if currentNode.isLeftChild():
-                currentNode.parent.balanceFactor += 1
+            if current_node.is_left_child():
+                current_node.parent.balance_factor += 1
             # Decrement current node parent balance factor by one
-            elif currentNode.isRightChild():
-                currentNode.parent.balanceFactor -= 1
+            elif current_node.is_right_child():
+                current_node.parent.balance_factor -= 1
 
         # Balance factor of parent has not been adjusted to zero
-        if currentNode.parent.balanceFactor != 0:
-            self.updateBalance(currentNode.parent)
+        if current_node.parent.balance_factor != 0:
+            self.update_balance(current_node.parent)
 
     def rebalance(self, node):
         # Checks left subtree status for tree rotation
-        if node.balanceFactor < 0:
+        if node.balance_factor < 0:
             # Balancing right child and root node
-            if node.rightChild.balanceFactor > 0:
-                self.rotateRight(node.rightChild)
-                self.rotateLeft(node)
+            if node.right_child.balance_factor > 0:
+                self.rotate_right(node.right_child)
+                self.rotate_left(node)
             # Balancing root node directly
             else:
-                self.rotateLeft(node)
+                self.rotate_left(node)
         # Checks right subtree status for tree rotation
-        elif node.balanceFactor > 0:
+        elif node.balance_factor > 0:
             # Balancing left child and root node
-            if node.leftChild.balanceFactor < 0:
-                self.rotateLeft(root.leftChild)
-                self.rotateRight(node)
+            if node.left_child.balance_factor < 0:
+                self.rotate_left(root.left_child)
+                self.rotate_right(node)
             # Balancing root node directly
             else:
-                self.rotateRight(node)
+                self.rotate_right(node)
 
-    def rotateLeft(oldRoot):
+    def rotate_left(old_root):
         # Store the new root node
-        newRoot = oldRoot.rightChild
+        new_root = old_root.right_child
 
         # Assign new root's left child to old root's right child
-        oldRoot.rightChild = newRoot.leftChild
+        old_root.right_child = new_root.left_child
 
         # Change left child's parent to old root
-        if newRoot.leftChild != None:
-            newRoot.leftChild.parent = oldRoot
+        if new_root.left_child != None:
+            new_root.left_child.parent = old_root
 
         # Assign old root's parent to new root's parent
-        newRoot.parent = oldRoot.parent
+        new_root.parent = old_root.parent
 
         # Parent's node is a root node
-        if oldRoot.isRoot():
-            self.root = newRoot
+        if old_root.is_root():
+            self.root = new_root
         # Parent's left node is the old root
-        elif oldRoot.isLeftChild():
-            oldRoot.parent.leftChild = newRoot
+        elif old_root.is_left_child():
+            old_root.parent.left_child = new_root
         # Parent's right node is the old root
         else:
-            oldRoot.parent.rightChild = newRoot
+            old_root.parent.right_child = new_root
 
         # Change old root's parent to new root node
-        oldRoot.parent = newRoot
-        newRoot.leftChild = oldRoot
+        old_root.parent = new_root
+        new_root.left_child = old_root
 
         # Update balance factor of old and new root nodes
-        oldRoot.balanceFactor += 1 - min(newRoot.balanceFactor, 0)
-        newRoot.balanceFactor += 1 + max(oldRoot.balanceFactor, 0)
+        old_root.balance_factor += 1 - min(new_root.balance_factor, 0)
+        new_root.balance_factor += 1 + max(old_root.balance_factor, 0)
 
-    def rotateRight(oldRoot):
+    def rotate_right(old_root):
         # Store the new root node
-        newRoot = oldRoot.leftChild
+        new_root = old_root.left_child
 
         # Assign new root's right child to old root's left child
-        oldRoot.leftChild = newRoot.rightChild
+        old_root.left_child = new_root.right_child
 
         # Change right child's node parent to old root
-        if newRoot.rightChild != None:
-            newRoot.rightChild.parent = oldRoot
+        if new_root.right_child != None:
+            new_root.right_child.parent = old_root
 
         # Assign old root's parent to new root's parent
-        newRoot.parent = oldRoot.parent
+        new_root.parent = old_root.parent
 
         # Parent's node is a root node
-        if oldRoot.isRoot():
-            self.root = newRoot
+        if old_root.is_root():
+            self.root = new_root
         # Parent's left node is the old root
-        elif oldRoot.isLeftChild():
-            oldRoot.parent.leftChild = newRoot
+        elif old_root.is_left_child():
+            old_root.parent.left_child = new_root
         # Parent's right node is the old root
         else:
-            oldRoot.parent.rightChild = newRoot
+            old_root.parent.right_child = new_root
 
         # Change old root's parent to new root node
-        oldRoot.parent = newRoot
-        newRoot.rightChild = oldRoot
+        old_root.parent = new_root
+        new_root.right_child = old_root
 
         # Update balance factor of old and new root nodes
-        oldRoot.balanceFactor -= 1 - min(newRoot.balanceFactor, 0)
-        newRoot.balanceFactor -= 1 + max(0, oldRoot.balanceFactor)
+        old_root.balance_factor -= 1 - min(new_root.balance_factor, 0)
+        new_root.balance_factor -= 1 + max(0, old_root.balance_factor)
 
 
 def main():

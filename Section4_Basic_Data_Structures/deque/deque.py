@@ -5,19 +5,19 @@ class Deque:
     def __str__(self):
         return str(self.items)
 
-    def addFront(self, item):
+    def add_front(self, item):
         self.items.append(item)
 
-    def addRear(self, item):
+    def add_rear(self, item):
         self.items.insert(0, item)
 
-    def removeFront(self):
+    def remove_front(self):
         return self.items.pop()
 
-    def removeRear(self):
+    def remove_rear(self):
         return self.items.pop(0)
 
-    def isEmpty(self):
+    def is_empty(self):
         return self.items == []
 
     def size(self):
@@ -26,11 +26,11 @@ class Deque:
 
 def main():
     deque = Deque()
-    deque.addFront("Dog")
+    deque.add_front("Dog")
     print(deque)
-    deque.addRear(True)
+    deque.add_rear(True)
     print(deque)
-    deque.addFront(23)
+    deque.add_front(23)
     print(deque)
     print(deque.size())
 

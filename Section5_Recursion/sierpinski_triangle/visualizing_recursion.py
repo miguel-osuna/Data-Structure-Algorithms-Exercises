@@ -2,40 +2,40 @@ import turtle
 import random
 
 
-def drawSpiral(myTurtle, lineLen, decrement):
+def draw_spiral(my_turtle, lineLen, decrement):
     if lineLen > decrement:
-        myTurtle.forward(lineLen - decrement)
-        myTurtle.right(90)
-        drawSpiral(myTurtle, lineLen - decrement, decrement)
+        my_turtle.forward(lineLen - decrement)
+        my_turtle.right(90)
+        draw_spiral(my_turtle, lineLen - decrement, decrement)
 
 
-def tree(branchLen, t, limit):
+def tree(branch_len, t, limit):
     dec = random.randrange(10, 21, 1)
 
-    if branchLen > limit:
-        t.width(branchLen / 10)
-        t.forward(branchLen)
+    if branch_len > limit:
+        t.width(branch_len / 10)
+        t.forward(branch_len)
         t.right(20)
-        tree(branchLen - dec, t, limit)
+        tree(branch_len - dec, t, limit)
         t.left(40)
-        tree(branchLen - dec, t, limit)
+        tree(branch_len - dec, t, limit)
         t.right(20)
-        t.backward(branchLen)
+        t.backward(branch_len)
 
 
 def main():
-    myTurtle = turtle.Turtle()
+    my_turtle = turtle.Turtle()
     myWindow = turtle.Screen()
 
-    myTurtle.left(90)
-    myTurtle.up()
-    myTurtle.backward(100)
-    myTurtle.down()
-    myTurtle.color("green")
+    my_turtle.left(90)
+    my_turtle.up()
+    my_turtle.backward(100)
+    my_turtle.down()
+    my_turtle.color("green")
 
     # Fractal tree
-    tree(75, myTurtle, 5)
-    myWindow.exitonclick()
+    tree(75, my_turtle, 5)
+    myWindow.exit_on_click()
 
 
 if __name__ == "__main__":

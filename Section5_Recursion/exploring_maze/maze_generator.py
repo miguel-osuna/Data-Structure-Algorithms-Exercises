@@ -8,7 +8,7 @@ START = "S"
 
 
 # Generates random maze of size nxm
-def generateMaze(rows, columns, file_name):
+def generate_maze(rows, columns, file_name):
     # Appends text extension if not specified\
     if not ".txt" in file_name:
         file_name += ".txt"
@@ -18,7 +18,7 @@ def generateMaze(rows, columns, file_name):
     maze_file = open(new_file, "w+")
 
     # Generates start row and column for the maze
-    start = generateRandomStart(rows, columns)
+    start = generate_random_start(rows, columns)
 
     # Populates maze_file
     maze_file.write(OBSTACLE * columns + "\n")
@@ -35,13 +35,13 @@ def generateMaze(rows, columns, file_name):
     maze_file.close()
 
 
-def generateRandomStart(rows, columns):
+def generate_random_start(rows, columns):
     startRow = random.randrange(1, rows)
     startColumn = random.randrange(1, columns)
     return [startRow, startColumn]
 
 
-def readMaze(file_name):
+def read_maze(file_name):
     # Appends text extension if not specified
     if not ".txt" in file_name:
         file_name += ".txt"
@@ -58,8 +58,8 @@ def readMaze(file_name):
 
 
 def main():
-    generateMaze(11, 22, "maze_test")
-    readMaze("maze_test")
+    generate_maze(11, 22, "maze_test")
+    read_maze("maze_test")
 
 
 if __name__ == "__main__":

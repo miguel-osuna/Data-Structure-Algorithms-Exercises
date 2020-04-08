@@ -1,50 +1,50 @@
-def shellSort(numlist):
+def shell_sort(numlist):
     """ Shell Sort Algorithm """
 
     # Sets initial list gap
-    sublistgap = len(numlist) // 2
+    sublist_gap = len(numlist) // 2
 
     # Changes list gap
-    while sublistgap > 0:
+    while sublist_gap > 0:
 
         # Move the start position for the list gap
-        for startposition in range(sublistgap):
+        for start_position in range(sublist_gap):
             # Insertion Sort for a sublist with a gap
-            gapInsertionSort(numlist, startposition, sublistgap)
+            gap_insertion_sort(numlist, start_position, sublist_gap)
 
         # print("After increments of size: {} , sublist is: {}".format(
-        #   sublistgap, numlist))
+        #   sublist_gap, numlist))
 
         # Reduces list gap
-        sublistgap //= 2
+        sublist_gap //= 2
 
 
-def gapInsertionSort(numlist, start, gap):
+def gap_insertion_sort(numlist, start, gap):
     """ Insertion Sort with Gap """
 
     # Creates sublists for the sublist gap
     for i in range(start + gap, len(numlist), gap):
 
         # New item to be inserted into the sublist gap
-        currentValue = numlist[i]
+        current_value = numlist[i]
         position = i
 
-        while position >= gap and numlist[position - gap] > currentValue:
+        while position >= gap and numlist[position - gap] > current_value:
             # Shift item to current position
             numlist[position] = numlist[position - gap]
             position -= gap
 
         # Sets new position to current value
-        numlist[position] = currentValue
+        numlist[position] = current_value
 
 
 def main():
     numlist = [345, 23, 54, 64, 98, 22, 45, 18, 78]
-    shellSort(numlist)
+    shell_sort(numlist)
     print(numlist)
 
     charlist = list("PYTHON")
-    shellSort(charlist)
+    shell_sort(charlist)
     print(charlist)
 
 

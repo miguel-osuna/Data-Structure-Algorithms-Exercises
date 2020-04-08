@@ -1,4 +1,4 @@
-from queue import Queue
+from queue1 import Queue1
 import random
 
 
@@ -20,9 +20,9 @@ class Printer:
         else:
             return False
 
-    def startNext(self, newtask):
+    def start_next(self, newtask):
         self.currentTask = newtask
-        self.timeRemaining = newtask.getPages() * 60 / self.pagerate
+        self.timeRemaining = newtask.get_pages() * 60 / self.pagerate
 
 
 class Task:
@@ -30,50 +30,50 @@ class Task:
         self.pages = pages
         self.timestamp = time
 
-    def getStamp(self):
+    def get_stamp(self):
         return self.timestamp
 
-    def getPages(self):
+    def get_pages(self):
         return self.pages
 
-    def waitTime(self, currenttime):
+    def wait_time(self, currenttime):
         return currenttime - self.timestamp
 
 
-def simulation(numSeconds, pagesPerMinute, numStudents, averagePages):
+def simulation(num_seconds, pages_per_minute, num_students, avg_pages):
 
     # Set up
-    printer = Printer(pagesPerMinute)
-    printQueue = Queue()
-    waitingTimes = []
+    printer = Printer(pages_per_minute)
+    printQueue = Queue1()
+    waiting_times = []
 
-    for currentSecond in range(numSeconds):
-        if newPrintTask(numStudents):
-            pages = random.randrange(1, averagePages + 1)
-            task = Task(currentSecond, pages)
+    for current_second in range(num_seconds):
+        if new_print_task(num_students):
+            pages = random.randrange(1, avg_pages + 1)
+            task = Task(current_second, pages)
             printQueue.enqueue(task)
 
-        if (not printer.busy()) and (not printQueue.isEmpty()):
+        if (not printer.busy()) and (not printQueue.is_empty()):
             nexttask = printQueue.dequeue()
-            waitingTimes.append(nexttask.waitTime(currentSecond))
-            printer.startNext(nexttask)
+            waiting_times.append(nexttask.wait_time(current_second))
+            printer.start_next(nexttask)
 
         printer.tick()
 
-    averageWait = sum(waitingTimes) / len(waitingTimes)
+    average_wait = sum(waiting_times) / len(waiting_times)
     print(
         "Average wait {} secs {} tasks remaining.".format(
-            averageWait, printQueue.size()
+            average_wait, printQueue.size()
         )
     )
 
 
-def newPrintTask(numStudents):
+def new_print_task(num_students):
     # Seconds per task
-    secondsPerTask = 1800 // numStudents
+    seconds_per_task = 1800 // num_students
 
-    num = random.randrange(1, secondsPerTask + 1)
-    if num == secondsPerTask:
+    num = random.randrange(1, seconds_per_task + 1)
+    if num == seconds_per_task:
         return True
     else:
         return False

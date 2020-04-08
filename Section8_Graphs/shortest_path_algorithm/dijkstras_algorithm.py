@@ -10,86 +10,86 @@ from graph_adj_list import GraphBFS, VertexBFS
 
 class PriorityQueue:
     def __init__(self):
-        self.heapArray = [(0, 0)]
-        self.currentSize = 0
+        self.heap_array = [(0, 0)]
+        self.current_size = 0
 
-    def buildHeap(self, alist):
-        self.currentSize = len(alist)
-        self.heapArray = [(0, 0)]
-        for i in alist:
-            self.heapArray.append(i)
-        i = len(alist) // 2
+    def build_heap(self, a_list):
+        self.current_size = len(a_list)
+        self.heap_array = [(0, 0)]
+        for i in a_list:
+            self.heap_array.append(i)
+        i = len(a_list) // 2
         while i > 0:
-            self.percDown(i)
+            self.perc_down(i)
             i = i - 1
 
-    def percDown(self, i):
-        while (i * 2) <= self.currentSize:
-            mc = self.minChild(i)
-            if self.heapArray[i][0] > self.heapArray[mc][0]:
-                tmp = self.heapArray[i]
-                self.heapArray[i] = self.heapArray[mc]
-                self.heapArray[mc] = tmp
+    def perc_down(self, i):
+        while (i * 2) <= self.current_size:
+            mc = self.min_child(i)
+            if self.heap_array[i][0] > self.heap_array[mc][0]:
+                tmp = self.heap_array[i]
+                self.heap_array[i] = self.heap_array[mc]
+                self.heap_array[mc] = tmp
             i = mc
 
-    def minChild(self, i):
-        if i * 2 > self.currentSize:
+    def min_child(self, i):
+        if i * 2 > self.current_size:
             return -1
         else:
-            if i * 2 + 1 > self.currentSize:
+            if i * 2 + 1 > self.current_size:
                 return i * 2
             else:
-                if self.heapArray[i * 2][0] < self.heapArray[i * 2 + 1][0]:
+                if self.heap_array[i * 2][0] < self.heap_array[i * 2 + 1][0]:
                     return i * 2
                 else:
                     return i * 2 + 1
 
-    def percUp(self, i):
+    def perc_up(self, i):
         while i // 2 > 0:
-            if self.heapArray[i][0] < self.heapArray[i // 2][0]:
-                tmp = self.heapArray[i // 2]
-                self.heapArray[i // 2] = self.heapArray[i]
-                self.heapArray[i] = tmp
+            if self.heap_array[i][0] < self.heap_array[i // 2][0]:
+                tmp = self.heap_array[i // 2]
+                self.heap_array[i // 2] = self.heap_array[i]
+                self.heap_array[i] = tmp
             i = i // 2
 
     def add(self, k):
-        self.heapArray.append(k)
-        self.currentSize = self.currentSize + 1
-        self.percUp(self.currentSize)
+        self.heap_array.append(k)
+        self.current_size = self.current_size + 1
+        self.perc_up(self.current_size)
 
-    def delMin(self):
-        retval = self.heapArray[1][1]
-        self.heapArray[1] = self.heapArray[self.currentSize]
-        self.currentSize = self.currentSize - 1
-        self.heapArray.pop()
-        self.percDown(1)
+    def del_min(self):
+        retval = self.heap_array[1][1]
+        self.heap_array[1] = self.heap_array[self.current_size]
+        self.current_size = self.current_size - 1
+        self.heap_array.pop()
+        self.perc_down(1)
         return retval
 
-    def isEmpty(self):
-        if self.currentSize == 0:
+    def is_empty(self):
+        if self.current_size == 0:
             return True
         else:
             return False
 
-    def decreaseKey(self, val, amt):
+    def decrease_key(self, val, amt):
         """ Updates the value of the vertices with a new distance """
         done = False
         i = 1
-        myKey = 0
+        my_key = 0
 
-        while not done and i <= self.currentSize:
-            if self.heapArray[i][1] == val:
+        while not done and i <= self.current_size:
+            if self.heap_array[i][1] == val:
                 done = True
-                myKey = i
+                my_key = i
             else:
                 i = i + 1
 
-        if myKey > 0:
-            self.heapArray[myKey] = (amt, self.heapArray[myKey][1])
-            self.percUp(myKey)
+        if my_key > 0:
+            self.heap_array[my_key] = (amt, self.heap_array[my_key][1])
+            self.perc_up(my_key)
 
     def __contains__(self, vertex):
-        for pair in self.heapArray:
+        for pair in self.heap_array:
             if pair[1] == vertex:
                 return True
         return False
@@ -100,93 +100,95 @@ def dijkstra(g, s):
 
     # Initialize every vertex in the graph
     for vertex in g:
-        vertex.setPredecessor(None)
-        vertex.setDistance(sys.maxsize)
+        vertex.set_predecessor(None)
+        vertex.set_distance(sys.maxsize)
 
     # Get the starting vertex
-    start = g.getVertex(s)
-    start.setDistance(0)
+    start = g.get_vertex(s)
+    start.set_distance(0)
 
     # Build the priority queue
     pq = PriorityQueue()
-    pq.buildHeap([(v.getDistance(), v) for v in g])
+    pq.build_heap([(v.get_distance(), v) for v in g])
 
-    while not pq.isEmpty():
-        currentVert = pq.delMin()
+    while not pq.is_empty():
+        current_vert = pq.del_min()
 
         # Traverse through all the neighbors
-        for nextVert in currentVert.getConnections():
-            newDistance = currentVert.getDistance() + currentVert.getWeight(nextVert)
+        for next_vert in current_vert.get_connections():
+            new_distance = current_vert.get_distance() + current_vert.get_weight(
+                next_vert
+            )
 
-            if newDistance < nextVert.getDistance():
-                nextVert.setDistance(newDistance)
-                nextVert.setPredecessor(currentVert)
-                pq.decreaseKey(nextVert, newDistance)
+            if new_distance < next_vert.get_distance():
+                next_vert.set_distance(new_distance)
+                next_vert.set_predecessor(current_vert)
+                pq.decrease_key(next_vert, new_distance)
 
 
-def getShortestPath(g, fromVert, toVert):
+def get_shortest_path(g, from_vert, to_vert):
     """ Prints path from one vertex to another """
-    currentVert = g.getVertex(toVert)
+    current_vert = g.get_vertex(to_vert)
 
-    while currentVert.getPredecessor() != None and currentVert.getId() != fromVert:
+    while current_vert.get_predecessor() != None and current_vert.get_id() != from_vert:
         print(
             "from {} to {}, distance of {}".format(
-                currentVert.getPredecessor().getId(),
-                currentVert.getId(),
-                currentVert.getDistance(),
+                current_vert.get_predecessor().get_id(),
+                current_vert.get_id(),
+                current_vert.get_distance(),
             )
         )
-        currentVert = currentVert.getPredecessor()
+        current_vert = current_vert.get_predecessor()
 
-    return g.getVertex(toVert).getDistance()
+    return g.get_vertex(to_vert).get_distance()
 
 
-def buildTestGraph():
+def build_test_graph():
     """ Creates an example graph """
     g = GraphBFS()
 
     # U neighbors
-    g.addEdge("u", "v", 2)
-    g.addEdge("u", "w", 5)
-    g.addEdge("u", "x", 1)
+    g.add_edge("u", "v", 2)
+    g.add_edge("u", "w", 5)
+    g.add_edge("u", "x", 1)
 
     # V neighbors
-    g.addEdge("v", "u", 2)
-    g.addEdge("v", "x", 2)
-    g.addEdge("v", "w", 3)
+    g.add_edge("v", "u", 2)
+    g.add_edge("v", "x", 2)
+    g.add_edge("v", "w", 3)
 
     # X neighbors
-    g.addEdge("x", "u", 1)
-    g.addEdge("x", "v", 2)
-    g.addEdge("x", "w", 3)
-    g.addEdge("x", "y", 1)
+    g.add_edge("x", "u", 1)
+    g.add_edge("x", "v", 2)
+    g.add_edge("x", "w", 3)
+    g.add_edge("x", "y", 1)
 
     # W neighbors
-    g.addEdge("w", "v", 3)
-    g.addEdge("w", "u", 5)
-    g.addEdge("w", "x", 3)
-    g.addEdge("w", "y", 1)
-    g.addEdge("w", "z", 5)
+    g.add_edge("w", "v", 3)
+    g.add_edge("w", "u", 5)
+    g.add_edge("w", "x", 3)
+    g.add_edge("w", "y", 1)
+    g.add_edge("w", "z", 5)
 
     # Z neighbors
-    g.addEdge("z", "w", 5)
-    g.addEdge("z", "y", 1)
+    g.add_edge("z", "w", 5)
+    g.add_edge("z", "y", 1)
 
     # Y neighbors
-    g.addEdge("y", "x", 1)
-    g.addEdge("y", "w", 1)
-    g.addEdge("y", "z", 1)
+    g.add_edge("y", "x", 1)
+    g.add_edge("y", "w", 1)
+    g.add_edge("y", "z", 1)
 
     return g
 
 
 def main():
-    g = buildTestGraph()
+    g = build_test_graph()
 
     dijkstra(g, "u")
-    getShortestPath(g, "u", "y")
+    get_shortest_path(g, "u", "y")
     print("\n")
-    getShortestPath(g, "u", "z")
+    get_shortest_path(g, "u", "z")
 
 
 if __name__ == "__main__":

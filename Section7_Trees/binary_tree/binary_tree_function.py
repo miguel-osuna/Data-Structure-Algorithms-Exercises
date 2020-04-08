@@ -8,104 +8,104 @@ def BinaryTree(r):
     return [r, [], []]
 
 
-def insertLeft(root, newBranch):
+def insert_left(root, new_branch):
     """ Adds left node under root node as a list """
     t = root.pop(1)
     if len(t) > 1:
-        root.insert(1, [newBranch, t, []])
+        root.insert(1, [new_branch, t, []])
     else:
-        root.insert(1, [newBranch, [], []])
+        root.insert(1, [new_branch, [], []])
     return root
 
 
-def insertRight(root, newBranch):
+def insert_right(root, new_branch):
     """ Adds right node under root node as a list """
     t = root.pop(2)
     if len(t) > 1:
-        root.insert(2, [newBranch, [], t])
+        root.insert(2, [new_branch, [], t])
     else:
-        root.insert(2, [newBranch, [], []])
+        root.insert(2, [new_branch, [], []])
     return root
 
 
-def setRootValue(root, value):
+def set_root_value(root, value):
     """ Changes the root value of the tree """
     root[0] = value
 
 
-def getRootValue(root):
+def get_root_value(root):
     """ Returns the root value of the tree """
     return root[0]
 
 
-def getLeftChild(root):
+def get_left_child(root):
     """ Returns the left child of the root as a list """
     return root[1]
 
 
-def getRightChild(root):
+def get_right_child(root):
     """ Returns the right child of the root as a list """
     return root[2]
 
 
-def printBinaryTree(root):
+def print_binary_tree(root):
     """ Prints root, left and right node of the binary tree """
     print("\nRoot node: {}".format(root[0]))
     print("Left node: {}".format(root[1]))
     print("Right node: {}".format(root[2]))
 
 
-def buildTree(a, b, c, d, e, f):
+def build_tree(a, b, c, d, e, f):
     """ Creates a custom binary tree """
     # Root
     root = BinaryTree(a)
-    insertLeft(root, b)
-    insertRight(root, c)
+    insert_left(root, b)
+    insert_right(root, c)
 
     # Left Child
-    insertRight(getLeftChild(root), d)
+    insert_right(get_left_child(root), d)
 
     # Right Child
-    insertLeft(getRightChild(root), e)
-    insertRight(getRightChild(root), f)
+    insert_left(get_right_child(root), e)
+    insert_right(get_right_child(root), f)
 
     return root
 
 
 def main():
     r = BinaryTree(0)
-    insertLeft(r, "left")
-    insertRight(r, "right")
+    insert_left(r, "left")
+    insert_right(r, "right")
 
-    leftFirstLevel = getLeftChild(r)
-    rightFirstLevel = getRightChild(r)
+    left_first_level = get_left_child(r)
+    right_first_level = get_right_child(r)
 
-    insertLeft(leftFirstLevel, "left-left-second-level")
-    insertRight(leftFirstLevel, "left-right-second-level")
+    insert_left(left_first_level, "left-left-second-level")
+    insert_right(left_first_level, "left-right-second-level")
 
-    insertLeft(rightFirstLevel, "right-left-second-level")
-    insertRight(rightFirstLevel, "right-right-second-level")
+    insert_left(right_first_level, "right-left-second-level")
+    insert_right(right_first_level, "right-right-second-level")
 
-    printBinaryTree(r)
+    print_binary_tree(r)
 
-    tree_test = buildTree("a", "b", "c", "d", "e", "f")
-    printBinaryTree(tree_test)
+    tree_test = build_tree("a", "b", "c", "d", "e", "f")
+    print_binary_tree(tree_test)
 
     r = BinaryTree(3)
-    insertLeft(r, 4)
+    insert_left(r, 4)
     print(r)
 
-    insertLeft(r, 5)
+    insert_left(r, 5)
     print(r)
 
-    insertRight(r, 6)
+    insert_right(r, 6)
     print(r)
 
-    insertRight(r, 7)
+    insert_right(r, 7)
     print(r)
 
-    setRootValue(r, 9)
-    insertLeft(r, 11)
+    set_root_value(r, 9)
+    insert_left(r, 11)
     print(r)
 
 

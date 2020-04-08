@@ -18,7 +18,7 @@ def check_sequence(string):
         if symbol in "([{":
             stack.push(symbol)
         else:
-            if stack.isEmpty():
+            if stack.is_empty():
                 balanced = False
             else:
                 top = stack.pop()
@@ -26,7 +26,7 @@ def check_sequence(string):
                     balanced = False
         index = index + 1
 
-    if balanced and stack.isEmpty():
+    if balanced and stack.is_empty():
         return True
 
     else:

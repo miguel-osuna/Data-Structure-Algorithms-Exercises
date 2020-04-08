@@ -2,22 +2,23 @@ from binary_heap_min import BinaryHeapMin
 
 
 class LimitedBinaryHeapMin(BinaryHeapMin):
-    def __init__(self, sizeLimit):
+    def __init__(self, size_limit):
         super().__init__()
-        self.sizeLimit = sizeLimit
+        self.size_limit = size_limit
+        self.current_size = 0
 
     def insert(self, i):
         """ Insert a value into the binary heap """
 
         # Size of binary heap is under it's limit
-        if self.currentSize < self.sizeLimit:
+        if self.current_size < self.size_limit:
             super().insert(i)
 
         # Maintain binary heap size under it's limit
         else:
             super().insert(i)
-            self.currentSize -= 1
-            self.heaplist.pop()
+            self.current_size -= 1
+            self.heap_list.pop()
 
 
 def main():
@@ -25,7 +26,7 @@ def main():
 
     binary_heap = LimitedBinaryHeapMin(10)
     numlist = [random.randint(0, 100) for _ in range(10)]
-    numlist2 = [random.randint(0, 10) for _ in range(5)]
+    num_list2 = [random.randint(0, 10) for _ in range(5)]
 
     print("Adding first items")
     for num in numlist:
@@ -33,7 +34,7 @@ def main():
         print(num, binary_heap)
 
     print("\nAdding new items")
-    for num in numlist2:
+    for num in num_list2:
         binary_heap.insert(num)
         print(num, binary_heap)
 

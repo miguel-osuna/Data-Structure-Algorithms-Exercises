@@ -1,7 +1,7 @@
 from stack import Stack
 
 
-def divideByBase(num, base):
+def divide_by_base(num, base):
     stack = Stack()
     digits = "0123456789ABCDEF"
 
@@ -11,16 +11,16 @@ def divideByBase(num, base):
         num = num // base
 
     binary_num = ""
-    while not stack.isEmpty():
+    while not stack.is_empty():
         binary_num = binary_num + digits[stack.pop()]
 
     return binary_num
 
 
 def main():
-    print(divideByBase(233, 2))
-    print(divideByBase(233, 8))
-    print(divideByBase(255, 16))
+    print(divide_by_base(233, 2))
+    print(divide_by_base(233, 8))
+    print(divide_by_base(255, 16))
 
 
 if __name__ == "__main__":

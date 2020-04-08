@@ -1,43 +1,43 @@
 import timeit
 import random
-from linear_search import unorderedLinearSearch, orderedLinearSearch
-from binary_search import binarySearch
+from linear_search import unordered_linear_search, ordered_linear_search
+from binary_search import binary_search
 
 
-def test_unorderedLinearSearch():
+def test_unordered_linear_search():
     # Statements and setup
-    statement = "for i in range(100): unorderedLinearSearch(numlist, i)"
-    setup = "from __main__ import unorderedLinearSearch; from __main__ import random; numlist = sorted([random.randint(0, 100) for _ in range(100)])"
+    statement = "for i in range(100): unordered_linear_search(numlist, i)"
+    setup = "from __main__ import unordered_linear_search; from __main__ import random; numlist = sorted([random.randint(0, 100) for _ in range(100)])"
 
     # Testing and timing
     test = timeit.Timer(statement, setup)
-    print("unorderedLinearSearch() =>", test.timeit(number=1000), "seconds")
+    print("unordered_linear_search() =>", test.timeit(number=1000), "seconds")
 
 
-def test_orderedLinearSearch():
+def test_ordered_linear_search():
     # Statements and setup
-    statement = "for i in range(100): orderedLinearSearch(numlist, i)"
-    setup = "from __main__ import orderedLinearSearch; from __main__ import random; numlist = sorted([random.randint(0, 100) for _ in range(100)])"
+    statement = "for i in range(100): ordered_linear_search(numlist, i)"
+    setup = "from __main__ import ordered_linear_search; from __main__ import random; numlist = sorted([random.randint(0, 100) for _ in range(100)])"
 
     # Testing and timing
     test = timeit.Timer(statement, setup)
-    print("orderedLinearSearch() =>", test.timeit(number=1000), "seconds")
+    print("ordered_linear_search() =>", test.timeit(number=1000), "seconds")
 
 
-def test_binarySearch():
+def test_binary_search():
     # Statement and setup for binary search
-    statement = "for i in range(100): binarySearch(numlist, i)"
-    setup = "from __main__ import binarySearch; from __main__ import random; numlist = sorted([random.randint(0, 100) for _ in range(100)])"
+    statement = "for i in range(100): binary_search(numlist, i)"
+    setup = "from __main__ import binary_search; from __main__ import random; numlist = sorted([random.randint(0, 100) for _ in range(100)])"
 
     # Testing and timing
     test = timeit.Timer(statement, setup)
-    print("binarySearch() =>", test.timeit(number=1000), "seconds")
+    print("binary_search() =>", test.timeit(number=1000), "seconds")
 
 
 def main():
-    test_unorderedLinearSearch()
-    test_orderedLinearSearch()
-    test_binarySearch()
+    test_unordered_linear_search()
+    test_ordered_linear_search()
+    test_binary_search()
 
 
 if __name__ == "__main__":

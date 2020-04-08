@@ -1,4 +1,4 @@
-def mergeSort(numlist):
+def merge_sort(numlist):
     """ Merge Sort Algorithm """
 
     # Base and Recursive Case
@@ -9,9 +9,9 @@ def mergeSort(numlist):
         lefthalf = numlist[:mid]
         righthalf = numlist[mid:]
 
-        # Calls mergeSort for each sublist
-        mergeSort(lefthalf)
-        mergeSort(righthalf)
+        # Calls merge_sort for each sublist
+        merge_sort(lefthalf)
+        merge_sort(righthalf)
 
         # Index for numlist, lefthalf list and righthalf list respectively
         k = 0
@@ -41,17 +41,18 @@ def mergeSort(numlist):
             k += 1
 
 
-def mergeSortInPlace(numlist, startIndex, endIndex):
+def merge_sorth_in_place(numlist, start_index, end_index):
     """ Merge Sort In-Place Algorithm """
+    pass
 
 
 def main():
     numlist = [345, 23, 54, 64, 98, 22, 45, 18, 78]
-    mergeSort(numlist)
+    merge_sort(numlist)
     print(numlist)
 
     charlist = list("PYTHON")
-    mergeSort(charlist)
+    merge_sort(charlist)
     print(charlist)
 
 

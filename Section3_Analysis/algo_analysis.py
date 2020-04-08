@@ -3,7 +3,7 @@ import time
 # Implementing Sequential Sum
 
 
-def sumOfN(n):
+def sum_of_N(n):
     start = time.time()
 
     sum = 0
@@ -18,18 +18,18 @@ def sumOfN(n):
 print("Implementing sequential sum")
 
 for _ in range(5):
-    print("Sum is: %d, required: %10.7f seconds" % sumOfN(10000))
+    print("Sum is: %d, required: %10.7f seconds" % sum_of_N(10000))
 
 for _ in range(5):
-    print("Sum is: %d, required: %10.7f seconds" % sumOfN(100000))
+    print("Sum is: %d, required: %10.7f seconds" % sum_of_N(100000))
 
 for _ in range(5):
-    print("Sum is: %d, required: %10.7f seconds" % sumOfN(1000000))
+    print("Sum is: %d, required: %10.7f seconds" % sum_of_N(1000000))
 
 # Implementing Gauss Sum
 
 
-def sumOfN2(n):
+def sum_of_N2(n):
     start = time.time()
     sum = (n * (n - 1)) / 2
     end = time.time()
@@ -39,10 +39,10 @@ def sumOfN2(n):
 print("Execution Time of Gauss Sum")
 
 for _ in range(5):
-    print("Sum is: %d, required: %10.7f seconds" % sumOfN2(10000))
+    print("Sum is: %d, required: %10.7f seconds" % sum_of_N2(10000))
 
 for _ in range(5):
-    print("Sum is: %d, required: %10.7f seconds" % sumOfN2(100000))
+    print("Sum is: %d, required: %10.7f seconds" % sum_of_N2(100000))
 
 for _ in range(5):
-    print("Sum is: %d, required: %10.7f seconds" % sumOfN2(1000000))
+    print("Sum is: %d, required: %10.7f seconds" % sum_of_N2(1000000))

@@ -8,16 +8,16 @@ sys.path.insert(0, "Section8_Graphs/")
 from graph_adj_list import GraphBFS, VertexBFS
 
 
-def buildGraph(wordFile):
+def build_graph(wordFile):
     """ Builds a word ladder from a list of words and returns it as a GraphBFS """
-    fileName = os.path.join(base_dir, wordFile)
+    file_name = os.path.join(base_dir, wordFile)
 
-    if ".txt" not in fileName:
-        fileName += ".txt"
+    if ".txt" not in file_name:
+        file_name += ".txt"
 
-    wordDict = {}
-    wordGraph = GraphBFS()
-    words = open(fileName, "r")
+    word_dict = {}
+    word_graph = GraphBFS()
+    words = open(file_name, "r")
 
     # Creates buckets of words in text file
     for line in words:
@@ -28,40 +28,40 @@ def buildGraph(wordFile):
             bucket = bucket.upper()
 
             # Append word to bucket list
-            if bucket in wordDict:
-                wordDict[bucket].append(word)
+            if bucket in word_dict:
+                word_dict[bucket].append(word)
             # Create bucket list with word
             else:
-                wordDict[bucket] = [word]
+                word_dict[bucket] = [word]
 
     # Creates edges for words in the buckets
-    for wordsFromBucket in wordDict.values():
+    for word_from_bucket in word_dict.values():
         # Iterates through bucket's list of words
-        for i in range(len(wordsFromBucket) - 1):
+        for i in range(len(word_from_bucket) - 1):
             # Adds edge to directed graph for each previous word
-            wordGraph.addEdge(wordsFromBucket[i], wordsFromBucket[i + 1])
+            word_graph.add_edge(word_from_bucket[i], word_from_bucket[i + 1])
 
-    return wordGraph
+    return word_graph
 
 
-def traverseGraph(g, startKey, endKey):
+def traverse_graph(g, startKey, endKey):
     """ Traverse graph from end to beginning """
-    temp = g.getVertex(endKey)
+    temp = g.get_vertex(endKey)
     path = []
-    path.insert(0, temp.getId())
+    path.insert(0, temp.get_id())
 
-    while temp.getPredecessor() != None and temp.getId() != startKey:
-        temp = temp.getPredecessor()
-        path.insert(0, temp.getId())
+    while temp.get_predecessor() != None and temp.get_id() != startKey:
+        temp = temp.get_predecessor()
+        path.insert(0, temp.get_id())
 
     for node in path:
         print(node)
 
 
 def main():
-    g = buildGraph("wordlist")
+    g = build_graph("wordlist")
     g.bfs("FOOL")
-    traverseGraph(g, "FOOL", "SAGE")
+    traverse_graph(g, "FOOL", "SAGE")
 
 
 if __name__ == "__main__":

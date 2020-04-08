@@ -1,5 +1,5 @@
 # Non recursive sum list solution
-def sumList(numList):
+def sum_list(numList):
     total = 0
     for num in numList:
         total += num
@@ -7,7 +7,7 @@ def sumList(numList):
 
 
 # Recursive sum list solution
-def sumListRecursion(numList):
+def sum_list_recursion(numList):
 
     # Base Case
     if len(numList) == 1:
@@ -15,13 +15,13 @@ def sumListRecursion(numList):
 
     # Recursive Case
     else:
-        return numList[0] + sumListRecursion(numList[1:])
+        return numList[0] + sum_list_recursion(numList[1:])
 
 
 def main():
     numlist = [1, 2, 3, 4, 5]
-    print(sumList(numlist))
-    print(sumListRecursion(numlist))
+    print(sum_list(numlist))
+    print(sum_list_recursion(numlist))
 
 
 if __name__ == "__main__":

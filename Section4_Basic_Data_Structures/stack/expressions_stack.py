@@ -1,7 +1,7 @@
 from stack import Stack
 
 
-def infixToPostfix(expression):
+def infix_to_postfix(expression):
     """ Converts expression from infix to postfix """
 
     # Operator precedence object
@@ -35,17 +35,17 @@ def infixToPostfix(expression):
                 top_token = opstack.pop()
 
         else:
-            while (not opstack.isEmpty()) and (prec[opstack.peek()] >= prec[token]):
+            while (not opstack.is_empty()) and (prec[opstack.peek()] >= prec[token]):
                 postfix_list.append(opstack.pop())
             opstack.push(token)
 
-    while not opstack.isEmpty():
+    while not opstack.is_empty():
         postfix_list.append(opstack.pop())
 
     return " ".join(postfix_list)
 
 
-def postfixEval(expression):
+def postfix_eval(expression):
     # Stack
     operandstack = Stack()
 
@@ -82,12 +82,12 @@ def postfixEval(expression):
 
 
 def main():
-    print(infixToPostfix("A * B + C * D"))
-    print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
+    print(infix_to_postfix("A * B + C * D"))
+    print(infix_to_postfix("( A + B ) * C - ( D - E ) * ( F + G )"))
 
-    print(postfixEval("4 5 6 * +"))
-    print(postfixEval("7 8 + 3 2 + /"))
-    print(postfixEval("1 1 + 3 * 9 /"))
+    print(postfix_eval("4 5 6 * +"))
+    print(postfix_eval("7 8 + 3 2 + /"))
+    print(postfix_eval("1 1 + 3 * 9 /"))
 
 
 if __name__ == "__main__":

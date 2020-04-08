@@ -1,5 +1,5 @@
 # Generates a hash for a given string (Positional Weighting)
-def hashForString(str, tablesize):
+def hash_for_string(str, tablesize):
     sum = 0
     for pos in range(len(str)):
         sum += ord(str[pos]) * (pos + 1)
@@ -7,9 +7,9 @@ def hashForString(str, tablesize):
 
 
 def main():
-    print(hashForString("cat", 11))
-    print(hashForString("race", 11))
-    print(hashForString("care", 11))
+    print(hash_for_string("cat", 11))
+    print(hash_for_string("race", 11))
+    print(hash_for_string("care", 11))
 
 
 if __name__ == "__main__":

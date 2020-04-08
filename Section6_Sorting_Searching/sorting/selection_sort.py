@@ -1,29 +1,29 @@
-def selectionSort(numlist):
+def selection_sort(numlist):
     """ Selection Sort Algorithm """
 
     # Sweeps through the list decreasingly
     for fillslot in range(len(numlist) - 1, 0, -1):
-        maxNumPos = 0
+        max_num_pos = 0
 
         # Sweeps the list
         for i in range(1, fillslot + 1):
             # Sets new position for largest number
-            if numlist[i] > numlist[maxNumPos]:
-                maxNumPos = i
+            if numlist[i] > numlist[max_num_pos]:
+                max_num_pos = i
 
         # Exchanges items
         temp = numlist[fillslot]
-        numlist[fillslot] = numlist[maxNumPos]
-        numlist[maxNumPos] = temp
+        numlist[fillslot] = numlist[max_num_pos]
+        numlist[max_num_pos] = temp
 
 
 def main():
     numlist = [345, 23, 54, 64, 98, 22, 45, 18, 78]
-    selectionSort(numlist)
+    selection_sort(numlist)
     print(numlist)
 
     charlist = list("PYTHON")
-    selectionSort(charlist)
+    selection_sort(charlist)
     print(charlist)
 
 
