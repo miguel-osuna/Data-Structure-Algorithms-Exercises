@@ -1,6 +1,8 @@
+# Standard library imports
 import os
 import sys
 
+# Local application imports
 base_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(base_dir)
 sys.path.append(parent_dir)
@@ -10,7 +12,7 @@ from graph_adj_list import GraphBFS, VertexBFS
 
 
 def prim(g, start):
-    """ Prim's Algorithm to find the Minimum Spanning Tree of a Graph """
+    """ Prim's Algorithm to find the Minimum Spanning Tree of a Graph class"""
 
     # Initialize every vertex in the graph
     for vertex in g:

@@ -1,5 +1,5 @@
-# Fibonacci Function integrated with Memoization
 def fib_memoization(num, memo):
+    """ Fibonacci function integrated with memoization"""
     if num <= 0:
         result = 0
     elif num == 1:
@@ -12,8 +12,8 @@ def fib_memoization(num, memo):
     return result
 
 
-# Decorator Memoize Function
 def memoize(function):
+    """ Decorator memoize function """
     memo = {}
 
     def wrapper(x):
@@ -26,6 +26,8 @@ def memoize(function):
 
 # Decorator Memoize Class
 class Memoize:
+    """ Decorator Memoize class """
+
     def __init__(self, function):
         self.function = function
         self.memo = {}
@@ -38,6 +40,7 @@ class Memoize:
 
 @Memoize
 def fibonacci(num):
+    """ Fibonacci function with memoize decorator """
     if num <= 0:
         result = 0
     elif num == 1:

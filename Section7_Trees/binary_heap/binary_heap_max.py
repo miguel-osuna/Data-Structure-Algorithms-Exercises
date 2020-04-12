@@ -84,9 +84,9 @@ class BinaryHeapMax:
 def main():
     import random
 
-    numlist = [random.randint(0, 100) for i in range(100)]
+    num_list = [random.randint(0, 100) for i in range(100)]
     binary_heap = BinaryHeapMax()
-    binary_heap.build_heap(numlist)
+    binary_heap.build_heap(num_list)
     print(binary_heap)
 
 

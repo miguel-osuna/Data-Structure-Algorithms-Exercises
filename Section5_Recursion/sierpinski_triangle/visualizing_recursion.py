@@ -1,15 +1,20 @@
-import turtle
+# Standard library imports
 import random
 
+# Third party imports
+import turtle
 
-def draw_spiral(my_turtle, lineLen, decrement):
-    if lineLen > decrement:
-        my_turtle.forward(lineLen - decrement)
+
+def draw_spiral(my_turtle, line_len, decrement):
+    """ Draw a spiral """
+    if line_len > decrement:
+        my_turtle.forward(line_len - decrement)
         my_turtle.right(90)
-        draw_spiral(my_turtle, lineLen - decrement, decrement)
+        draw_spiral(my_turtle, line_len - decrement, decrement)
 
 
 def tree(branch_len, t, limit):
+    """ Draw a tree """
     dec = random.randrange(10, 21, 1)
 
     if branch_len > limit:

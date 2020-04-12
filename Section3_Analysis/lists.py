@@ -1,4 +1,6 @@
 """ Testing list data structure methods """
+
+# Standard library imports
 import timeit
 
 
@@ -31,7 +33,7 @@ def test4(n):
 
 
 def test_list_creation():
-    # Timer(timed statement, setup statement, timer function)
+    """ Timer(timed statement, setup statement, timer function)"""
     t1 = timeit.Timer("test1(1000)", "from __main__ import test1")
     print("concat", t1.timeit(number=1000), "milliseconds")
 
@@ -46,8 +48,8 @@ def test_list_creation():
 
 
 def test_push():
-    # pop() is a O(1)
-    # pop(i) is a O(n)
+    """pop() is a O(1)
+    # pop(i) is a O(n)"""
     popzero = timeit.Timer("x.pop(0)", "from __main__ import x")
     popend = timeit.Timer("x.pop()", "from __main__ import x")
     print("pop(0)   pop()")

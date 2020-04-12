@@ -1,27 +1,28 @@
 # Non recursive sum list solution
-def sum_list(numList):
+def sum_list(num_list):
+    """ Non recursive sum list solution """
     total = 0
-    for num in numList:
+    for num in num_list:
         total += num
     return total
 
 
-# Recursive sum list solution
-def sum_list_recursion(numList):
+def sum_list_recursion(num_list):
+    """ Recursive sum list solution """
 
     # Base Case
-    if len(numList) == 1:
-        return numList[0]
+    if len(num_list) == 1:
+        return num_list[0]
 
     # Recursive Case
     else:
-        return numList[0] + sum_list_recursion(numList[1:])
+        return num_list[0] + sum_list_recursion(num_list[1:])
 
 
 def main():
-    numlist = [1, 2, 3, 4, 5]
-    print(sum_list(numlist))
-    print(sum_list_recursion(numlist))
+    num_list = [1, 2, 3, 4, 5]
+    print(sum_list(num_list))
+    print(sum_list_recursion(num_list))
 
 
 if __name__ == "__main__":

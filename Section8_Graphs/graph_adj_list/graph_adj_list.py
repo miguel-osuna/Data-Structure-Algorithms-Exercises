@@ -1,28 +1,30 @@
-# import os
-# import sys
+# Standard library imports
+import os
+import sys
 
-# base_dir = os.path.dirname(os.path.abspath(__file__))
-# parent_dir = os.path.dirname(base_dir)
-# sys.path.append(parent_dir)
-# sys.path.insert(0, "Section4_Basic_Data_Structures/queue")
+# Local application imports
+base_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(base_dir)
+sys.path.append(parent_dir)
+sys.path.insert(0, "Section4_Basic_Data_Structures/queue")
 from queue1 import Queue1
 
 
 class Vertex:
     def __init__(self, key):
         self.id = key
-        self.connectedTo = {}
+        self.connected_to = {}
 
     def __str__(self):
-        return str(self.id) + " connected to: " + str([x.id for x in self.connectedTo])
+        return str(self.id) + " connected to: " + str([x.id for x in self.connected_to])
 
     def add_neighbor(self, neighbor, weight=0):
         """ Adds a vertex neighbor to the current one """
-        self.connectedTo[neighbor] = weight
+        self.connected_to[neighbor] = weight
 
     def get_connections(self):
         """ Returns all the neighbor vertices """
-        return self.connectedTo.keys()
+        return self.connected_to.keys()
 
     def get_id(self):
         """ Returns the id of the current vertex """
@@ -30,7 +32,7 @@ class Vertex:
 
     def get_weight(self, neighbor):
         """ Returns the weight between the neighbor and the current vertex """
-        return self.connectedTo[neighbor]
+        return self.connected_to[neighbor]
 
 
 class Graph:
@@ -52,10 +54,10 @@ class Graph:
 
     def add_vertex(self, key):
         """ Adds a vertex to the graph """
-        newVertex = Vertex(key)
-        self.vert_list[key] = newVertex
+        new_vertex = Vertex(key)
+        self.vert_list[key] = new_vertex
         self.num_vertices += 1
-        return newVertex
+        return new_vertex
 
     def add_edge(self, from_vert, to_vert, weight=0):
         """ Adds a weighted edge to the first vertex """
@@ -112,7 +114,7 @@ class Graph:
 
 
 class VertexBFS(Vertex):
-    """ Vertex implementation for Breadth First Search Algorithm """
+    """ Vertex implementation for Breadth First Search Algorithm class"""
 
     def __init__(self, key):
         super().__init__(key)
@@ -140,17 +142,17 @@ class VertexBFS(Vertex):
 
 
 class GraphBFS(Graph):
-    """ Graph Implementation for Breadth First Search Algorithm """
+    """ Graph Implementation for Breadth First Search Algorithm class"""
 
     def __init__(self):
         super().__init__()
 
     def add_vertex(self, key):
         """ Adds a vertex to the graph """
-        newVertex = VertexBFS(key)
-        self.vert_list[key] = newVertex
+        new_vertex = VertexBFS(key)
+        self.vert_list[key] = new_vertex
         self.num_vertices += 1
-        return newVertex
+        return new_vertex
 
     def add_edge(self, from_vert, to_vert, weight=0):
         """ Adds a weighted edge to the first vertex """
@@ -194,7 +196,7 @@ class GraphBFS(Graph):
 
 
 class VertexDFS(VertexBFS):
-    """ Vertex Implementation for the Depth First Search Algorithm """
+    """ Vertex Implementation for the Depth First Search Algorithm class"""
 
     def __init__(self, key):
         super().__init__(key)
@@ -215,7 +217,7 @@ class VertexDFS(VertexBFS):
 
 
 class GraphDFS(GraphBFS):
-    """ Graph Implementation for the Depth First Search Algorithm """
+    """ Graph Implementation for the Depth First Search Algorithm class"""
 
     def __init__(self):
         super().__init__()
@@ -223,10 +225,10 @@ class GraphDFS(GraphBFS):
 
     def add_vertex(self, key):
         """ Adds a vertex to the graph """
-        newVertex = VertexDFS(key)
-        self.vert_list[key] = newVertex
+        new_vertex = VertexDFS(key)
+        self.vert_list[key] = new_vertex
         self.num_vertices += 1
-        return newVertex
+        return new_vertex
 
     def add_edge(self, from_vert, to_vert, weight=0):
         """ Adds a weighted edge to the first vertex """

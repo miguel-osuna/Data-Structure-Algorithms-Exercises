@@ -1,5 +1,5 @@
-# Recursive make change function
 def recursion_make_change(coin_value_list, change):
+    """ Recursive make change function"""
     min_coins = change
     # Base Case
     if change in coin_value_list:
@@ -14,8 +14,8 @@ def recursion_make_change(coin_value_list, change):
     return min_coins
 
 
-# Memoize make change function
 def memoize_make_change(coin_value_list, change, know_results):
+    """ Memoize make change function """
     min_coins = change
     # Base Case
     if change in coin_value_list:
@@ -36,8 +36,9 @@ def memoize_make_change(coin_value_list, change, know_results):
         return min_coins
 
 
-# Dynamic Programming make change function
 def dp_make_change(coin_value_list, change, min_coins, coins_used):
+    """ Dynamic programming make change function """
+
     # Iterates cent by cent until it gets to change
     for cents in range(change + 1):
         coin_count = cents
@@ -55,8 +56,9 @@ def dp_make_change(coin_value_list, change, min_coins, coins_used):
     return min_coins[cents]
 
 
-# Print coins used for some change
 def print_coins_used(change, coins_used):
+    """" Print coins used for some change """
+
     coin = change
     coin_list = []
     print("Coins used for {} cents are".format(coin))

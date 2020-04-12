@@ -1,7 +1,9 @@
+# Third party imports 
 import turtle
 
 
 def draw_triangle(points, color, t):
+    """ Draw a triangle """
     t.color("black")
     t.fillcolor(color)
     t.up()
@@ -16,10 +18,12 @@ def draw_triangle(points, color, t):
 
 
 def get_mid(p1, p2):
+    """ Get the mid point of a side """
     return [(p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2]
 
 
 def sierpinski(points, degree, t):
+    """ Draw recursive triangle """
     colormap = ["blue", "red", "green", "white", "yellow", "violet", "orange"]
 
     draw_triangle(points, colormap[degree], t)

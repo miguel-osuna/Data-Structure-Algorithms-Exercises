@@ -41,8 +41,8 @@ class DoublyLinkedList:
         dllstr += "<=>"
         return dllstr
 
-    # Gets node that matches the index
     def get_node_with_index(self, index):
+        """Gets node that matches the index"""
         current = self.front
         found = False
         num_node = 0
@@ -53,8 +53,8 @@ class DoublyLinkedList:
 
         return current
 
-    # Gets node that matches the item
     def get_node_with_item(self, item):
+        """Gets node that matches the item"""
         current = self.front
         found = False
 
@@ -65,8 +65,8 @@ class DoublyLinkedList:
                 current = current.get_next()
         return current
 
-    # Gets node's index
     def get_index(self, item):
+        """Gets node's index"""
         current = self.front
         index = 0
         while current.get_data() != item:
@@ -74,8 +74,8 @@ class DoublyLinkedList:
             current = current.get_next()
         return index
 
-    # Adds new node after some node in the linked list
     def add_after(self, item, new_item):
+        """Adds new node after some node in the linked list"""
         # Create nodes
         temp = Node(new_item)
         current = self.get_node_with_item(item)
@@ -99,8 +99,8 @@ class DoublyLinkedList:
         # Increment nodes in the list
         self.nodes += 1
 
-    # Adds new node before some node in the linked list
     def add_before(self, item, new_item):
+        """Adds new node before some node in the linked list"""
         # Create nodes
         temp = Node(new_item)
         current = self.get_node_with_item(item)
@@ -124,8 +124,8 @@ class DoublyLinkedList:
         # Increment nodes in the list
         self.nodes += 1
 
-    # Adds new node to the front of the linked list
     def add_fronts(self, item):
+        """Adds new node to the front of the linked list"""
 
         # Sets Front and End if there's no Front Node
         if self.front == None:
@@ -140,8 +140,8 @@ class DoublyLinkedList:
         # Increment nodes in the list
         self.nodes += 1
 
-    # Adds new node to the end of the linked list
     def add_end(self, item):
+        """Adds new node to the end of the linked list"""
 
         # Sets End and Front if there's no End Node
         if self.end == None:
@@ -156,8 +156,8 @@ class DoublyLinkedList:
         else:
             self.add_after(self.end.get_data(), item)
 
-    # Removes node from the linked list
     def remove(self, item):
+        """Removes node from the linked list"""
         # Look for the node
         current = self.get_node_with_item(item)
 
@@ -175,12 +175,12 @@ class DoublyLinkedList:
         # Decrement nodes in the list
         self.nodes -= 1
 
-    # Returns the number of nodes in the linked list
     def size(self):
+        """Returns the number of nodes in the linked list"""
         return self.nodes
 
-    # Checks if the linked list is empty
     def is_empty(self):
+        """Checks if the linked list is empty"""
         return self.front == None and self.end == None
 
 

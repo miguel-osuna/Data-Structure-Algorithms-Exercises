@@ -1,8 +1,13 @@
-from queue1 import Queue1
+# Standard library imports
 from random import randrange
+
+# Local application imports
+from queue1 import Queue1
 
 
 def hot_potato(namelist, num):
+    """ Hot potato simulation"""
+
     # Populate the queue
     simqueue = Queue1()
     for name in namelist:

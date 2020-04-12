@@ -32,19 +32,19 @@ class UnorderedList:
             current = current.get_next()
         return ul
 
-    # Slice method for unordered list
     def __getitem__(self, start, end, step):
+        """Slice method for unordered list"""
         pass
 
-    # Adds new new node to the unordered list: O(1)
     def add(self, item):
+        """Adds new new node to the unordered list: O(1)"""
         temp = Node(item)
         temp.set_next(self.head)
         self.head = temp
         self.nodes += 1
 
-    # Checks for a value in the unordered list: O(n)
     def search(self, item):
+        """Checks for a value in the unordered list: O(n)"""
         current = self.head
         found = False
         while current != None and not found:
@@ -54,12 +54,12 @@ class UnorderedList:
                 current = current.get_next()
         return found
 
-    # Returns number of nodes in the unordered list: O(n)
     def size(self):
+        """Returns number of nodes in the unordered list: O(n)"""
         return self.nodes
 
-    # Removes node from the unordered listk: O(n)
     def remove(self, item):
+        """Removes node from the unordered listk: O(n)"""
         current = self.head
         previous = None
         found = False
@@ -83,8 +83,8 @@ class UnorderedList:
         else:
             previous.set_next(current.get_next())
 
-    # Append node to the end of the unordered list: O(n)
     def append(self, item):
+        """Append node to the end of the unordered list: O(n)"""
         current = self.head
         previous = None
 
@@ -97,8 +97,8 @@ class UnorderedList:
         else:
             previous.set_next(Node(item))
 
-    # Insert node into the unordered list index: O(n)
     def insert(self, index, item):
+        """Insert node into the unordered list index: O(n)"""
         current = self.head
         previous = None
         temp = Node(item)
@@ -117,8 +117,8 @@ class UnorderedList:
             temp.set_next(current)
             previous.set_next(temp)
 
-    # Returns index located in unordered list: O(n)
     def index(self, item):
+        """Returns index located in unordered list: O(n)"""
         current = self.head
         index = 0
 
@@ -128,8 +128,8 @@ class UnorderedList:
 
         return index
 
-    # Removes node located in the index. By default is the last one: O(n)
     def pop(self, index):
+        """Removes node located in the index. By default is the last one: O(n)"""
         current = self.head
         previous = None
         node = 0
@@ -152,12 +152,12 @@ class UnorderedList:
             previous = None
             return temp.get_data()
 
-    # Checks if unordered list is empty: O(1)
     def is_empty(self):
+        """Checks if unordered list is empty: O(1)"""
         return self.head == None
 
-    # Reverse the unordered list: O(n)
     def reverse(self):
+        """Reverse the unordered list: O(n)"""
         pass
 
 

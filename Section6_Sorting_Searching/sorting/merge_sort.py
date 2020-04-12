@@ -1,55 +1,55 @@
-def merge_sort(numlist):
+def merge_sort(num_list):
     """ Merge Sort Algorithm """
 
     # Base and Recursive Case
-    if len(numlist) > 1:
-        mid = len(numlist) // 2
+    if len(num_list) > 1:
+        mid = len(num_list) // 2
 
         # Creates sublists
-        lefthalf = numlist[:mid]
-        righthalf = numlist[mid:]
+        left_half = num_list[:mid]
+        right_half = num_list[mid:]
 
         # Calls merge_sort for each sublist
-        merge_sort(lefthalf)
-        merge_sort(righthalf)
+        merge_sort(left_half)
+        merge_sort(right_half)
 
-        # Index for numlist, lefthalf list and righthalf list respectively
+        # Index for num_list, left_half list and right_half list respectively
         k = 0
         i = 0
         j = 0
 
-        # Merges lefthalf and righthalf in numlist
-        while i < len(lefthalf) and j < len(righthalf):
-            if lefthalf[i] <= righthalf[j]:
-                numlist[k] = lefthalf[i]
+        # Merges left_half and right_half in num_list
+        while i < len(left_half) and j < len(right_half):
+            if left_half[i] <= right_half[j]:
+                num_list[k] = left_half[i]
                 i += 1
             else:
-                numlist[k] = righthalf[j]
+                num_list[k] = right_half[j]
                 j += 1
             k += 1
 
-        # Assigns remainder items from lefthalf list to numlist
-        while i < len(lefthalf):
-            numlist[k] = lefthalf[i]
+        # Assigns remainder items from left_half list to num_list
+        while i < len(left_half):
+            num_list[k] = left_half[i]
             i += 1
             k += 1
 
-        # Assigns remainder items from righthalf list to numlist
-        while j < len(righthalf):
-            numlist[k] = righthalf[j]
+        # Assigns remainder items from right_half list to num_list
+        while j < len(right_half):
+            num_list[k] = right_half[j]
             j += 1
             k += 1
 
 
-def merge_sorth_in_place(numlist, start_index, end_index):
+def merge_sorth_in_place(num_list, start_index, end_index):
     """ Merge Sort In-Place Algorithm """
     pass
 
 
 def main():
-    numlist = [345, 23, 54, 64, 98, 22, 45, 18, 78]
-    merge_sort(numlist)
-    print(numlist)
+    num_list = [345, 23, 54, 64, 98, 22, 45, 18, 78]
+    merge_sort(num_list)
+    print(num_list)
 
     charlist = list("PYTHON")
     merge_sort(charlist)

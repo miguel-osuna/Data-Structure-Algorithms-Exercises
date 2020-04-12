@@ -32,8 +32,8 @@ class OrderedList:
             current = current.get_next()
         return ol
 
-    # Adds new new node to the ordered list: O(n)
     def add(self, item):
+        """Adds new new node to the ordered list: O(n)"""
         current = self.head
         previous = None
         stop = False
@@ -57,8 +57,8 @@ class OrderedList:
 
         self.nodes += 1
 
-    # Removes node from the ordered list: O(n)
     def remove(self, item):
+        """Removes node from the ordered list: O(n)"""
         current = self.head
         previous = None
         found = False
@@ -82,8 +82,8 @@ class OrderedList:
         else:
             previous.set_next(current.get_next())
 
-    # Checks for a value in the ordered list: O(n)
     def search(self, item):
+        """Checks for a value in the ordered list: O(n)"""
         current = self.head
         found = False
         stop = False
@@ -97,12 +97,12 @@ class OrderedList:
                     current = current.get_next()
         return found
 
-    # Returns number of nodes in the ordered list: O(n)
     def size(self):
+        """Returns number of nodes in the ordered list: O(n)"""
         return self.nodes
 
-    # Returns index located in ordered list index: O(n)
     def index(self, item):
+        """Returns index located in ordered list index: O(n)"""
         current = self.head
         index = 0
 
@@ -112,8 +112,8 @@ class OrderedList:
 
         return index
 
-    # Removes node located in the index. By default is the last one: O(n)
     def pop(self, index):
+        """Removes node located in the index. By default is the last one: O(n)"""
         current = self.head
         previous = None
         node = 0
@@ -136,12 +136,12 @@ class OrderedList:
             previous = None
             return temp.get_data()
 
-    # Checks if ordered list is empty: O(1)
     def is_empty(self):
+        """Checks if ordered list is empty: O(1)"""
         return self.head == None
 
-    # Reverse the ordered list: O(n)
     def reverse(self):
+        """Reverse the ordered list: O(n)"""
         pass
 
 

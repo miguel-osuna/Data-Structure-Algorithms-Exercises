@@ -1,5 +1,5 @@
-# Converts a number from decimal base to another using recursion
 def to_str(num, base):
+    """ Converts a number from a decimal base to another base using recurssion"""
     lookup_numbers = "0123456789ABCDEF"
 
     # Base case
@@ -13,8 +13,8 @@ def to_str(num, base):
         return to_str(quotient, base) + to_str(remainder, base)
 
 
-# Reverse a string using recursion
 def rev_str(string):
+    """ Reverse a string using recursion """
     # Base case
     if len(string) == 1:
         return string[0]
@@ -24,8 +24,8 @@ def rev_str(string):
         return string[-1:] + rev_str(string[:-1])
 
 
-# Checks if string is palindrome implementing rev_str()
-def isPalindrome(string):
+def is_palindrome(string):
+    """ Checks if string is palindrome implementing rev_str()"""
     str = "".join(string.split())
     revstr = rev_str(str)
 
@@ -42,9 +42,9 @@ def main():
     print(to_str(769, 16))
 
     print(rev_str("hello"))
-    print(isPalindrome("hello"))
+    print(is_palindrome("hello"))
     print(rev_str("anita lava la tina"))
-    print(isPalindrome("anita lava la tina"))
+    print(is_palindrome("anita lava la tina"))
 
 
 if __name__ == "__main__":

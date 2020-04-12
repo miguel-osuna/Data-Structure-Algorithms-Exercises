@@ -1,5 +1,7 @@
+# Standard library imports
 import sys
 
+# Local application imports
 sys.path.insert(0, "Section6_Sorting_Searching/sorting")
 from quick_sort import quick_sort
 
@@ -78,12 +80,12 @@ class BinaryHeapMin:
 
     def build_heap(self, l):
         """ Builds a binary heap with a list """
-        numlist = l
-        quick_sort(numlist)
+        num_list = l
+        quick_sort(num_list)
 
-        i = len(numlist) // 2
-        self.current_size = len(numlist)
-        self.heap_list = [0] + numlist[:]
+        i = len(num_list) // 2
+        self.current_size = len(num_list)
+        self.heap_list = [0] + num_list[:]
 
         # Starts from the middle of the tree and goes it's way up
         while i > 0:
@@ -95,11 +97,11 @@ def main():
     import random
 
     # Using insert method
-    numlist = [random.randint(0, 100) for i in range(20)]
+    num_list = [random.randint(0, 100) for i in range(20)]
     binary_heap = BinaryHeapMin()
 
     print("Using insert class method")
-    for num in numlist:
+    for num in num_list:
         binary_heap.insert(num)
         print("Adding {}: {}".format(num, binary_heap))
 

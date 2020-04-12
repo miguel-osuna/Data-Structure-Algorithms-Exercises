@@ -1,6 +1,8 @@
+# Standard library imports
 import os
 import sys
 
+# Local application imports
 base_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(base_dir)
 sys.path.append(parent_dir)

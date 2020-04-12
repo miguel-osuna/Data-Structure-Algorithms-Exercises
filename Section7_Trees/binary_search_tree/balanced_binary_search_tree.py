@@ -1,7 +1,10 @@
+# Local application imports
 from binary_search_tree import TreeNode, BinarySearchTree
 
 
 class BalancedTreeNode(TreeNode):
+    """ Balanced Tree Node class """
+
     def __init__(
         self, key, value, left=None, right=None, parent=None, balance_factor=0
     ):
@@ -10,6 +13,8 @@ class BalancedTreeNode(TreeNode):
 
 
 class BalancedBinarySearchTree(BinarySearchTree):
+    """ Balanced Binary Search Tree class """
+
     def __init__(self):
         super().__init__()
 
@@ -71,7 +76,7 @@ class BalancedBinarySearchTree(BinarySearchTree):
             self.update_balance(current_node.parent)
 
     def rebalance(self, node):
-        # Checks left subtree status for tree rotation
+        """ Checks left subtree status for tree rotation """
         if node.balance_factor < 0:
             # Balancing right child and root node
             if node.right_child.balance_factor > 0:
@@ -91,7 +96,7 @@ class BalancedBinarySearchTree(BinarySearchTree):
                 self.rotate_right(node)
 
     def rotate_left(old_root):
-        # Store the new root node
+        """ Stores the new root node """
         new_root = old_root.right_child
 
         # Assign new root's left child to old root's right child
@@ -123,7 +128,7 @@ class BalancedBinarySearchTree(BinarySearchTree):
         new_root.balance_factor += 1 + max(old_root.balance_factor, 0)
 
     def rotate_right(old_root):
-        # Store the new root node
+        """ Stores the new root node """
         new_root = old_root.left_child
 
         # Assign new root's right child to old root's left child

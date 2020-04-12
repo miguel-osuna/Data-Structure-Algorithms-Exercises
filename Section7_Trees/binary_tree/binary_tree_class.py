@@ -1,5 +1,5 @@
 class BinaryTree:
-    """ Binary Tree Node and Reference Implementation """
+    """ Binary Tree Node and Reference Implementation class"""
 
     def __init__(self, rootObj):
         self.key = rootObj

@@ -1,3 +1,4 @@
+# Local application imports 
 from binary_heap_max import BinaryHeapMax
 
 
@@ -8,29 +9,29 @@ class PriorityQueue:
     """
 
     def __init__(self):
-        self.heapItems = BinaryHeapMax()
+        self.heap_items = BinaryHeapMax()
 
     def __str__(self):
-        return str(self.heapItems)
+        return str(self.heap_items)
 
     def is_empty(self):
         """ Checks if the queue is empty """
-        return self.heapItems.is_empty()
+        return self.heap_items.is_empty()
 
     def enqueue(self, item):
         """ Adds item to the queue """
-        self.heapItems.insert(item)
+        self.heap_items.insert(item)
 
     def dequeue(self):
         """ Removes highest priority item from the queue """
-        return self.heapItems.del_max()
+        return self.heap_items.del_max()
 
     def size(self):
         """ Returns size of the queue list """
-        return len(self.heapItems)
+        return len(self.heap_items)
 
     def build_heap(self, a_list):
-        self.heapItems.build_heap(a_list)
+        self.heap_items.build_heap(a_list)
 
 
 def main():

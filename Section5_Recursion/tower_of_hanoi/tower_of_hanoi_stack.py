@@ -1,17 +1,22 @@
+# Standard library imports
 import sys
 
+
+# Local application imports
 sys.path.insert(0, "Section4_Basic_Data_Structures/stack")
 from stack import Stack
 
 
 class TowerOfHanoi:
-    def __init__(self, numDisks, src, des, aux):
-        self.numDisks = numDisks
+    """ Tower of Hanoi class """
+
+    def __init__(self, num_disks, src, des, aux):
+        self.num_disks = num_disks
         self.src = src
         self.des = des
         self.aux = aux
         self.towers = {src: Stack(), des: Stack(), aux: Stack()}
-        for i in range(self.numDisks, 0, -1):
+        for i in range(self.num_disks, 0, -1):
             self.towers[src].push(i)
 
     def move_disk(self, src, des):

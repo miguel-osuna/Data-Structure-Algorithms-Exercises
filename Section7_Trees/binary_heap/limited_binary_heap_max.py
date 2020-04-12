@@ -1,7 +1,10 @@
+# Local application imports
 from binary_heap_max import BinaryHeapMax
 
 
 class LimitedBinaryHeapMax(BinaryHeapMax):
+    """ Limited Binary Heap Maximum implementation """
+
     def __init__(self, size_limit):
         super().__init__()
         self.size_limit = size_limit
@@ -25,11 +28,11 @@ def main():
     import random
 
     binary_heap = LimitedBinaryHeapMax(10)
-    numlist = [random.randint(0, 100) for _ in range(10)]
+    num_list = [random.randint(0, 100) for _ in range(10)]
     num_list2 = [random.randint(0, 10) for _ in range(5)]
 
     print("Adding first items")
-    for num in numlist:
+    for num in num_list:
         binary_heap.insert(num)
         print(num, binary_heap)
 

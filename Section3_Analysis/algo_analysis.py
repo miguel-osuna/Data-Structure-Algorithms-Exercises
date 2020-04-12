@@ -1,9 +1,9 @@
+# Standard library imports
 import time
-
-# Implementing Sequential Sum
 
 
 def sum_of_N(n):
+    """ Implementing sequential sum"""
     start = time.time()
 
     sum = 0
@@ -26,10 +26,9 @@ for _ in range(5):
 for _ in range(5):
     print("Sum is: %d, required: %10.7f seconds" % sum_of_N(1000000))
 
-# Implementing Gauss Sum
-
 
 def sum_of_N2(n):
+    """Implementing Gauss Sum."""
     start = time.time()
     sum = (n * (n - 1)) / 2
     end = time.time()

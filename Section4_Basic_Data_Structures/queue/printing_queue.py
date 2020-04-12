@@ -1,5 +1,8 @@
-from queue1 import Queue1
+# Standard library imports
 import random
+
+# Local application imports
+from queue1 import Queue1
 
 
 class Printer:
@@ -41,20 +44,21 @@ class Task:
 
 
 def simulation(num_seconds, pages_per_minute, num_students, avg_pages):
+    """ Printing simulation """
 
     # Set up
     printer = Printer(pages_per_minute)
-    printQueue = Queue1()
+    print_queue = Queue1()
     waiting_times = []
 
     for current_second in range(num_seconds):
         if new_print_task(num_students):
             pages = random.randrange(1, avg_pages + 1)
             task = Task(current_second, pages)
-            printQueue.enqueue(task)
+            print_queue.enqueue(task)
 
-        if (not printer.busy()) and (not printQueue.is_empty()):
-            nexttask = printQueue.dequeue()
+        if (not printer.busy()) and (not print_queue.is_empty()):
+            nexttask = print_queue.dequeue()
             waiting_times.append(nexttask.wait_time(current_second))
             printer.start_next(nexttask)
 
@@ -63,12 +67,13 @@ def simulation(num_seconds, pages_per_minute, num_students, avg_pages):
     average_wait = sum(waiting_times) / len(waiting_times)
     print(
         "Average wait {} secs {} tasks remaining.".format(
-            average_wait, printQueue.size()
+            average_wait, print_queue.size()
         )
     )
 
 
 def new_print_task(num_students):
+    """Generate a print task"""
     # Seconds per task
     seconds_per_task = 1800 // num_students
 

@@ -1,3 +1,4 @@
+# Local application imoprts
 from stack import Stack
 
 
@@ -47,7 +48,7 @@ def infix_to_postfix(expression):
 
 def postfix_eval(expression):
     # Stack
-    operandstack = Stack()
+    operand_stack = Stack()
 
     # List
     token_list = expression.split()
@@ -71,14 +72,14 @@ def postfix_eval(expression):
 
     for token in token_list:
         if token in numbers:
-            operandstack.push(int(token))
+            operand_stack.push(int(token))
         else:
-            operand2 = operandstack.pop()
-            operand1 = operandstack.pop()
+            operand2 = operand_stack.pop()
+            operand1 = operand_stack.pop()
             result = do_math(operand1, operand2, token)
-            operandstack.push(result)
+            operand_stack.push(result)
 
-    return operandstack.pop()
+    return operand_stack.pop()
 
 
 def main():

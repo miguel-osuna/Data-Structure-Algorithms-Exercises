@@ -1,9 +1,14 @@
+# Standard library imports
 import timeit
+
+# Local application imports
 from queue1 import Queue1
 from queue2 import Queue2
 
 
 def test_enqueue():
+    """ Enqueue testing"""
+
     # Enqueue statements and setups
     estmt1 = "for i in range(1, 10): q1.enqueue(i)"
     estmt2 = "for i in range(1, 10): q2.enqueue(i)"
@@ -19,6 +24,8 @@ def test_enqueue():
 
 
 def test_dequeue():
+    """ Dequeu testing """
+
     # Dequeue statements and setups
     dstmt1 = "for _ in range(1, 100): q1.dequeue()"
     dstmt2 = "for _ in range(1, 100): q2.dequeue()"

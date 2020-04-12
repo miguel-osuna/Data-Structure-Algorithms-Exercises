@@ -1,5 +1,5 @@
 def is_anagram(s1, s2):
-    """ Anagram solution with O(n) or O(n log n)"""
+    """ Anagram solution with O(n) or O(n log n)."""
     list1 = list(s1)
     list2 = list(s2)
 
@@ -13,7 +13,7 @@ def is_anagram(s1, s2):
 
 
 def anagram_solution2(s1, s2):
-    """ Sort and Compare anagram solution with O(n) or O(n log n)"""
+    """ Sort and Compare anagram solution with O(n) or O(n log n)."""
     list1 = list(s1)
     list2 = list(s2)
 
@@ -33,12 +33,12 @@ def anagram_solution2(s1, s2):
 
 
 def anagram_solution3(s1, s2):
-    """ Brute Force anagram solution is O(n!) (not a good solution) """
+    """ Brute Force anagram solution is O(n!) (not a good solution). """
     pass
 
 
 def anagram_solution4(s1, s2):
-    """ Count and Compare anagram solution is O(n), but requires more space"""
+    """ Count and Compare anagram solution is O(n), but requires more space."""
 
     # List of counters
     c1 = [0] * 26

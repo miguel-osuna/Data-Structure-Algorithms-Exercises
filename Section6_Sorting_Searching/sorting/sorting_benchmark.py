@@ -1,5 +1,8 @@
+# Standard library imports
 import timeit
 import random
+
+# Local application imports
 from bubble_sort import bubble_sort
 from bubble_sort import short_bubble_sort
 from selection_sort import selection_sort
@@ -10,9 +13,9 @@ from quick_sort import quick_sort
 
 
 def test_bubble_sort():
-    # Statement and setup
-    statement = "bubble_sort(numlist)"
-    setup = "from __main__ import bubble_sort; from __main__ import random; numlist = [random.randint(0, 500) for _ in range(500)]"
+    """ Tests bubble sort algorithm """
+    statement = "bubble_sort(num_list)"
+    setup = "from __main__ import bubble_sort; from __main__ import random; num_list = [random.randint(0, 500) for _ in range(500)]"
 
     # Testing and timing
     test = timeit.Timer(statement, setup)
@@ -20,9 +23,9 @@ def test_bubble_sort():
 
 
 def test_short_bubble_sort():
-    # Statement and setup
-    statement = "short_bubble_sort(numlist)"
-    setup = "from __main__ import short_bubble_sort; from __main__ import random; numlist = [random.randint(0, 500) for _ in range(500)]"
+    """ Tests short bubble sort algorithm """
+    statement = "short_bubble_sort(num_list)"
+    setup = "from __main__ import short_bubble_sort; from __main__ import random; num_list = [random.randint(0, 500) for _ in range(500)]"
 
     # Testing and timing
     test = timeit.Timer(statement, setup)
@@ -30,9 +33,9 @@ def test_short_bubble_sort():
 
 
 def test_selection_sort():
-    # Statement and setup
-    statement = "selection_sort(numlist)"
-    setup = "from __main__ import selection_sort; from __main__ import random; numlist = [random.randint(0, 500) for _ in range(500)]"
+    """ Tests selection sort algorithm """
+    statement = "selection_sort(num_list)"
+    setup = "from __main__ import selection_sort; from __main__ import random; num_list = [random.randint(0, 500) for _ in range(500)]"
 
     # Testing and timing
     test = timeit.Timer(statement, setup)
@@ -40,49 +43,51 @@ def test_selection_sort():
 
 
 def test_insertion_sort():
+    """ Tests insertion sort algorithm """
     # Statement and setup
-    statement = "insertion_sort(numlist)"
-    setup = "from __main__ import insertion_sort; from __main__ import random; numlist = [random.randint(0, 500) for _ in range(500)]"
+    statement = "insertion_sort(num_list)"
+    setup = "from __main__ import insertion_sort; from __main__ import random; num_list = [random.randint(0, 500) for _ in range(500)]"
 
     # Testing and timing
     test = timeit.Timer(statement, setup)
     print("insertion_sort() =>", test.timeit(number=1000), "seconds")
 
 
-def test_shellSort():
+def test_shell_sort():
+    """ Tests shell sort algorithm """
     # Statement and setup
-    statement = "shell_sort(numlist)"
-    setup = "from __main__ import shell_sort; from __main__ import random; numlist = [random.randint(0, 500) for _ in range(500)]"
+    statement = "shell_sort(num_list)"
+    setup = "from __main__ import shell_sort; from __main__ import random; num_list = [random.randint(0, 500) for _ in range(500)]"
 
     # Testing and timing
     test = timeit.Timer(statement, setup)
     print("shell_sort() =>", test.timeit(number=1000), "seconds")
 
 
-def test_mergeSort():
+def test_merge_sort():
+    """ Tests merge sort algorithm """
     # Statement and setup
-    statement = "merge_sort(numlist)"
-    setup = "from __main__ import merge_sort; from __main__ import random; numlist = [random.randint(0, 500) for _ in range(500)]"
+    statement = "merge_sort(num_list)"
+    setup = "from __main__ import merge_sort; from __main__ import random; num_list = [random.randint(0, 500) for _ in range(500)]"
 
     # Testing and timing
     test = timeit.Timer(statement, setup)
     print("merge_sort() =>", test.timeit(number=1000), "seconds")
 
 
-def test_quickSort():
+def test_quick_sort():
+    """ Tests quick sort algorithm """
     # Statement and setup
-    statement = "quick_sort(numlist)"
-    setup = "from __main__ import quick_sort; from __main__ import random; numlist = [random.randint(0, 500) for _ in range(500)]"
+    statement = "quick_sort(num_list)"
+    setup = "from __main__ import quick_sort; from __main__ import random; num_list = [random.randint(0, 500) for _ in range(500)]"
 
     # Testing and timing
     test = timeit.Timer(statement, setup)
     print("quick_sort() =>", test.timeit(number=1000), "seconds")
 
 
-# Testing every sorting algorithm
-
-
 def main():
+    """ Tests sorting algorithms """
     test_bubble_sort()
     test_short_bubble_sort()
     test_selection_sort()

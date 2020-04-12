@@ -1,3 +1,4 @@
+# Standard library imports
 import os
 import random
 
@@ -36,9 +37,9 @@ def generate_maze(rows, columns, file_name):
 
 
 def generate_random_start(rows, columns):
-    startRow = random.randrange(1, rows)
-    startColumn = random.randrange(1, columns)
-    return [startRow, startColumn]
+    start_row = random.randrange(1, rows)
+    start_column = random.randrange(1, columns)
+    return [start_row, start_column]
 
 
 def read_maze(file_name):

@@ -2,6 +2,7 @@
     The first function should compare each number to every other number on the list.
     O(n2). The second function should be linear O(n)."""
 
+# Standard library imports
 import time
 
 

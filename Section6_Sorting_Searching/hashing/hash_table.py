@@ -7,24 +7,24 @@ class HashTable:
     def __str__(self):
         return str((self.slots, self.data))
 
-    # Overloads 'len' operator as 'len(self)'
     def __len__(self):
+        """ Overloads 'len' operator as 'len(self)"""
         return self._size
 
-    # Overloads 'in' operator as 'item in self'
     def __contains__(self, item):
+        """ Overloads 'in' operator as 'item in self' """
         return item in self.data
 
-    # Implements evaluation as 'self[key]'
     def __getitem__(self, key):
+        """ Implements evaluation as 'self[key]' """
         return self.get(key)
 
-    # Implements assignment as 'self[key] = value'
     def __setitem__(self, key, data):
+        """ Implements assignment as 'self[key] = value' """
         self.put(key, data)
 
-    # Overloads 'del' operator as 'del self[key]'
     def __delitem__(self, key):
+        """ Overloads 'del' operator as 'del self[key]' """
         startslot = self.hash_function(key, len(self.slots))
 
         found = False

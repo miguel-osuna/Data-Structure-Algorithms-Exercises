@@ -1,12 +1,12 @@
-def move_tower(height, fromPole, toPole, withPole):
+def move_tower(height, from_pole, to_pole, with_pole):
     if height >= 1:
-        move_tower(height - 1, fromPole, withPole, toPole)
-        move_disk(fromPole, toPole)
-        move_tower(height - 1, withPole, toPole, fromPole)
+        move_tower(height - 1, from_pole, with_pole, to_pole)
+        move_disk(from_pole, to_pole)
+        move_tower(height - 1, with_pole, to_pole, from_pole)
 
 
-def move_disk(fromPole, toPole):
-    print("Moving disk from " + str(fromPole) + " to " + str(toPole))
+def move_disk(from_pole, to_pole):
+    print("Moving disk from " + str(from_pole) + " to " + str(to_pole))
 
 
 def main():

@@ -4,7 +4,7 @@ Binary Search Tree Implementation
 
 
 class TreeNode:
-    """ Node for Binary Search Tree """
+    """ Node for Binary Search Tree class """
 
     def __init__(self, key, value, left=None, right=None, parent=None):
         self.key = key
@@ -17,7 +17,7 @@ class TreeNode:
         return str(self.value)
 
     def __iter__(self):
-        """ Inorder iterator """
+        """ In-order iterator """
 
         # If node is not None
         if self:
@@ -106,6 +106,7 @@ class TreeNode:
 
     def split_out(self):
         """ Changes the references of the current node """
+
         # Current node is a leaf
         if self.is_leaf():
             # Current node is a left child
@@ -357,13 +358,13 @@ def main():
     #     print(tree[i])
 
     # tree_test = BinarySearchTree()
-    # numlist = [66, 88, 61, 89, 94, 50, 4, 76, 66, 82]
+    # num_list = [66, 88, 61, 89, 94, 50, 4, 76, 66, 82]
 
-    # for num in numlist:
+    # for num in num_list:
     #     tree_test.put(num, num)
 
     # print("\nPrinting binary search tree with random integers")
-    # for num in numlist:
+    # for num in num_list:
     #     print(tree_test[num])
 
 

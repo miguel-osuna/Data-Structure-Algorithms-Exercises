@@ -1,6 +1,8 @@
+# Standard library imports
 import os
 import sys
 
+# Local application imports
 base_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(base_dir)
 sys.path.append(parent_dir)
@@ -8,9 +10,9 @@ sys.path.insert(0, "Section8_Graphs/")
 from graph_adj_list import GraphBFS, VertexBFS
 
 
-def build_graph(wordFile):
+def build_graph(word_file):
     """ Builds a word ladder from a list of words and returns it as a GraphBFS """
-    file_name = os.path.join(base_dir, wordFile)
+    file_name = os.path.join(base_dir, word_file)
 
     if ".txt" not in file_name:
         file_name += ".txt"

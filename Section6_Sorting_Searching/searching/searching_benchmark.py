@@ -1,13 +1,16 @@
+# Standard library imports
 import timeit
 import random
+
+# Local application imports
 from linear_search import unordered_linear_search, ordered_linear_search
 from binary_search import binary_search
 
 
 def test_unordered_linear_search():
     # Statements and setup
-    statement = "for i in range(100): unordered_linear_search(numlist, i)"
-    setup = "from __main__ import unordered_linear_search; from __main__ import random; numlist = sorted([random.randint(0, 100) for _ in range(100)])"
+    statement = "for i in range(100): unordered_linear_search(num_list, i)"
+    setup = "from __main__ import unordered_linear_search; from __main__ import random; num_list = sorted([random.randint(0, 100) for _ in range(100)])"
 
     # Testing and timing
     test = timeit.Timer(statement, setup)
@@ -16,8 +19,8 @@ def test_unordered_linear_search():
 
 def test_ordered_linear_search():
     # Statements and setup
-    statement = "for i in range(100): ordered_linear_search(numlist, i)"
-    setup = "from __main__ import ordered_linear_search; from __main__ import random; numlist = sorted([random.randint(0, 100) for _ in range(100)])"
+    statement = "for i in range(100): ordered_linear_search(num_list, i)"
+    setup = "from __main__ import ordered_linear_search; from __main__ import random; num_list = sorted([random.randint(0, 100) for _ in range(100)])"
 
     # Testing and timing
     test = timeit.Timer(statement, setup)
@@ -26,8 +29,8 @@ def test_ordered_linear_search():
 
 def test_binary_search():
     # Statement and setup for binary search
-    statement = "for i in range(100): binary_search(numlist, i)"
-    setup = "from __main__ import binary_search; from __main__ import random; numlist = sorted([random.randint(0, 100) for _ in range(100)])"
+    statement = "for i in range(100): binary_search(num_list, i)"
+    setup = "from __main__ import binary_search; from __main__ import random; num_list = sorted([random.randint(0, 100) for _ in range(100)])"
 
     # Testing and timing
     test = timeit.Timer(statement, setup)

@@ -1,9 +1,11 @@
+# Standard library imports
 import sys
+import operator
 
+# Local application imports
 sys.path.insert(0, "Section4_Basic_Data_Structures/stack")
 from stack import Stack
 from binary_tree_class import BinaryTree
-import operator
 
 
 def operation_parser(operation):

@@ -22,15 +22,15 @@ class Stack:
 
 
 def main():
-    astack = Stack()
-    print("Stack is empty? {}".format(astack.is_empty()))
-    astack.push(1)
-    astack.push("dog")
-    astack.push(True)
-    print("Stack is empty? {}".format(astack.is_empty()))
-    print("Last value is: {}".format(astack.peek()))
-    print("Stack size is: {}".format(astack.size()))
-    print("Stack items are: {}".format(astack))
+    a_stack = Stack()
+    print("Stack is empty? {}".format(a_stack.is_empty()))
+    a_stack.push(1)
+    a_stack.push("dog")
+    a_stack.push(True)
+    print("Stack is empty? {}".format(a_stack.is_empty()))
+    print("Last value is: {}".format(a_stack.peek()))
+    print("Stack size is: {}".format(a_stack.size()))
+    print("Stack items are: {}".format(a_stack))
 
 
 if __name__ == "__main__":
