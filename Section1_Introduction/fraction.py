@@ -1,5 +1,5 @@
 """ Fraction data type class """
-
+from typing import TypeVar
 
 def gcd(m, n):
     """Finds the greatest common divisor of two numbers.
